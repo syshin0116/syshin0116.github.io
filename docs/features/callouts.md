@@ -50,7 +50,7 @@ By default, custom callouts are handled by applying the `note` style. To make fa
 > [!info]
 > Default title
 
-> [!question]+ Can callouts be _nested_?
+> [!question]- Can callouts be _nested_?
 >
 > > [!todo]- Yes!, they can. And collapsed!
 > >
