@@ -1,8 +1,10 @@
 ---
-title: Example Title
+title: Guide to Deploying Obsidian Notes on GitHub Pages with Quartz
 draft: false
 tags:
-  - example-tag
+  - obsidian
+  - quartz
+  - github-pages
 date: 2025-03-04
 ---
 
