@@ -12,12 +12,7 @@ aliases:
 cssclasses:
   - permanent
 ---
-
-# <% tp.file.title %>
-
 ## 개요
-
-<% tp.file.cursor() %>
 
 ## 본문
 

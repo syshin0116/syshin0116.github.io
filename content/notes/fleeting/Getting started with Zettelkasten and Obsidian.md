@@ -3,7 +3,6 @@ title: <% tp.file.title %>
 date: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - blog
-  - 
 draft: true
 enableToc: true
 description: ""
@@ -14,3 +13,5 @@ modified: <% tp.date.now("YYYY-MM-DD") %>
 cssclasses:
   - blog
 ---
+https://obsidian.rocks/getting-started-with-zettelkasten-in-obsidian/#Fleeting-Notes
+

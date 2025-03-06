@@ -7,17 +7,12 @@ tags:
   - github-pages
 date: 2025-03-04
 ---
-
-
-
-# Guide to Deploying Obsidian Notes on GitHub Pages with Quartz
-
 ## Overview
 
 This guide outlines how to convert Markdown notes written in **Obsidian** into a static website using **Quartz** and deploy it on **GitHub Pages**.
 
 ### References
-- **YouTube**: [How to publish your notes for free with Quartz](https://www.youtube.com/@nicolevdh)
+- **YouTube**: [How to publish your notes for free with Quartz](https://www.youtube.com/watch?v=6s6DT1yN4dw&t=1s)
 - **Official Quartz Documentation**: [Quartz 4.0](https://quartz.jzhao.xyz/)
 
 ![](https://i.imgur.com/r5O2hdl.png)
