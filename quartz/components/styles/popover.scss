@@ -5,9 +5,11 @@
     opacity: 0;
     visibility: hidden;
   }
+
   1% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
     visibility: visible;
@@ -20,10 +22,10 @@
   overflow: visible;
   padding: 1rem;
 
-  & > .popover-inner {
+  &>.popover-inner {
     position: relative;
-    width: 30rem;
-    max-height: 20rem;
+    width: 50rem;
+    max-height: 40rem;
     padding: 0 1rem 1rem 1rem;
     font-weight: initial;
     font-style: initial;
@@ -38,7 +40,8 @@
     white-space: normal;
   }
 
-  & > .popover-inner[data-content-type] {
+  &>.popover-inner[data-content-type] {
+
     &[data-content-type*="pdf"],
     &[data-content-type*="image"] {
       padding: 0;
@@ -66,9 +69,8 @@
 
   visibility: hidden;
   opacity: 0;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+  transition: opacity 0.3s ease,
+  visibility 0.3s ease;
 
   @media all and ($mobile) {
     display: none !important;

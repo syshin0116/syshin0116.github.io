@@ -1,15 +1,22 @@
 ---
-title: Guide to Deploying Obsidian Notes on GitHub Pages with Quartz
-draft: false
+title: Deploy Obsidian Notes on GitHub Pages with Quartz
+date: 2025-03-06
 tags:
   - obsidian
   - quartz
   - github-pages
-date: 2025-03-04
+  - blog
+draft: false
+enableToc: true
+description: ""
+published: 2025-03-06
+modified: 2025-03-06
 ---
 ## Overview
 
 This guide outlines how to convert Markdown notes written in **Obsidian** into a static website using **Quartz** and deploy it on **GitHub Pages**.
+
+[[Getting started with Zettelkasten and Obsidian]]
 
 ### References
 - **YouTube**: [How to publish your notes for free with Quartz](https://www.youtube.com/watch?v=6s6DT1yN4dw&t=1s)
@@ -52,8 +59,7 @@ Since Quartz is cloned from the official repository, the default remote (`origin
 git remote -v
  
 # Update the origin remote to point to your GitHub repository
-git remote rm origin
-git add remote origin https://github.com/syshin0116/syshin0116.github.io.git
+git remote set-url origin https://github.com/syshin0116/syshin0116.github.io.git
  
 # Add upstream remote to keep updates from the official Quartz repository
 git remote add upstream https://github.com/jackyzha0/quartz.git
@@ -70,27 +76,36 @@ Use GitHub Pages to host your Quartz site.
 ### 1) Configure GitHub Actions
 To automate deployment, create a `.github/workflows/deploy.yml` file and add the following content:
 
-```yaml
+>[!Note] 
+>Quartz 4.0 uses `v4` as the default main branch, but I didn’t like it, so I changed it to `main`.
+
+```yml
 name: Deploy Quartz site to GitHub Pages
- 
+
 on:
   push:
     branches:
-      - main  # Change this to match your branch
+      - main
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for git info
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - name: Install Dependencies
         run: npm ci
       - name: Build Quartz
@@ -112,6 +127,21 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
+>[!Note]- If you've configured your main branch to `main` like I did, you also need to update `quartz/cli/constants.js`.
+>```javascript
+>import path from "path"
+>import { readFileSync } from "fs"
+>
+>export const ORIGIN_NAME = "origin"
+>export const UPSTREAM_NAME = "upstream"
+>export const QUARTZ_SOURCE_BRANCH = "main" // update branch
+>export const cwd = process.cwd()
+>export const cacheDir = path.join(cwd, ".quartz-cache")
+>export const cacheFile = "./quartz/.quartz-cache/transpiled-build.mjs"
+>export const fp = "./quartz/build.ts"
+>export const { version } = JSON.parse(readFileSync("./package.json").toString())
+>export const contentCacheFolder = path.join(cacheDir, "content-cache")
+>``` 
 ### 2) Enable GitHub Pages
 - Go to **GitHub → Repository → Settings → Pages**
 - Set **Source** to **GitHub Actions**
@@ -128,21 +158,13 @@ Before deployment, verify that Quartz builds correctly on your local machine.
 npx quartz build --serve
 ```
 
-Open `http://localhost:8080` in your browser to preview the site.
+Open [http://localhost:8080](http://localhost:8080) in your browser to preview the site.
 
 ### Sync Changes to GitHub
 
 The official documentation instructed the following:
 ```bash
 npx quartz sync
-```
-
-I had an issue so I added, commited, pushed to my repository with github commands
-
-```bash
-git add .
-git commit -m "initial commit"
-git push -u origin main
 ```
 
 
@@ -152,7 +174,7 @@ Now, your site is live on GitHub Pages.
 
 ## 5. Setting Up a Custom Domain (Optional)
 
-By default, your site is hosted at `https://yourusername.github.io/my-notes/`.
+By default, your site is hosted at `https://yourusername.github.io/your-repository-name/`.
 To use a custom domain, follow these steps:
 
 ### 1) Configure Domain DNS

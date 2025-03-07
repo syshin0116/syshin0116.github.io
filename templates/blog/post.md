@@ -3,14 +3,9 @@ title: <% tp.file.title %>
 date: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - blog
-  - 
-draft: true
+draft: false
 enableToc: true
 description: ""
-socialDescription: ""
-socialImage: ""
 published: <% tp.date.now("YYYY-MM-DD") %>
 modified: <% tp.date.now("YYYY-MM-DD") %>
-cssclasses:
-  - blog
 ---
