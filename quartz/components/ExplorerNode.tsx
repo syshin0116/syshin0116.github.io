@@ -201,15 +201,13 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
               {/* render <a> tag if folderBehavior is "link", otherwise render <button> with collapse click event */}
-              <div key={node.name} data-folderpath={folderPath}>
+              <div key={node.name} data-folderpath={folderPath} class="folder-title-wrapper">
                 {folderBehavior === "link" ? (
                   <a href={href} data-for={node.name} class="folder-title">
                     {node.displayName}
                   </a>
                 ) : (
-                  <button class="folder-button">
-                    <span class="folder-title">{node.displayName}</span>
-                  </button>
+                  <span class="folder-title">{node.displayName}</span>
                 )}
               </div>
             </div>

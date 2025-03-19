@@ -51,23 +51,26 @@ function toggleFolder(evt: MouseEvent) {
   const target = evt.target as MaybeHTMLElement
   if (!target) return
 
-  // Check if target was svg icon or button
-  const isSvg = target.nodeName === "svg"
+  // Find the folder container regardless of which element was clicked
+  const folderContainer = target.closest(".folder-container") as MaybeHTMLElement
+  if (!folderContainer) return
 
-  // corresponding <ul> element relative to clicked button/folder
-  const childFolderContainer = (
-    isSvg
-      ? target.parentElement?.nextSibling
-      : target.parentElement?.parentElement?.nextElementSibling
+  // Find the next sibling which is the folder-outer element
+  const childFolderContainer = folderContainer.parentElement?.querySelector(
+    ".folder-outer"
   ) as MaybeHTMLElement
-  const currentFolderParent = (
-    isSvg ? target.nextElementSibling : target.parentElement
+
+  // Find the element with the folderpath data attribute
+  const currentFolderParent = folderContainer.querySelector(
+    "[data-folderpath]"
   ) as MaybeHTMLElement
+
   if (!(childFolderContainer && currentFolderParent)) return
-  // <li> element of folder (stores folder-path dataset)
+
+  // Toggle open class
   childFolderContainer.classList.toggle("open")
 
-  // Collapse folder container
+  // Update folder state
   const isCollapsed = childFolderContainer.classList.contains("open")
   setFolderState(childFolderContainer, !isCollapsed)
 
@@ -93,27 +96,19 @@ function setupExplorer() {
       // Get config
       const collapseBehavior = explorer.dataset.behavior
 
-      // Add click handlers for all folders (click handler on folder "label")
+      // Add click handlers for folder containers (entire folder area)
       if (collapseBehavior === "collapse") {
         for (const item of document.getElementsByClassName(
-          "folder-button",
+          "folder-container",
         ) as HTMLCollectionOf<HTMLElement>) {
-          window.addCleanup(() => explorer.removeEventListener("click", toggleExplorer))
           item.addEventListener("click", toggleFolder)
+          window.addCleanup(() => item.removeEventListener("click", toggleFolder))
         }
       }
 
       // Add click handler to main explorer
       window.addCleanup(() => explorer.removeEventListener("click", toggleExplorer))
       explorer.addEventListener("click", toggleExplorer)
-    }
-
-    // Set up click handlers for each folder (click handler on folder "icon")
-    for (const item of document.getElementsByClassName(
-      "folder-icon",
-    ) as HTMLCollectionOf<HTMLElement>) {
-      item.addEventListener("click", toggleFolder)
-      window.addCleanup(() => item.removeEventListener("click", toggleFolder))
     }
 
     // Get folder state from local storage

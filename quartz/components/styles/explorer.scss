@@ -176,6 +176,14 @@ svg {
   align-items: center;
   user-select: none;
   margin: 4px 0;
+  border-radius: 4px;
+  padding: 2px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--highlight);
+  }
 
   & div>a {
     color: var(--secondary);
@@ -215,7 +223,7 @@ svg {
     & span {
       font-size: 0.95rem;
       display: inline-block;
-      color: var(--secondary);
+      color: var(--dark);
       font-weight: $boldWeight;
       margin: 0;
       line-height: 1.5rem;
@@ -224,14 +232,15 @@ svg {
   }
 }
 
-#explorer-content ul li:nth-child(odd)>.folder-container {
-  background-color: rgba(0, 0, 0, 0.02);
-}
-
 .folder-outer ul {
-  border-left: 1px dashed var(--lightgray);
+  border-left: 2px solid var(--lightgray);
   margin-left: 0.5rem !important;
   padding-left: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.folder-outer.open>.folder-container {
+  background-color: var(--highlight);
 }
 
 .folder-outer a {
@@ -248,10 +257,11 @@ svg {
 
 .folder-icon {
   margin-right: 5px;
-  color: var(--secondary);
+  color: var(--dark);
   cursor: pointer;
   transition: transform 0.3s ease;
   backface-visibility: visible;
+  font-size: 1.1rem;
 }
 
 li:has(> .folder-outer:not(.open))>.folder-container>svg {
@@ -348,4 +358,23 @@ html:has(.no-scroll) {
   html:has(.no-scroll) {
     overflow: auto !important;
   }
+}
+
+// Make the whole folder title wrapper take as much space as possible
+.folder-title-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+// Make the folder title span look more like a button
+.folder-title {
+  display: inline-block;
+  color: var(--dark);
+  font-weight: $boldWeight;
+  font-family: var(--headerFont);
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
