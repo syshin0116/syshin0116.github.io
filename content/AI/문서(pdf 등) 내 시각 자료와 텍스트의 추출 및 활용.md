@@ -1,13 +1,14 @@
 ---
-layout: post
-title: 문서(pdf 등) 내 시각 자료와 텍스트의 추출 및 활용 1
-date: 2024-07-22 18:00 +0900
-categories:
-  - 연구
-  - DevDay
-tags: 
-math: true
+title: 문서(pdf 등) 내 시각 자료와 텍스트의 추출 및 활용
+date: 2024-07-23
+tags:
+  - AI
+  - RAG
+  - MultiModal
+  - PDF
+description: 멀티모달 RAG를 활용한 PDF 문서 내 시각 자료와 텍스트 추출 및 활용 기법
 ---
+
 # 1. 문서(pdf 등) 내 시각 자료와 텍스트의 추출 및 활용
 
 ## 1-1. 배경
@@ -26,7 +27,7 @@ math: true
 
 ## 1-2. PDF 문서에서 텍스트 및 시각 자료 추출의 어려움
 
-PDF에서 텍스트 및 이미지를 추출하는 일은 다양한 이유로 쉽지 않습니다. 아래는 주요 이슈들입니다.
+PDF에서 텍스트 및 이미지를 추출하는 일은 다양한 이유로 쉽지 않다. 아래는 주요 이슈들이다.
 
 - **Paragraphs**
     - PDF 원본의 줄바꿈 위치를 그대로 가져갈지
@@ -46,7 +47,7 @@ PDF에서 텍스트 및 이미지를 추출하는 일은 다양한 이유로 쉽
 - **Captions**
     - 이미지 혹은 테이블 캡션을 어떻게 처리할지
 - **Ligatures**
-    - ‘ﬀ’ 같은 합쳐진 문자를 ASCII ‘ff’로 풀어서 처리할지
+    - 'ﬀ' 같은 합쳐진 문자를 ASCII 'ff'로 풀어서 처리할지
 - **SVG images**
     - 벡터 기반 이미지에서 텍스트가 있으면 추출할지
 - **Mathematical Formulas**
@@ -61,7 +62,7 @@ PDF에서 텍스트 및 이미지를 추출하는 일은 다양한 이유로 쉽
 - **Linearization**
     - 본문에 부유(floating) 요소가 있을 때, 이를 본문에 끼워 넣을지 말지
 
-추가로 다음과 같은 PDF 내부 구조상의 문제도 있습니다.
+추가로 다음과 같은 PDF 내부 구조상의 문제도 있다.
 
 - **Tables**
     - 텍스트가 절대 좌표로 찍혀 있어 열/행 구조를 파악하기가 어려움
@@ -75,7 +76,7 @@ PDF에서 텍스트 및 이미지를 추출하는 일은 다양한 이유로 쉽
 
 ## 2-1. 개요
 
-“RAG(Retrieval-Augmented Generation)”은 LLM이 응답을 생성할 때, 외부에서 검색된 문서나 정보를 함께 참조하도록 하는 기법입니다. 전통적인 RAG가 텍스트 기반 문서만 다루었다면, 이제는 이미지, 표 등 다양한 시각 자료도 함께 다루는 멀티모달 RAG가 제안되고 있습니다.
+"RAG(Retrieval-Augmented Generation)"은 LLM이 응답을 생성할 때, 외부에서 검색된 문서나 정보를 함께 참조하도록 하는 기법이다. 전통적인 RAG가 텍스트 기반 문서만 다루었다면, 이제는 이미지, 표 등 다양한 시각 자료도 함께 다루는 멀티모달 RAG가 제안되고 있다.
 
 ### 주요 방법
 
@@ -95,7 +96,7 @@ PDF에서 텍스트 및 이미지를 추출하는 일은 다양한 이유로 쉽
     - 원본 이미지와 요약 텍스트를 모두 임베딩해 검색
     - 최종 답변 생성 시 원본 이미지와 텍스트 조각, 그리고 이미지 요약 텍스트를 모두 전달
 
-아래 그림은 Multi-Modal RAG 파이프라인을 보여줍니다.
+아래 그림은 Multi-Modal RAG 파이프라인을 보여준다.
 
 ![](https://i.imgur.com/rqUfDaj.png)
 
@@ -119,23 +120,46 @@ PDF에서 텍스트 및 이미지를 추출하는 일은 다양한 이유로 쉽
 
 # 3. PDF 요소 추출 및 요약 예시 코드
 
-아래 코드는 Python 환경에서 `unstructured` 라이브러리와 LangChain 계열의 도구를 사용하여 PDF에서 텍스트·이미지·테이블을 추출하고, 이를 요약·벡터화하는 과정을 간단히 정리한 예시입니다.
+아래 코드는 Python 환경에서 `unstructured` 라이브러리와 LangChain 계열의 도구를 사용하여 PDF에서 텍스트·이미지·테이블을 추출하고, 이를 요약·벡터화하는 과정을 간단히 정리한 예시 코드다.
 
 ## 3-1. PDF에서 요소(image, text) 추출
 
-python
-
-Copy
-
-`def extract_pdf_elements(path, fname):     """     PDF 파일에서 이미지, 테이블, 그리고 텍스트 조각을 추출합니다.     path: 이미지(.jpg)를 저장할 파일 경로     fname: 파일 이름     """     return partition_pdf(         filename=os.path.join(path, fname),         extract_images_in_pdf=True,     # PDF 내 이미지 추출 활성화         infer_table_structure=True,     # 테이블 구조 추론 활성화         chunking_strategy="by_title",   # 제목별로 텍스트 조각화         max_characters=4000,            # 최대 문자 수         new_after_n_chars=3800,         # 이 문자 수 이후에 새로운 조각 생성         combine_text_under_n_chars=2000,# 이 문자 수 이하의 텍스트는 결합         image_output_dir_path=path,     # 이미지 출력 디렉토리 경로     )`
+```python
+def extract_pdf_elements(path, fname):
+    """
+    PDF 파일에서 이미지, 테이블, 그리고 텍스트 조각을 추출한다.
+    path: 이미지(.jpg)를 저장할 파일 경로
+    fname: 파일 이름
+    """
+    return partition_pdf(
+        filename=os.path.join(path, fname),
+        extract_images_in_pdf=True,     # PDF 내 이미지 추출 활성화
+        infer_table_structure=True,     # 테이블 구조 추론 활성화
+        chunking_strategy="by_title",   # 제목별로 텍스트 조각화
+        max_characters=4000,            # 최대 문자 수
+        new_after_n_chars=3800,         # 이 문자 수 이후에 새로운 조각 생성
+        combine_text_under_n_chars=2000,# 이 문자 수 이하의 텍스트는 결합
+        image_output_dir_path=path,     # 이미지 출력 디렉토리 경로
+    )
+```
 
 ## 3-2. 요소 유형별(테이블, 텍스트)로 분류
 
-python
-
-Copy
-
-`def categorize_elements(raw_pdf_elements):     """     PDF에서 추출된 요소를 테이블과 텍스트로 분류합니다.     raw_pdf_elements: unstructured.documents.elements의 리스트     """     tables = []     texts = []     for element in raw_pdf_elements:         if "unstructured.documents.elements.Table" in str(type(element)):             tables.append(str(element))  # 테이블 요소 추가         elif "unstructured.documents.elements.CompositeElement" in str(type(element)):             texts.append(str(element))   # 텍스트 요소 추가     return texts, tables`
+```python
+def categorize_elements(raw_pdf_elements):
+    """
+    PDF에서 추출된 요소를 테이블과 텍스트로 분류한다.
+    raw_pdf_elements: unstructured.documents.elements의 리스트
+    """
+    tables = []
+    texts = []
+    for element in raw_pdf_elements:
+        if "unstructured.documents.elements.Table" in str(type(element)):
+            tables.append(str(element))  # 테이블 요소 추가
+        elif "unstructured.documents.elements.CompositeElement" in str(type(element)):
+            texts.append(str(element))   # 텍스트 요소 추가
+    return texts, tables
+```
 
 ---
 
@@ -143,19 +167,63 @@ Copy
 
 ### 텍스트 및 테이블 요약
 
-python
-
-Copy
-
-`def generate_text_summaries(texts, tables, summarize_texts=False):     """     텍스트 요소 요약     texts: 문자열 리스트     tables: 문자열 리스트     summarize_texts: 텍스트 요약 여부를 결정 (True/False)     """          # 프롬프트 설정     prompt_text = """You are an assistant tasked with summarizing tables and text for retrieval. \ These summaries will be embedded and used to retrieve the raw text or table elements. \ Give a concise summary of the table or text that is well optimized for retrieval. Table or text: {element} """     prompt = ChatPromptTemplate.from_template(prompt_text)      model = ChatOpenAI(temperature=0, model="gpt-4")     summarize_chain = {"element": lambda x: x} | prompt | model | StrOutputParser()      text_summaries = []     table_summaries = []      if texts and summarize_texts:         text_summaries = summarize_chain.batch(texts, {"max_concurrency": 5})     elif texts:         text_summaries = texts      if tables:         table_summaries = summarize_chain.batch(tables, {"max_concurrency": 5})      return text_summaries, table_summaries`
+```python
+def generate_text_summaries(texts, tables, summarize_texts=False):
+    """
+    텍스트 요소 요약
+    texts: 문자열 리스트
+    tables: 문자열 리스트
+    summarize_texts: 텍스트 요약 여부를 결정 (True/False)
+    """
+    
+    # 프롬프트 설정
+    prompt_text = """You are an assistant tasked with summarizing tables and text for retrieval. \ 
+    These summaries will be embedded and used to retrieve the raw text or table elements. \ 
+    Give a concise summary of the table or text that is well optimized for retrieval. Table or text: {element} """
+    prompt = ChatPromptTemplate.from_template(prompt_text)
+    
+    model = ChatOpenAI(temperature=0, model="gpt-4")
+    summarize_chain = {"element": lambda x: x} | prompt | model | StrOutputParser()
+    
+    text_summaries = []
+    table_summaries = []
+    
+    if texts and summarize_texts:
+        text_summaries = summarize_chain.batch(texts, {"max_concurrency": 5})
+    elif texts:
+        text_summaries = texts
+    
+    if tables:
+        table_summaries = summarize_chain.batch(tables, {"max_concurrency": 5})
+    
+    return text_summaries, table_summaries
+```
 
 ### 이미지 요약
 
-python
-
-Copy
-
-`def generate_img_summaries(path):     """     이미지에 대한 요약과 base64 인코딩된 문자열을 생성합니다.     path: Unstructured에 의해 추출된 .jpg 파일 목록의 경로     """          img_base64_list = []     image_summaries = []      prompt = """You are an assistant tasked with summarizing images for retrieval. \ These summaries will be embedded and used to retrieve the raw image. \ Give a concise summary of the image that is well optimized for retrieval."""      for img_file in sorted(os.listdir(path)):         if img_file.endswith(".jpg"):             img_path = os.path.join(path, img_file)             base64_image = encode_image(img_path)             img_base64_list.append(base64_image)             image_summaries.append(image_summarize(base64_image, prompt))      return img_base64_list, image_summaries`
+```python
+def generate_img_summaries(path):
+    """
+    이미지에 대한 요약과 base64 인코딩된 문자열을 생성한다.
+    path: Unstructured에 의해 추출된 .jpg 파일 목록의 경로
+    """
+    
+    img_base64_list = []
+    image_summaries = []
+    
+    prompt = """You are an assistant tasked with summarizing images for retrieval. \ 
+    These summaries will be embedded and used to retrieve the raw image. \ 
+    Give a concise summary of the image that is well optimized for retrieval."""
+    
+    for img_file in sorted(os.listdir(path)):
+        if img_file.endswith(".jpg"):
+            img_path = os.path.join(path, img_file)
+            base64_image = encode_image(img_path)
+            img_base64_list.append(base64_image)
+            image_summaries.append(image_summarize(base64_image, prompt))
+    
+    return img_base64_list, image_summaries
+```
 
 ---
 
@@ -174,7 +242,7 @@ Copy
 
 ## 4-1. Colpali 연구 내용
 
-**Colpali**는 시각(이미지)·텍스트 검색을 위한 개선된 기법을 탐구하는 프로젝트입니다. 주요 모델은 다음과 같습니다.
+**Colpali**는 시각(이미지)·텍스트 검색을 위한 개선된 기법을 탐구하는 프로젝트다. 주요 모델은 다음과 같다.
 
 - **SigLIP**: 바닐라 모델
     - vision-language bi-encoder 모델
@@ -223,7 +291,7 @@ Copy
 
 # 6. MultiVector Retriever
 
-**MultiVector Retriever**는 LangChain 라이브러리가 제공하는 문서 검색 도구로, 하나의 문서에 대해 여러 벡터를 생성·저장하여 검색 정확도와 유연성을 높이는 방식입니다.
+**MultiVector Retriever**는 LangChain 라이브러리가 제공하는 문서 검색 도구로, 하나의 문서에 대해 여러 벡터를 생성·저장하여 검색 정확도와 유연성을 높이는 방식이다.
 
 ## 6-1. 문서 생성 방법
 
@@ -234,7 +302,7 @@ Copy
 3. **Hypothetical Questions (가설 질문)**
     - 해당 문서와 관련된 가상의 질문들을 생성해 임베딩
 
-이러한 다각도의 임베딩을 통해 하나의 문서가 여러 형태의 검색 쿼리에 대응할 수 있게 됩니다.
+이러한 다각도의 임베딩을 통해 하나의 문서가 여러 형태의 검색 쿼리에 대응할 수 있게 된다.
 
 ## 6-2. 사용 예시
 
@@ -251,7 +319,7 @@ Copy
 
 # 7. 참고 자료
 
-아래는 본문 곳곳에서 언급된 자료 및 참고할 만한 링크를 모두 모은 것입니다.
+아래는 본문 곳곳에서 언급된 자료 및 참고할 만한 링크를 모두 모은 것이다.
 
 - **유튜브 테디노트**
     
