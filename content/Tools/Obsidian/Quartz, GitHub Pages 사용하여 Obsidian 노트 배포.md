@@ -20,8 +20,6 @@ modified: 2025-03-06
 
 이 가이드는 **Obsidian**에서 작성한 Markdown 노트를 **Quartz**를 사용하여 정적 웹사이트로 변환하고 **GitHub Pages**에 배포하는 방법을 설명합니다.
 
-[[Getting started with Zettelkasten and Obsidian]]
-
 ### 참고자료
 - **YouTube**: [How to publish your notes for free with Quartz](https://www.youtube.com/watch?v=6s6DT1yN4dw&t=1s)
 - **Quartz 공식 문서**: [Quartz 4.0](https://quartz.jzhao.xyz/)
