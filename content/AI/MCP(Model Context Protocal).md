@@ -17,7 +17,9 @@ published: 2024-03-31
 modified: 2024-03-31
 ---
 > [!summary]
-> MCP(Model Context Protocol)는 Anthropic에서 개발한 개방형 프로토콜로, AI 모델(특히 LLM)과 외부 데이터 소스 및 도구를 표준화된 방식으로 연결한다. USB-C와 유사한 방식으로 AI 애플리케이션과 다양한 데이터 소스 간의 통합을 단순화하며, 클라이언트-서버 구조를 통해 안전하고 확장 가능한 AI 시스템 구축을 지원한다.
+> MCP(Model Context Protocol)는 Anthropic에서 개발한 개방형 프로토콜로, AI 모델과 외부 데이터/도구를 표준화된 방식으로 연결한다.
+> USB-C와 같이 AI 애플리케이션과 다양한 데이터 소스 간의 통합을 단순화하며, 클라이언트-서버 구조를 통해 안전하고 확장 가능한 AI 시스템 구축을 지원한다.
+> Smithery를 통해 3,200개 이상의 MCP 서버에 접근할 수 있으며, Cursor와 Claude에서 쉽게 설정하여 사용할 수 있다.
 
 ## 개요
 
@@ -216,6 +218,8 @@ async with sse_client("http://localhost:8000/sse") as (read, write):
 - **기업 환경**: 보안 정책에 따라 선택 (내부 도구는 stdio, 공유 도구는 SSE)
 - **개발 및 테스트**: stdio가 더 단순하고 빠른 설정 제공
 
+![stdio와 SSE 비교](https://i.imgur.com/xxxxxxxxxxx.png)
+<!-- 이미지: stdio와 SSE 통신 방식의 차이점을 보여주는 다이어그램 필요 -->
 
 ---
 
@@ -401,6 +405,71 @@ Smithery는 MCP 생태계를 위한 중앙 허브 역할을 하는 플랫폼으�
 4. Claude Desktop이나 다른 MCP 호환 클라이언트에 서버 연결
 5. 연결된 서버의 기능을 AI 애플리케이션에서 활용
 
+---
+## Cursor와 Claude에서의 MCP 설정
+
+### Cursor에서 MCP 설정하기
+1. **Cursor 설치**
+   - [Cursor 공식 웹사이트](https://cursor.sh/)에서 최신 버전 다운로드
+   - MCP 지원을 위해 v0.8.0 이상 버전 필요
+
+![](https://i.imgur.com/X0r8WyP.png)
+
+
+2. **MCP 서버 설치**
+   - Smithery에서 원하는 MCP 서버 선택
+   - 서버 설치 명령어 실행:
+   ```bash
+   npm install -g @anthropic-ai/mcp-server-NAME
+   ```
+
+3. **Cursor 설정**
+   - Settings > AI > MCP Servers 메뉴 접근
+   - Add Server 버튼 클릭
+   - 서버 정보 입력:
+     - Name: 서버 이름
+     - Transport: stdio 또는 sse 선택
+     - Command: 서버 실행 명령어
+     - Args: 필요한 인자값
+
+4. **서버 활성화**
+   - 추가된 서버 옆의 토글 버튼으로 활성화
+   - Cursor의 AI 기능에서 자동으로 MCP 도구 사용 가능
+
+### Claude에서 MCP 설정하기
+1. **Claude Desktop 설치**
+   - [Claude Desktop](https://claude.ai/desktop) 다운로드
+   - 최신 버전으로 업데이트
+
+
+![Uploading file...5hncs]()
+
+
+1. **MCP 서버 연결**
+   - Settings > Tools > MCP Servers 접근
+   - Connect Server 클릭
+   - Smithery에서 제공하는 서버 URL 또는 로컬 서버 정보 입력
+   - 연결 테스트 후 Save
+
+1. **권한 설정**
+   - 각 서버별 권한 설정 가능
+   - File System 접근, API 호출 등 필요한 권한 활성화
+   - 보안 정책에 따라 제한적 권한 부여 가능
+
+4. **사용 방법**
+   - Claude와의 대화에서 자동으로 MCP 도구 활용
+   - 특정 도구 사용이 필요한 경우 명시적으로 요청 가능
+   ```
+   "웹 검색 도구를 사용해서 최신 AI 트렌드를 찾아줘"
+   "파일 시스템에서 이번 달 보고서를 검색해줘"
+   ```
+
+### 보안 고려사항
+- 신뢰할 수 있는 소스의 MCP 서버만 설치
+- 필요한 최소한의 권한만 부여
+- 정기적인 서버 업데이트 및 보안 패치 적용
+- 중요 데이터 접근 시 추가 인증 설정
+
 
 ---
 
@@ -412,4 +481,5 @@ MCP는 AI 시스템과 외부 데이터 소스 및 도구 간의 상호작용을
 - 개방형 생태계를 통한 혁신 및 협업 촉진
 - 기존 RAG와 같은 접근 방식보다 더 포괄적이고 확장 가능한 솔루션 제공
 
-MCP에 대한 더 자세한 내용은 [[LangChain]], [[LangGraph]], [[Agent 사용 RAG+Tavily]] 문서와 함께 살펴보면 AI 애플리케이션 개발에 대한 종합적인 이해를 얻을 수 있다.
+MCP에 대해 알기 전에 [[LangChain]], [[LangGraph]], [[Agent 사용 RAG+Tavily]] 문서를 먼저 살펴보면 AI 애플리케이션 개발에 대한 종합적인 이해를 얻을 수 있다. 추가로 MCP에 이어서 ACP(Agent Communication Protocal) 또한 보이고 있다.[https://docs.beeai.dev/acp/alpha/introduction](https://docs.beeai.dev/acp/alpha/introduction)
+
