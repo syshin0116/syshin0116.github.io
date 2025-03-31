@@ -437,18 +437,12 @@ Smithery는 MCP 생태계를 위한 중앙 허브 역할을 하는 플랫폼으�
 1. **Claude Desktop 설치**
    - [Claude Desktop](https://claude.ai/desktop) 다운로드
    - 최신 버전으로 업데이트
-
-
-![Uploading file...5hncs]()
-
-
-1. **MCP 서버 연결**
+2. **MCP 서버 연결**
    - Settings > Tools > MCP Servers 접근
    - Connect Server 클릭
    - Smithery에서 제공하는 서버 URL 또는 로컬 서버 정보 입력
    - 연결 테스트 후 Save
-
-1. **권한 설정**
+3. **권한 설정**
    - 각 서버별 권한 설정 가능
    - File System 접근, API 호출 등 필요한 권한 활성화
    - 보안 정책에 따라 제한적 권한 부여 가능
