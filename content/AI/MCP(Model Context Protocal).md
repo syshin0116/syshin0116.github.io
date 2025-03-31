@@ -218,9 +218,6 @@ async with sse_client("http://localhost:8000/sse") as (read, write):
 - **기업 환경**: 보안 정책에 따라 선택 (내부 도구는 stdio, 공유 도구는 SSE)
 - **개발 및 테스트**: stdio가 더 단순하고 빠른 설정 제공
 
-![stdio와 SSE 비교](https://i.imgur.com/xxxxxxxxxxx.png)
-<!-- 이미지: stdio와 SSE 통신 방식의 차이점을 보여주는 다이어그램 필요 -->
-
 ---
 
 ## MCP의 주요 기능
