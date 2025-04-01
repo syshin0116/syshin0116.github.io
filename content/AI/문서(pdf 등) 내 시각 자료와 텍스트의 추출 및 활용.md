@@ -6,6 +6,7 @@ tags:
   - RAG
   - MultiModal
   - PDF
+  - pdf-parser
 description: 멀티모달 RAG를 활용한 PDF 문서 내 시각 자료와 텍스트 추출 및 활용 기법
 ---
 
