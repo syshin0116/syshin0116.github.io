@@ -89,6 +89,3 @@ PDF 처리와 관련된 추가 정보는 [[LangChain]], [[문서(pdf 등) 내 �
 - [LangChain PyPDFium2Loader 문서](https://api.python.langchain.com/en/latest/_modules/langchain_community/document_loaders/pdf.html#PyPDFium2Loader)
 - [PyPDF 비교 문서](https://pypdf.readthedocs.io/en/latest/meta/comparisons.html)
 - [PyMuPDF 라이선스 정보](https://pymupdf.readthedocs.io/en/latest/about.html#license-and-copyright) 
-
----
-## 추가
