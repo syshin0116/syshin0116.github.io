@@ -44,9 +44,37 @@ MinerU는 아래 라이브러리들은 활용한다:
 
 ## 주요 기능 및 특징
 
+## Model Overview
+
+|**Task Type**|**Description**|**Models**|
+|---|---|---|
+|**Layout Detection**|Locate different elements in a document: including images, tables, text, titles, formulas|`DocLayout-YOLO_ft`, `YOLO-v10_ft`, `LayoutLMv3_ft`|
+|**Formula Detection**|Locate formulas in documents: including inline and block formulas|`YOLOv8_ft`|
+|**Formula Recognition**|Recognize formula images into LaTeX source code|`UniMERNet`|
+|**OCR**|Extract text content from images (including location and recognition)|`PaddleOCR`|
+|**Table Recognition**|Recognize table images into corresponding source code (LaTeX/HTML/Markdown)|`PaddleOCR+TableMaster`, `StructEqTable`|
+|**Reading Order**|Sort and concatenate discrete text paragraphs|Coming Soon!|
+
+### 최신 업데이트 소식
+
+MinerU의 핵심 엔진인 PDF-Extract-Kit은 지속적으로 발전하고 있다:
+
+- **2024.10.22**: StructTable-InternVL2-1B 테이블 인식 모델이 통합되어 LaTeX, HTML, Markdown 형식의 출력을 지원
+- **2024.10.17**: 더 정확하고 빠른 레이아웃 감지 모델인 DocLayout-YOLO가 공식 통합
+- **2024.10.10**: 모듈화된 구조로 재설계되어 더 편리하고 유연한 모델 사용 가능
+
 ### 고품질 레이아웃 분석
 
-MinerU는 DocLayout-YOLO, LayoutLMv3 등의 모델을 사용하여 문서의 레이아웃을 정밀하게 분석한다. 이를 통해 문서의 헤더, 푸터, 본문, 표, 이미지 등의 요소를 정확히 구분하고 논리적인 읽기 순서를 결정할 수 있다.
+MinerU는 DocLayout-YOLO, LayoutLMv3 등의 모델을 사용하여 문서의 레이아웃을 정밀하게 분석한다. 특히 PDF-Extract-Kit을 통해 다음과 같은 고급 기능을 제공한다:
+
+- 논문, 교과서, 연구 보고서, 재무 보고서 등 다양한 유형의 PDF 문서 지원
+- 흐림 효과나 워터마크가 있는 문서에서도 높은 견고성 유지
+- 실제 현장에서 발생하는 다양한 문서 형식에 대한 안정적인 처리
+
+### 수식 및 테이블 처리
+
+- **수식 감지 및 인식**: 영어와 중국어 문서의 수식을 정확하게 감지하고 인식. UniMERNet 알고리즘을 통해 복잡한 긴 수식, 손글씨 수식, 노이즈가 있는 스크린샷 수식도 처리 가능
+- **테이블 인식**: StructEqTable을 통해 테이블 이미지를 LaTeX/HTML/Markdown으로 변환. InternVL2-1B 기반 모델로 중국어 인식 정확도 향상 및 다중 형식 출력 지원
 
 ### 다양한 문서 요소 지원
 
@@ -161,9 +189,9 @@ MinerU는 지속적으로 개발 중이며, 현재 알려진 몇 가지 한계�
 
 ## 결론
 
-MinerU는 PDF 문서 데이터 추출 분야에서 현재 가장 뛰어난 오픈소스 도구 중 하나다. 복잡한 레이아웃, 표, 수식, 이미지 등을 정확하게 처리하는 능력은 RAG 시스템 구축이나 LLM을 위한 데이터 전처리에 매우 유용하게 활용될 수 있다. [[RAG용 PDF Loader 비교]] 문서에서 다룬 다른 PDF 처리 도구들을 적절히 활용하는것으로 보였고, 특히 레이아웃 분석과 문서 구조 이해 측면에서 우수한 성능을 보여준다.
+MinerU는 PDF 문서 데이터 추출 분야에서 현재 가장 뛰어난 오픈소스 도구 중 하나다. PDF-Extract-Kit이라는 강력한 엔진을 기반으로, 복잡한 레이아웃, 표, 수식, 이미지 등을 정확하게 처리하는 능력은 RAG 시스템 구축이나 LLM을 위한 데이터 전처리에 매우 유용하게 활용될 수 있다. [[RAG용 PDF Loader 비교]] 문서에서 다룬 다른 PDF 처리 도구들을 적절히 활용하는것으로 보였고, 특히 레이아웃 분석과 문서 구조 이해 측면에서 우수한 성능을 보여준다.
 
-다만 AGPL-3 라이센스를 사용하고 있어 상업 서비스에 통합할 경우 라이센스 조건을 주의깊게 검토해야 한다. 개인 연구나 내부 문서 처리 용도로는 이러한 제약 없이 자유롭게 활용할 수 있으며, 그 성능은 현존하는 다른 PDF 변환 도구들보다 우수하다.
+다만 AGPL-3 라이센스를 사용하고 있어 상업 서비스에 통합할 경우 라이센스 조건을 주의깊게 검토해야 한다. 이는 YOLO 코드와 PyMuPDF를 사용하기 때문인데, 이러한 의존성 컴포넌트들의 라이센스 요구사항을 준수하기 위해 전체 저장소가 AGPL-3.0 라이센스를 채택하게 되었다. 개인 연구나 내부 문서 처리 용도로는 이러한 제약 없이 자유롭게 활용할 수 있으며, 그 성능은 현존하는 다른 PDF 변환 도구들보다 우수하다.
 
 향후 더 유연한 라이센스의 PDF 처리 라이브러리 도입과 함께 다양한 문서 형식 처리 기능이 추가된다고 하니, 더욱 강력한 문서 데이터 파이프라인 구축이 가능할 것으로 기대된다.
 
