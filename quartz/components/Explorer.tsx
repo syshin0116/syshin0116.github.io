@@ -17,16 +17,41 @@ const defaultOptions = {
     return node
   },
   sortFn: (a, b) => {
-    // Sort order: folders first, then files. Sort folders and files alphabetically
-    if ((!a.file && !b.file) || (a.file && b.file)) {
-      // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
-      // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
+    // 폴더는 항상 먼저 정렬
+    if ((!a.file && !b.file)) {
+      // 폴더들은 알파벳 순서로 정렬
+      return a.displayName.localeCompare(b.displayName, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      })
+    }
+    
+    // 두 개 모두 파일인 경우 날짜 기준으로 정렬
+    if (a.file && b.file) {
+      // date 또는 published 필드 사용
+      const dateA = a.file.frontmatter?.date || a.file.frontmatter?.published
+      const dateB = b.file.frontmatter?.date || b.file.frontmatter?.published
+      
+      // 날짜가 있으면 날짜 기준으로 정렬 (최신 날짜가 상단에 오도록 내림차순)
+      if (dateA && dateB) {
+        // 문자열이나 Date 객체를 안전하게 처리
+        const timeA = typeof dateA === 'string' || dateA instanceof Date ? new Date(dateA).getTime() : 0
+        const timeB = typeof dateB === 'string' || dateB instanceof Date ? new Date(dateB).getTime() : 0
+        return timeB - timeA
+      }
+      
+      // 한쪽에만 날짜가 있는 경우
+      if (dateA) return -1
+      if (dateB) return 1
+      
+      // 날짜가 없으면 알파벳 순서로 정렬
       return a.displayName.localeCompare(b.displayName, undefined, {
         numeric: true,
         sensitivity: "base",
       })
     }
 
+    // 하나는 파일이고 하나는 폴더인 경우
     if (a.file && !b.file) {
       return 1
     } else {
