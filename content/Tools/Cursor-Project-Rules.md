@@ -11,25 +11,24 @@ modified: 2024-04-07
 
 > [!summary]
 >
-> Cursor의 Project Rules 기능을 통해 AI 코딩 어시스턴트의 행동을 맞춤 설정할 수 있다. 프로젝트별 규칙, 글로벌 규칙, 또는 파일 패턴별 규칙을 통해 AI가 코드를 생성하고 이해하는 방식을 정밀하게 제어할 수 있다.
+> Cursor의 Project Rules 기능을 통해 AI 코딩 어시스턴트의 행동을 맞춤 설정할 수 있다. 프로젝트별 규칙, 글로벌 규칙을 통해 AI가 코드를 생성하고 이해하는 방식을 정밀하게 제어할 수 있다.
 
 ## Cursor Rules 소개
 
 Cursor는 AI 기반 코딩 에디터로, 개발자가 코드를 작성하고 이해하는 과정을 돕는다. Cursor의 핵심 기능 중 하나는 AI의 행동을 사용자의 필요에 맞게 조정할 수 있는 'Rules for AI' 시스템이다. 이 시스템을 통해 사용자는 LLM(대규모 언어 모델)이 코드를 생성하고 이해하는 방식에 대한 지침을 제공할 수 있다.
 
-Cursor에서 Rules for AI를 구현하는 방법은 크게 세 가지가 있다:
+Cursor에서 Rules for AI를 구현하는 방법은 크게 두 가지가 있다:
 
 1. **Project Rules** - 프로젝트 특화 규칙으로, `.cursor/rules` 디렉토리에 저장
 2. **Global Rules** - 모든 프로젝트에 적용되는 전역 규칙
-3. **`.cursorrules` 파일** - 이전 버전과의 호환성을 위한 방법(곧 사라질 예정)
 
-이 중에서 Cursor 팀은 가장 유연하고 강력한 Project Rules 사용을 권장한다.
+이전에는 프로젝트 루트에 `.cursorrules` 파일을 사용하는 방법도 있었지만, Cursor 팀은 가장 유연하고 강력한 Project Rules 사용을 권장한다.
 
 ---
 
 ## Project Rules 시스템 이해하기
 
-Project Rules 시스템은 더 세분화된 제어와 유연성을 제공하며, 프로젝트의 다양한 부분에서 AI 동작을 다르게 지정할 수 있게 해준다. 이 규칙들은 `.cursor/rules` 디렉토리에 저장되며, 파일 패턴 매칭을 통해 특정 파일이나 폴더에 적용된다.
+Project Rules 시스템은 경로별 구성을 통해 강력하고 유연한 시스템을 제공한다. 이 규칙들은 `.cursor/rules` 디렉토리에 저장되며, 프로젝트의 다양한 부분에서 AI 동작을 세밀하게 제어할 수 있게 해준다.
 
 ### Project Rules의 주요 특징
 
@@ -181,7 +180,7 @@ modified: YYYY-MM-DD
 ```
 
 > [!Note]
-> Project Rules는 단순히 코드 스타일을 넘어 문서 형식, 블로그 포스트 구조 등 다양한 측면에 적용할 수 있다. [[AI-Copilot-Tools]]와 함께 사용하면 더욱 강력한 작성 도구가 된다.
+> Project Rules는 단순히 코드 스타일을 넘어 문서 형식, 블로그 포스트 구조 등 다양한 측면에 적용할 수 있다.
 
 ---
 
@@ -209,20 +208,10 @@ Global Rules는 모든 프로젝트에 적용되는 규칙으로, Cursor 설정�
 
 ## .cursorrules 파일 (구버전 호환)
 
-이전 버전의 Cursor와의 호환성을 위해 프로젝트 루트에 `.cursorrules` 파일을 사용할 수도 있다. 하지만 이 방식은 미래에 제거될 예정이므로, 더 유연하고 제어력이 높은 Project Rules 시스템으로 마이그레이션하는 것이 좋다.
-
-### .cursorrules 파일 예시
-
-```
-이 프로젝트에서 코드를 생성할 때 다음 규칙을 따라야 한다:
-1. TypeScript 타입은 명시적으로 선언한다
-2. 함수형 프로그래밍 원칙을 따른다
-3. 에러 처리를 위해 Result 타입을 사용한다
-4. 주석은 "왜"에 초점을 맞춘다
-```
+이전 버전의 Cursor와의 호환성을 위해 프로젝트 루트에 `.cursorrules` 파일을 사용할 수도 있었다. 하지만 이 방식은 미래에 제거될 예정이므로, 더 유연하고 제어력이 높은 Project Rules 시스템으로 마이그레이션하는 것이 좋다.
 
 > [!Note]
-> `.cursorrules` 파일은 곧 지원이 중단될 예정이므로, 새 프로젝트에서는 Project Rules 시스템을 사용하는 것이 좋다. [[Dev-Tools-Cursor]]에서 더 많은 Cursor 사용 팁을 확인할 수 있다.
+> `.cursorrules` 파일은 곧 지원이 중단될 예정이므로, 새 프로젝트에서는 Project Rules 시스템을 사용하는 것이 좋다.
 
 ---
 
@@ -256,5 +245,3 @@ Project Rules를 효과적으로 활용하면 다음과 같은 이점을 얻을 
 5. 코드 품질 향상
 
 Cursor를 사용한다면, Project Rules 시스템을 적극적으로 활용하여 AI 코딩 어시스턴트를 자신의 프로젝트에 맞게 최적화해보자.
-
-관련 문서: [[Dev-Tools]], [[AI-Coding-Assistants]], [[Cursor-Tips-Tricks]] 
