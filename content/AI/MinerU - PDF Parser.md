@@ -1,6 +1,6 @@
 ---
 title: MinerU - 고품질 PDF 변환 및 데이터 추출 도구
-date: 2024-10-12
+date: 2025-04-03
 tags:
   - pdf-converter
   - pdf-parser
@@ -15,8 +15,8 @@ tags:
 draft: false
 enableToc: true
 description: MinerU는 PDF 문서를 Markdown과 JSON으로 고품질 변환해주는 오픈소스 데이터 추출 도구이다.
-published: 2024-10-12
-modified: 2024-10-12
+published: 2025-04-03
+modified: 2025-04-03
 ---
 
 > [!summary]

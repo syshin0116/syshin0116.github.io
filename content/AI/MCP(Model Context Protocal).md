@@ -1,6 +1,6 @@
 ---
 title: MCP(Model Context Protocol)
-date: 2024-03-31
+date: 2025-03-31
 tags:
   - ai
   - anthropic
@@ -12,9 +12,9 @@ tags:
   - smithery
 draft: false
 enableToc: true
-description: "Anthropic에서 개발한 MCP(Model Context Protocol)의 개념, 구조 및 활용에 대한 설명"
-published: 2024-03-31
-modified: 2024-03-31
+description: Anthropic에서 개발한 MCP(Model Context Protocol)의 개념, 구조 및 활용에 대한 설명
+published: 2025-03-31
+modified: 2025-03-31
 ---
 > [!summary]
 > MCP(Model Context Protocol)는 Anthropic에서 개발한 개방형 프로토콜로, AI 모델과 외부 데이터/도구를 표준화된 방식으로 연결한다.
