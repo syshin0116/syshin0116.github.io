@@ -23,6 +23,9 @@ modified: 2025-03-31
 
 ## 개요
 
+![](https://i.imgur.com/533ppGW.png)
+
+
 MCP(Model Context Protocol)는 AI 모델과 외부 데이터 소스 및 도구를 연결하는 개방형 프로토콜이다. Anthropic에서 개발했으며, LLM 애플리케이션 개발 시 맞춤형 통합 솔루션 대신 표준화된 방식으로 데이터와 도구에 접근할 수 있게 한다.
 
 ![](https://i.imgur.com/LooAPju.png)
@@ -32,6 +35,8 @@ MCP(Model Context Protocol)는 AI 모델과 외부 데이터 소스 및 도구�
 - USB-C를 AI 애플리케이션에 적용한 것과 같은 방식으로 이해할 수 있다.
 - AI 모델과 다양한 데이터 소스 및 도구 간의 표준화된 연결 방식을 제공한다.
 - 개방형 프로토콜로, 여러 언어와 플랫폼에서 구현 가능하다.
+
+![](https://i.imgur.com/GnETyjY.png)
 
 
 ### 참고자료
@@ -46,6 +51,8 @@ MCP(Model Context Protocol)는 AI 모델과 외부 데이터 소스 및 도구�
 MCP는 클라이언트-서버 아키텍처를 기반으로 하며, 다음과 같은 주요 구성 요소로 이루어진다.
 
 ![](https://i.imgur.com/23LhWf8.png)
+
+
 
 ### 주요 구성 요소
 - **MCP 호스트**: Claude Desktop, IDE, AI 도구 등 MCP를 통해 데이터에 접근하려는 프로그램
