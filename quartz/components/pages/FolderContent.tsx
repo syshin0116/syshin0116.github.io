@@ -17,6 +17,7 @@ interface FolderContentOptions {
   showFolderCount: boolean
   showSubfolders: boolean
   sort?: SortFn
+  filterFn?: (file: QuartzPluginData) => boolean
 }
 
 const defaultOptions: FolderContentOptions = {
@@ -56,6 +57,12 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       }
     })
 
+    // Apply filterFn if provided
+    let filteredPages = allPagesInFolder
+    if (options.filterFn) {
+      filteredPages = allPagesInFolder.filter(options.filterFn)
+    }
+
     allPagesInSubfolders.forEach((files, subfolderSlug) => {
       const hasIndex = allPagesInFolder.some(
         (file) => subfolderSlug === stripSlashes(simplifySlug(file.slug!)),
@@ -76,7 +83,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     const listProps = {
       ...props,
       sort: options.sort,
-      allFiles: allPagesInFolder,
+      allFiles: filteredPages,
     }
 
     const content = (
