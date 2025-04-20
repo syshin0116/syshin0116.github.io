@@ -1,5 +1,5 @@
 ---
-title: "Syshin's Digital Garden 🌱"
+title: "Syshin's Knowledge Base"
 enableToc: false
 ---
 
