@@ -1,5 +1,5 @@
 ---
-title: syshin0116's blog
+title: about
 ---
 
 **안녕하세요, syshin0116입니다!**
