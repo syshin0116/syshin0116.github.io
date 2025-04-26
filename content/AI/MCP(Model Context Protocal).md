@@ -57,10 +57,6 @@ MCP는 2024년 11월에 처음 발표되었을 때는 큰 반향을 불러일으
 
 ![](https://i.imgur.com/GnETyjY.png)
 
-### 참고자료
-- 공식 문서: [Model Context Protocol 문서](https://modelcontextprotocol.io/introduction)
-- GitHub: [Model Context Protocol GitHub](https://github.com/modelcontextprotocol)
-- Anthropic 문서: [Anthropic MCP 문서](https://docs.anthropic.com/en/docs/build-with-claude/mcp)
 
 ---
 
@@ -742,3 +738,12 @@ MCP에 대해 알기 전에 [[LangChain]], [[LangGraph]], [[Agent 사용 RAG+Tav
 
 또한, MCP에 이어서 구글에서 발표한 [Agent2Agent Protocal](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)도 주목할 만한 발전이다. A2A는 여러 AI 에이전트 간의 통신을 위한 프로토콜로, 더 복잡한 협업 시스템을 구축하는 데 활용될 수 있다. 
 
+
+## 참고자료
+
+- [Model Context Protocol 공식 문서](https://modelcontextprotocol.io/introduction)
+- [Model Context Protocol GitHub](https://github.com/modelcontextprotocol)
+- [Anthropic MCP 문서](https://docs.anthropic.com/en/docs/build-with-claude/mcp)
+- [Agent2Agent Protocol (A2A)](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
+- [MCP 아키텍처 완전 정리](https://datasciencebeehive.tistory.com/266)
+- [langchain-mcp-adapters](https://github.com/langchain-ai/langchain-mcp-adapters)
