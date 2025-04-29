@@ -6,17 +6,34 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
 }
 
 .breadcrumb-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
   p {
     margin: 0;
     margin-left: 0.5rem;
     padding: 0;
     line-height: normal;
   }
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+
+  a {
+    color: var(--muted-foreground);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--foreground);
+    }
+  }
+
+  &:last-child a {
+    color: var(--foreground);
+    font-weight: 500;
+  }
 }
