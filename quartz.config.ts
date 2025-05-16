@@ -17,7 +17,7 @@ const config: QuartzConfig = {
       tagId: "G-XZB0EYZF1G",
     },
     locale: "en-US",
-    baseUrl: "syshin0116.github.io",
+    baseUrl: "https://syshin0116.github.io",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     generateSocialImages: false,
