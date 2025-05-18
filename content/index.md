@@ -18,6 +18,9 @@ AI와 웹 개발, 특히 Python과 LangChain을 활용한 프로젝트에 관심
 💻 **GitHub:** [github.com/syshin0116](https://github.com/syshin0116)
 
 
+
 <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-  <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="syshin0116" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+  <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="syshin0116" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="한푼만줍쇼" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="syshin0116" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script> -->
 </div>
+
