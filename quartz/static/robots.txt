@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://syshin0116.github.io/sitemap.xml
+
+# Optional: Block specific directories if needed
+# Disallow: /private/
+# Disallow: /.obsidian/ 
