@@ -20,7 +20,8 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
-import Button from "./ui/Button"
+import Button from "./ui/button"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card"
 
 export {
   ArticleTitle,
@@ -46,4 +47,10 @@ export {
   Breadcrumbs,
   Comments,
   Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
 }

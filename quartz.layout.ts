@@ -66,7 +66,12 @@ export const homePageLayout: Partial<FullPageLayout> = {
     Component.Explorer(),
   ],
   right: [
-    Component.Graph(),
+    Component.Graph({
+      localGraph: {
+        depth: -1,  // 모든 페이지 보여줌
+
+      }
+    }),
     Component.DesktopOnly(Component.TableOfContents()),
   ],
   afterBody: [
