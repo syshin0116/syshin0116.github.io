@@ -10,7 +10,7 @@ import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
 import { Argv } from "../../util/ctx"
 import { FilePath, isRelativeURL, joinSegments, pathToRoot } from "../../util/path"
-import { defaultContentPageLayout, sharedPageComponents } from "../../../quartz.layout"
+import { defaultContentPageLayout, homePageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { Content } from "../../components"
 import chalk from "chalk"
 import { write } from "./helpers"
@@ -66,7 +66,8 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
   return {
     name: "ContentPage",
     getQuartzComponents() {
-      return [
+      // Include both default and home page layout components for CSS collection
+      const baseComponents = [
         Head,
         Header,
         Body,
@@ -78,6 +79,19 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         ...right,
         Footer,
       ]
+      
+      // Add home page layout components for CSS collection (avoiding duplicates)
+      const homeComponents = [
+        ...(homePageLayout.beforeBody ?? []),
+        ...(homePageLayout.afterBody ?? []),
+        ...(homePageLayout.left ?? []),
+        ...(homePageLayout.right ?? []),
+      ]
+      
+      // Remove duplicates by filtering components that are already in baseComponents
+      const uniqueHomeComponents = homeComponents.filter(comp => !baseComponents.includes(comp))
+      
+      return [...baseComponents, ...uniqueHomeComponents]
     },
     async getDependencyGraph(ctx, content, _resources) {
       const graph = new DepGraph<FilePath>()
@@ -106,6 +120,19 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           containsIndex = true
         }
 
+        // Use special layout for home page (index.md)
+        const pageLayout = slug === "index" 
+          ? { 
+              ...sharedPageComponents, 
+              ...homePageLayout, 
+              pageBody: Content(),
+              beforeBody: homePageLayout.beforeBody ?? [],
+              afterBody: homePageLayout.afterBody ?? [],
+              left: homePageLayout.left ?? [],
+              right: homePageLayout.right ?? [],
+            }
+          : opts
+
         const externalResources = pageResources(pathToRoot(slug), file.data, resources)
         const componentData: QuartzComponentProps = {
           ctx,
@@ -117,7 +144,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           allFiles,
         }
 
-        const content = renderPage(cfg, slug, componentData, opts, externalResources)
+        const content = renderPage(cfg, slug, componentData, pageLayout, externalResources)
         const fp = await write({
           ctx,
           content,

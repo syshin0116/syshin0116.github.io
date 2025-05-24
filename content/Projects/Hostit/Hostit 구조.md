@@ -1,9 +1,17 @@
 ---
-title: Untitled
-date: 2025-04-26
-tags: 
+title: Hostit 구조
+date: 2025-05-04
+tags:
+  - project
+  - HostIt
+  - architecture
+  - file-structure
+  - development
 draft: false
-description: 
+enableToc: true
+description: "Hostit 프로젝트의 파일 구조와 아키텍처 설계에 대한 상세 가이드"
+published: 2025-05-04
+modified: 2025-05-04
 ---
 
 ### Hostit 구조

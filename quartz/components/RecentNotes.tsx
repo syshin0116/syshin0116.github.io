@@ -38,56 +38,103 @@ export default ((userOpts?: Partial<Options>) => {
     return (
       <div class={classNames(displayClass, "recent-notes")}>
         <h3>{opts.title ?? i18n(cfg.locale).components.recentNotes.title}</h3>
-        <ul class="recent-ul">
+        <div class="recent-cards">
           {pages.slice(0, opts.limit).map((page) => {
             const title = page.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title
             const tags = page.frontmatter?.tags ?? []
 
             return (
-              <li class="recent-li">
-                <div class="section">
-                  <div class="desc">
-                    <h3>
-                      <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
+              <article class="recent-card" data-href={resolveRelative(fileData.slug!, page.slug!)}>
+                <div class="card-content">
+                  <div class="card-header">
+                    <h4>
+                      <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal card-title-link" data-no-popover="true">
                         {title}
                       </a>
-                    </h3>
+                    </h4>
                   </div>
                   {page.dates && (
-                    <p class="meta">
+                    <div class="card-meta">
                       <Date date={getDate(cfg, page)!} locale={cfg.locale} />
-                    </p>
+                    </div>
                   )}
-                  {opts.showTags && (
-                    <ul class="tags">
+                  {opts.showTags && tags.length > 0 && (
+                    <div class="card-tags">
                       {tags.map((tag) => (
-                        <li>
-                          <a
-                            class="internal tag-link"
-                            href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
-                          >
-                            {tag}
-                          </a>
-                        </li>
+                        <a
+                          class="tag-link"
+                          href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+                        >
+                          {tag}
+                        </a>
                       ))}
-                    </ul>
+                    </div>
                   )}
                 </div>
-              </li>
+              </article>
             )
           })}
-        </ul>
+        </div>
         {opts.linkToMore && remaining > 0 && (
-          <p>
-            <a href={resolveRelative(fileData.slug!, opts.linkToMore)}>
+          <div class="recent-more">
+            <a href={resolveRelative(fileData.slug!, opts.linkToMore)} class="more-link">
               {i18n(cfg.locale).components.recentNotes.seeRemainingMore({ remaining })}
             </a>
-          </p>
+          </div>
         )}
       </div>
     )
   }
 
   RecentNotes.css = style
+  RecentNotes.afterDOMLoaded = `
+    document.addEventListener("nav", () => {
+      // Handle card click events for recent notes
+      const cards = document.querySelectorAll('.recent-card[data-href]');
+      
+      cards.forEach(card => {
+        const href = card.getAttribute('data-href');
+        const titleLink = card.querySelector('.card-title-link');
+        
+        if (href && titleLink) {
+          // Remove existing listeners to prevent duplicates
+          card.removeEventListener('click', handleCardClick);
+          card.removeEventListener('mouseenter', handleCardHover);
+          card.removeEventListener('mouseleave', handleCardLeave);
+          
+          // Add click handler for the card
+          function handleCardClick(e) {
+            // Don't navigate if user clicked on a tag
+            if (e.target.closest('.tag-link')) {
+              return;
+            }
+            
+            // Trigger the title link click to get popover functionality
+            if (e.metaKey || e.ctrlKey) {
+              window.open(href, '_blank');
+            } else {
+              window.location.href = href;
+            }
+          }
+          
+          // Add hover handlers for visual feedback only (no popover)
+          function handleCardHover(e) {
+            if (!e.target.closest('.tag-link')) {
+              titleLink.classList.add('card-hover');
+            }
+          }
+          
+          function handleCardLeave(e) {
+            titleLink.classList.remove('card-hover');
+          }
+          
+          card.addEventListener('click', handleCardClick);
+          card.addEventListener('mouseenter', handleCardHover);
+          card.addEventListener('mouseleave', handleCardLeave);
+        }
+      });
+    });
+  `;
+  
   return RecentNotes
 }) satisfies QuartzComponentConstructor

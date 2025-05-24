@@ -1,16 +1,25 @@
+
 ---
 title: Hostit 개요
-date: 2025-05-02
-tags: 
+date: 2025-05-04
+tags:
+  - project
+  - HostIt
+  - MCP
+  - LangChain
+  - AI
 draft: false
-description: 
+enableToc: true
+description: "MCP(Model Context Protocol)를 활용한 AI 도구 관리 플랫폼 Hostit의 아키텍처와 핵심 기능 소개"
+published: 2025-05-04
+modified: 2025-05-04
 ---
 ## Introduction
 HostIt is a web application that leverages LangChain's Model Context Protocol (MCP) to connect with and manage multiple AI model servers. The application serves as a central hub for registering, organizing, and accessing tools from various MCP-compliant servers.
 
 ## Core Architecture
 
-### MCP Integration
+### MCP Integratio
 The application implements a server-centric approach to MCP integration, where:
 - Servers are registered as endpoints with the system
 - Tools are accessed through these registered servers

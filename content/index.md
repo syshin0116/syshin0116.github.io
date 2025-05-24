@@ -13,9 +13,9 @@ AI와 웹 개발, 특히 Python과 LangChain을 활용한 프로젝트에 관심
 
 ## 연락처
 
-📧 **Email:** [syshin0116@gmail.com](mailto:syshin0116@gmail.com)
+**Email:** [syshin0116@gmail.com](mailto:syshin0116@gmail.com)
 
-💻 **GitHub:** [github.com/syshin0116](https://github.com/syshin0116)
+**GitHub:** [github.com/syshin0116](https://github.com/syshin0116)
 
 
 

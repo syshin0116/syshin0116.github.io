@@ -1,4 +1,4 @@
-import { PageLayout, SharedLayout } from "./quartz/cfg"
+import { PageLayout, SharedLayout, FullPageLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import { QuartzPluginData } from "./quartz/plugins/vfile"
 import { FullSlug, SimpleSlug } from "./quartz/util/path"
@@ -50,4 +50,32 @@ export const defaultListPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [],
+}
+
+// components for the home page (index.md)
+export const homePageLayout: Partial<FullPageLayout> = {
+  beforeBody: [
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+  ],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Search(),
+    Component.Darkmode(),
+    Component.Explorer(),
+  ],
+  right: [
+    Component.Graph(),
+    Component.DesktopOnly(Component.TableOfContents()),
+  ],
+  afterBody: [
+    Component.RecentNotes({
+      title: "최근 글",
+      limit: 15,
+      showTags: true,
+      linkToMore: false,
+      filter: (f: QuartzPluginData) => f.slug !== "index" // index 페이지 제외
+    }),
+  ],
 }
