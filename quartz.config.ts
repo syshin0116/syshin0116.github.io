@@ -20,7 +20,7 @@ const config: QuartzConfig = {
     baseUrl: "syshin0116.github.io", // do note include https://
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
-    generateSocialImages: false,
+    generateSocialImages: true, // SEO를 위해 소셜 이미지 생성 활성화
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
