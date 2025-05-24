@@ -4,6 +4,16 @@ Allow: /
 # Sitemap location
 Sitemap: https://syshin0116.github.io/sitemap.xml
 
-# Optional: Block specific directories if needed
-# Disallow: /private/
-# Disallow: /.obsidian/ 
+# Block directories that shouldn't be crawled
+Disallow: /private/
+Disallow: /.obsidian/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+Disallow: /.quartz-cache/
+Disallow: /templates/
+Disallow: /.cursor/
+Disallow: /quartz/
+Disallow: /static/fonts/
+Disallow: /static/js/
+Disallow: /static/css/ 
