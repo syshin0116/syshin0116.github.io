@@ -82,11 +82,5 @@ export const homePageLayout: Partial<FullPageLayout> = {
       linkToMore: false,
       filter: (f: QuartzPluginData) => f.slug !== "index" // index 페이지 제외
     }),
-    Component.Button({
-      variant: "default",
-      size: "md",
-      children: "Tailwind 테스트 버튼",
-      href: "/tags"
-    }),
   ],
 }
