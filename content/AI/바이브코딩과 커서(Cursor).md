@@ -195,7 +195,7 @@ USB-C 포트와 같이, MCP는 LLM 호스트(Cursor, Claude)와 다양한 애플
 
 이렇게 문서화해둔 내용을 참고하며 커서로 코딩을 진행하는 방식이 내게는 더 효율적이었다.
 
-오히려 내가 개발자들에게 추천하고 싶은 MCP는 Context7(https://smithery.ai/server/@upstash/context7-mcp)이다. 이 MCP는 라이브러리나 프레임워크의 최신 문서를 직접 참조할 수 있어 더 정확하고 최신 정보에 기반한 코드를 작성하는 데 도움이 된다.
+오히려 내가 개발자들에게 추천하고 싶은 MCP는 [Context7](https://smithery.ai/server/@upstash/context7-mcp)이다. 이 MCP는 라이브러리나 프레임워크의 최신 문서를 직접 참조할 수 있어 더 정확하고 최신 정보에 기반한 코드를 작성하는 데 도움이 된다.
 
 ## 바이브코딩의 미래
 
