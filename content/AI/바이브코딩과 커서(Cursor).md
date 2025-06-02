@@ -219,3 +219,4 @@ USB-C 포트와 같이, MCP는 LLM 호스트(Cursor, Claude)와 다양한 애플
 - [업스테이지 커서 세미나](https://www.youtube.com/live/-Efpu0hdRMc)
 - [Smithery Context7](https://smithery.ai/server/@upstash/context7-mcp) 
 - [Vibe-Coding Wikipedia](https://en.wikipedia.org/wiki/Vibe_coding)
+- [What is vibe coding?](https://www.ibm.com/think/topics/vibe-coding)
