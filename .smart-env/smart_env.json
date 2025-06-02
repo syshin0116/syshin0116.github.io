@@ -23,6 +23,9 @@
     "show_full_path": false
   },
   "smart_notices": {
-    "muted": {}
+    "muted": {
+      "done_import": true,
+      "new_version_available": true
+    }
   }
 }
