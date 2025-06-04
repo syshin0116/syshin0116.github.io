@@ -8,6 +8,7 @@ tags:
   - ToolCalling
   - Optimization
   - ParallelProcessing
+  - Plan-and-Execute
 draft: false
 enableToc: true
 description: "LLM 기능 호출을 병렬로 처리하여 지연 시간과 비용을 줄이는 LLM Compiler 연구에 대한 검토"
