@@ -556,7 +556,6 @@ Supervisor 아키텍처와 SWARM과 같은 다른 멀티에이전트 접근법 �
 
 이러한 통합 시스템은 단일 아키텍처의 한계를 극복하고, 각 접근법의 장점을 최대한 활용하여 더 지능적이고 유연한 AI 시스템을 구축할 수 있다.
 
-## 참고 문헌
 
 [^1]: [Agent architectures - LangGraph](https://langchain-ai.github.io/langgraph/concepts/agentic_concepts/)
 [^2]: [ReAct: Synergizing Reasoning and Acting in Language Models](https://react-lm.github.io/)
