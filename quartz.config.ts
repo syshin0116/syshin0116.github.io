@@ -20,12 +20,7 @@ const config: QuartzConfig = {
     baseUrl: "syshin0116.github.io", // do note include https://
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
-    generateSocialImages: {
-      colorScheme: "lightMode",
-      width: 1200,
-      height: 630,
-      excludeRoot: false
-    }, // 한글 파일명 문제 해결됨 - 동적 이미지 생성 활성화
+    generateSocialImages: false, // 한글 폰트 문제로 비활성화 - 기본 og-image.png 사용
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
