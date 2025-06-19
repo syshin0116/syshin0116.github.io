@@ -736,7 +736,7 @@ MCP는 지속적으로 발전하고 있으며, 다음과 같은 방향으로 확
 
 MCP에 대해 알기 전에 [[LangChain]], [[LangGraph]], [[Agent 사용 RAG+Tavily]] 문서를 먼저 살펴보면 AI 애플리케이션 개발에 대한 종합적인 이해를 얻을 수 있다. 
 
-또한, MCP에 이어서 구글에서 발표한 [Agent2Agent Protocal](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)도 주목할 만한 발전이다. A2A는 여러 AI 에이전트 간의 통신을 위한 프로토콜로, 더 복잡한 협업 시스템을 구축하는 데 활용될 수 있다. 
+또한, MCP에 이어서 구글에서 발표한 [Agent2Agent Protocal](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)도 주목할 만한 발전이다. A2A는 여러 AI 에이전트 간의 통신을 위한 프로토콜로, 더 복잡한 협업 시스템을 구축하는 데 활용될 수 있다. MCP와 A2A를 모두 활용한 대규모 멀티에이전트 시스템 구축에 대한 자세한 내용은 [[멀티에이전트 아키텍처와 대규모 구현 전략]] 문서를 참고하자. 
 
 
 ## 참고자료
