@@ -38,9 +38,10 @@ const defaultOptions: Options = {
 
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
   const base = cfg.baseUrl ?? ""
+  const now = new Date().toISOString()
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<url>
     <loc>https://${joinSegments(base, slug)}</loc>
-    ${content.date && `<lastmod>${content.date.toISOString()}</lastmod>`}
+    ${content.date ? `<lastmod>${content.date.toISOString()}</lastmod>` : `<lastmod>${now}</lastmod>`}
   </url>`
   const urls = Array.from(idx)
     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
@@ -104,7 +105,10 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
           joinSegments(ctx.argv.output, "static/contentIndex.json") as FilePath,
         )
         if (opts?.enableSiteMap) {
+          // 기존 sitemap.xml 생성
           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "sitemap.xml") as FilePath)
+          // 새로운 sitemap-new.xml 생성
+          graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "sitemap-new.xml") as FilePath)
         }
         if (opts?.enableRSS) {
           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "index.xml") as FilePath)
@@ -136,11 +140,22 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
       }
 
       if (opts?.enableSiteMap) {
+        // 기존 sitemap.xml 생성
         emitted.push(
           await write({
             ctx,
             content: generateSiteMap(cfg, linkIndex),
             slug: "sitemap" as FullSlug,
+            ext: ".xml",
+          }),
+        )
+
+        // 새로운 sitemap-new.xml 생성
+        emitted.push(
+          await write({
+            ctx,
+            content: generateSiteMap(cfg, linkIndex),
+            slug: "sitemap-new" as FullSlug,
             ext: ".xml",
           }),
         )
