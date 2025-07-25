@@ -41,7 +41,7 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
   const now = new Date().toISOString()
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `
   <url>
-    <loc>https://${joinSegments(base, slug)}</loc>
+    <loc>${encodeURI(`https://${joinSegments(base, slug)}`)}</loc>
     ${content.date ? `<lastmod>${content.date.toISOString()}</lastmod>` : `<lastmod>${now}</lastmod>`}
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
