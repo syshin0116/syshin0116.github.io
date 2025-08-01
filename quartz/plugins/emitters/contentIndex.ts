@@ -39,13 +39,41 @@ const defaultOptions: Options = {
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
   const base = cfg.baseUrl ?? ""
   const now = new Date().toISOString()
-  const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `
+  
+  // Create sitemap-safe URL from slug
+  const createSitemapSafeUrl = (slug: SimpleSlug): string => {
+    const url = `https://${joinSegments(base, slug)}`
+    // Only encode problematic characters that cause sitemap parsing issues
+    return url
+      .replace(/\+/g, '%2B')
+      .replace(/\(/g, '%28')
+      .replace(/\)/g, '%29')
+      .replace(/\*/g, '%2A')
+      .replace(/'/g, '%27')
+      .replace(/"/g, '%22')
+      .replace(/;/g, '%3B')
+      .replace(/,/g, '%2C')
+      .replace(/\?/g, '%3F')
+      .replace(/@/g, '%40')
+      .replace(/&/g, '%26')
+      .replace(/=/g, '%3D')
+      .replace(/\$/g, '%24')
+      .replace(/#/g, '%23')
+      .replace(/\[/g, '%5B')
+      .replace(/\]/g, '%5D')
+  }
+  
+  const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => {
+    const safeUrl = createSitemapSafeUrl(slug)
+    return `
   <url>
-    <loc>${encodeURI(`https://${joinSegments(base, slug)}`)}</loc>
+    <loc>${safeUrl}</loc>
     ${content.date ? `<lastmod>${content.date.toISOString()}</lastmod>` : `<lastmod>${now}</lastmod>`}
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`
+  }
+  
   const urls = Array.from(idx)
     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
     .join("")
@@ -110,10 +138,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
           joinSegments(ctx.argv.output, "static/contentIndex.json") as FilePath,
         )
         if (opts?.enableSiteMap) {
-          // 기존 sitemap.xml 생성
           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "sitemap.xml") as FilePath)
-          // 새로운 sitemap2.xml 생성
-          graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "sitemap2.xml") as FilePath)
         }
         if (opts?.enableRSS) {
           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "index.xml") as FilePath)
@@ -145,22 +170,11 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
       }
 
       if (opts?.enableSiteMap) {
-        // 기존 sitemap.xml 생성
         emitted.push(
           await write({
             ctx,
             content: generateSiteMap(cfg, linkIndex),
             slug: "sitemap" as FullSlug,
-            ext: ".xml",
-          }),
-        )
-
-        // 새로운 sitemap2.xml 생성
-        emitted.push(
-          await write({
-            ctx,
-            content: generateSiteMap(cfg, linkIndex),
-            slug: "sitemap2" as FullSlug,
             ext: ".xml",
           }),
         )
