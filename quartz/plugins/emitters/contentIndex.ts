@@ -39,7 +39,7 @@ const defaultOptions: Options = {
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
   const base = cfg.baseUrl ?? ""
   const now = new Date().toISOString()
-  
+
   // Create sitemap-safe URL from slug
   const createSitemapSafeUrl = (slug: SimpleSlug): string => {
     const url = `https://${joinSegments(base, slug)}`
@@ -62,7 +62,7 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
       .replace(/\[/g, '%5B')
       .replace(/\]/g, '%5D')
   }
-  
+
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => {
     const safeUrl = createSitemapSafeUrl(slug)
     return `
@@ -73,7 +73,7 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
     <priority>0.8</priority>
   </url>`
   }
-  
+
   const urls = Array.from(idx)
     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
     .join("")
@@ -179,7 +179,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
             ext: ".xml",
           }),
         )
-        
+
         emitted.push(
           await write({
             ctx,
