@@ -1,5 +1,5 @@
 ---
-title: SK그룹 AI경연 Advanced 리그 — 참여 개요 및 아웃라인
+title: SK-AI경연-Advanced-리그-개요
 date: 2025-08-09
 tags:
   - Projects
