@@ -39,6 +39,7 @@ const defaultOptions: Options = {
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
   const base = cfg.baseUrl ?? ""
   const now = new Date().toISOString()
+  const timestamp = Date.now()
 
   // Create sitemap-safe URL from slug
   const createSitemapSafeUrl = (slug: SimpleSlug): string => {
@@ -78,6 +79,7 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
     .join("")
   return `<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated at: ${now} (${timestamp}) -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls}
 </urlset>`
 }

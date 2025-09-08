@@ -2,9 +2,9 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://syshin0116.github.io/sitemap.xml
-Sitemap: https://syshin0116.github.io/sitemap2.xml
-Sitemap: https://syshin0116.github.io/sitemap_temp.xml
+Sitemap: https://syshin0116.github.io/sitemap.xml?v=2025010908
+Sitemap: https://syshin0116.github.io/sitemap2.xml?v=2025010908
+Sitemap: https://syshin0116.github.io/sitemap_temp.xml?v=2025010908
 
 # Block directories that shouldn't be crawled
 Disallow: /private/
