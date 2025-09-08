@@ -140,6 +140,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
         if (opts?.enableSiteMap) {
           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "sitemap.xml") as FilePath)
           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "sitemap2.xml") as FilePath)
+          graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "sitemap_temp.xml") as FilePath)
         }
         if (opts?.enableRSS) {
           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "index.xml") as FilePath)
@@ -185,6 +186,15 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
             ctx,
             content: generateSiteMap(cfg, linkIndex),
             slug: "sitemap2" as FullSlug,
+            ext: ".xml",
+          }),
+        )
+
+        emitted.push(
+          await write({
+            ctx,
+            content: generateSiteMap(cfg, linkIndex),
+            slug: "sitemap_temp" as FullSlug,
             ext: ".xml",
           }),
         )

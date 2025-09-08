@@ -4,6 +4,7 @@ Allow: /
 # Sitemap location
 Sitemap: https://syshin0116.github.io/sitemap.xml
 Sitemap: https://syshin0116.github.io/sitemap2.xml
+Sitemap: https://syshin0116.github.io/sitemap_temp.xml
 
 # Block directories that shouldn't be crawled
 Disallow: /private/
