@@ -1,13 +1,22 @@
 ---
-layout: post
 title: Second Brain 기반 RAG 시스템 구축
-date: 2024-08-02 22:28 +0900
-categories:
-  - 연구
-  - Second Brain
-tags: 
-math: true
+date: 2024-08-02
+tags:
+  - second-brain
+  - rag
+  - llm
+  - knowledge-management
+  - multi-agent
+  - ai
+draft: false
+enableToc: true
+description: "Second Brain 개념을 RAG 시스템에 적용하여 개인화된 AI 에이전트 구축하기"
+published: 2024-08-02
+modified: 2024-08-02
 ---
+
+> [!summary]
+> Second Brain 개념을 RAG(Retrieval-Augmented Generation) 시스템에 적용하는 아이디어를 탐구한다. 개인의 지식 데이터베이스를 체계적으로 구축하고 이를 RAG에 활용하면 성능 향상은 물론, 개인의 경험과 지식을 가진 Multi-Agent 구현이 가능할 것으로 기대한다.
 
 
 ## Intro

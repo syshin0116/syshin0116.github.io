@@ -1,13 +1,22 @@
 ---
-layout: post
-title: "[Modular RAG]Chat History"
-date: 2024-11-17 14:35 +0900
-categories:
-  - Project
-  - Modular RAG
-tags: 
-math: true
+title: "Modular RAG - Chat History 설계"
+date: 2024-11-17
+tags:
+  - modular-rag
+  - chat-history
+  - database-design
+  - chatbot
+  - architecture
+  - scalability
+draft: false
+enableToc: true
+description: "효율적인 채팅 기록 저장과 확장 가능한 구조 설계 - Chat Session과 Messages 분리"
+published: 2024-11-17
+modified: 2024-11-17
 ---
+
+> [!summary]
+> Modular RAG 챗봇의 효율적인 채팅 기록 저장 방식을 설계한 내용이다. Chat Session과 Chat Messages를 분리하여 저장하는 구조, 일반 챗봇과 카카오톡 봇 모두에 적합한 설계, 확장 가능한 데이터베이스 스키마, 그리고 실시간 채팅과 히스토리 조회를 모두 지원하는 아키텍처를 포함한다.
 
 ## 효율적인 Chat History 저장과 확장 가능한 구조 설계
 

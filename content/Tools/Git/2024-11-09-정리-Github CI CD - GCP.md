@@ -1,15 +1,22 @@
 ---
-layout: post
-title: "[정리]Github CI/CD - GCP"
-date: 2024-11-09 16:55 +0900
-categories:
-  - ETC
-  - Github
+title: "GitHub CI/CD와 GCP 통합 정리"
+date: 2024-11-09
 tags:
-  - CI/CD
-  - github
-math: true
+  - github-actions
+  - cicd
+  - gcp
+  - devops
+  - automation
+  - cloud
+draft: false
+enableToc: true
+description: "GitHub Actions와 GCP를 연동한 CI/CD 파이프라인 개념 및 구조 정리"
+published: 2024-11-09
+modified: 2024-11-09
 ---
+
+> [!summary]
+> GitHub Actions와 GCP를 연동하여 CI/CD 파이프라인을 구축하는 개념과 구조를 정리한 문서이다. 지속적 통합(CI)과 지속적 배포(CD)의 원리, GitHub Actions 워크플로우 구성, GCP 서비스 활용, 그리고 전체 시스템 아키텍처를 개념적으로 이해한다.
 
 ## Intro:
 

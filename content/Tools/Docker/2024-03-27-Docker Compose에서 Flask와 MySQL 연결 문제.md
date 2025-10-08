@@ -1,13 +1,22 @@
 ---
-layout: post
-title: Docker Compose에서 Flask와 MySQL 연결 문제
-date: 2024-03-27 22:54 +0900
-categories:
-  - ETC
-  - Docker
-tags: 
-math: true
+title: Docker Compose Flask-MySQL 연결 문제 해결
+date: 2024-03-27
+tags:
+  - docker
+  - docker-compose
+  - flask
+  - mysql
+  - troubleshooting
+  - networking
+draft: false
+enableToc: true
+description: "Docker Compose 환경에서 Flask와 MySQL 컨테이너 간 연결 문제 진단 및 해결"
+published: 2024-03-27
+modified: 2024-03-27
 ---
+
+> [!summary]
+> WSL 환경의 Docker Compose에서 Flask 컨테이너가 MySQL 컨테이너에 접속하지 못하는 문제를 해결한 과정이다. 네트워크 설정, 호스트 이름 사용, 컨테이너 간 통신, 그리고 MySQL 권한 설정 등 다양한 측면을 점검하여 문제를 해결했다.
 ### 문제 상황
 
 - WSL(Windows Subsystem for Linux) 환경에서 Docker Compose를 사용해 Flask(백엔드), MySQL(DB), Nginx(프록시) 컨테이너 설치

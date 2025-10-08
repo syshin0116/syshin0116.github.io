@@ -1,13 +1,22 @@
 ---
-layout: post
-title: Podly 백엔드 Todo
-date: 2024-08-17 20:24 +0900
-categories:
-  - Project
-  - Podly
-tags: 
-math: true
+title: Podly 백엔드 개발 계획
+date: 2024-08-17
+tags:
+  - podly
+  - backend
+  - project-planning
+  - todo
+  - development
+  - api
+draft: false
+enableToc: true
+description: "Podly 프로젝트 백엔드 개발을 위한 상세 작업 계획 및 Todo 리스트"
+published: 2024-08-17
+modified: 2024-08-17
 ---
+
+> [!summary]
+> Podly 프로젝트의 백엔드 개발을 위한 종합 작업 계획이다. 초기 환경 설정부터 API 개발, 데이터베이스 설계, 인증 시스템 구축, 배포 및 테스트까지 전체 백엔드 개발 과정의 체계적인 Todo 리스트를 포함한다.
 
 
 [Backend Todos](https://www.notion.so/53b65841ed204c799a648567d48ed891?pvs=21)

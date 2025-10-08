@@ -1,13 +1,22 @@
 ---
-layout: post
-title: "[LangChain Open Tutorial]프로젝트 회고록"
-date: 2025-02-24 22:12 +0900
-categories:
-  - Project
-  - LangChain Open Tutorial
-tags: 
-math: true
+title: "LangChain Open Tutorial 프로젝트 회고록"
+date: 2025-02-24
+tags:
+  - langchain
+  - open-tutorial
+  - retrospective
+  - open-source
+  - collaboration
+  - rag
+draft: false
+enableToc: true
+description: "LangChain Open Tutorial 오픈소스 프로젝트 7주간의 기여 경험 회고록"
+published: 2025-02-24
+modified: 2025-02-24
 ---
+
+> [!summary]
+> TeddyNote의 LangChain 오픈소스 튜토리얼 프로젝트에 7주간 기여한 경험을 정리한 회고록이다. 2,000+ 커밋의 활발한 프로젝트에서 튜토리얼 번역, 새로운 콘텐츠 작성, 코드 구현을 담당하며 얻은 배움과 성장, 그리고 오픈소스 협업의 가치를 공유한다.
 
 ## 배경
 

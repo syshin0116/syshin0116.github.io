@@ -1,13 +1,22 @@
 ---
-layout: post
-title: "[LangChain Open Tutorial] - Week 2- PeerReview"
-date: 2025-01-10 01:48 +0900
-categories:
-  - Project
-  - LangChain Open Tutorial
-tags: 
-math: true
+title: "LangChain Open Tutorial - Week 2 Peer Review"
+date: 2025-01-10
+tags:
+  - langchain
+  - open-tutorial
+  - peer-review
+  - graph-rag
+  - academic-search
+  - code-review
+draft: false
+enableToc: true
+description: "LangChain Open Tutorial Week 2 GraphRAG 및 Academic Search System 피어 리뷰"
+published: 2025-01-10
+modified: 2025-01-10
 ---
+
+> [!summary]
+> LangChain Open Tutorial 프로젝트 Week 2에서 진행한 GraphRAG와 Academic Search System에 대한 피어 리뷰 내용이다. 코드 개선 제안, 구조 최적화, 문서화 피드백 등 동료 기여자들의 작업에 대한 건설적인 리뷰를 포함한다.
 
 
 ## 04-GraphRAG / 07-AcademicSearchSystem

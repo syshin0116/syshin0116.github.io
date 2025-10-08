@@ -1,13 +1,22 @@
 ---
-layout: post
-title: Obsidian to Notion 자동화
-date: 2024-03-09 13:37 +0900
-categories:
-  - ETC
-  - etc
-tags: 
-math: true
+title: Obsidian to Notion 자동화 가이드
+date: 2024-03-09
+tags:
+  - obsidian
+  - notion
+  - automation
+  - markdown
+  - workflow
+  - productivity
+draft: false
+enableToc: true
+description: "Obsidian에서 작성한 문서를 Notion으로 자동 동기화하는 방법"
+published: 2024-03-09
+modified: 2024-03-09
 ---
+
+> [!summary]
+> Obsidian은 개인 사용에 강력하고 Notion은 협업에 적합한데, 두 도구 모두 Markdown을 기반으로 하기에 상호 호환이 가능하다. Obsidian에서 작성한 개인 문서를 Notion 협업 페이지로 자동으로 동기화하는 방법을 탐색하여 반복 작업을 자동화한다.
 
 ## Intro: 
 

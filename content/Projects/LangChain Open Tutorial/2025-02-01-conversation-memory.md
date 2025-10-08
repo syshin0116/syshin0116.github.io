@@ -1,13 +1,22 @@
 ---
-layout: post
-title: "[LangChain Open Tutorial]ConversationMemoryManagementSystem"
-date: 2025-02-01 22:26 +0900
-categories:
-  - Project
-  - LangChain Open Tutorial
-tags: 
-math: true
+title: "LangChain Open Tutorial - 대화 메모리 관리 시스템"
+date: 2025-02-01
+tags:
+  - langchain
+  - conversation-memory
+  - chatbot
+  - memory-management
+  - tutorial
+  - rag
+draft: false
+enableToc: true
+description: "LangChain을 활용한 대화 메모리 관리 시스템 튜토리얼"
+published: 2025-02-01
+modified: 2025-02-01
 ---
+
+> [!summary]
+> LangChain Open Tutorial에서 작성한 대화 메모리 관리 시스템 튜토리얼이다. 챗봇이 이전 대화 내용을 기억하고 맥락을 유지하면서 자연스러운 대화를 이어가기 위한 다양한 메모리 관리 기법, 구현 코드, 그리고 실전 활용 방법을 포함한다.
 
 # ConversationMemoryManagementSystem
 
