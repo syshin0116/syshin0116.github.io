@@ -1,13 +1,22 @@
 ---
-layout: post
-title: LlamaIndex 온라인 세미나
-date: 2024-05-30 21:48 +0900
-categories:
-  - Deep-Learning
-  - LlamaIndex
-tags: 
-math: true
+title: LlamaIndex 활용 가이드 온라인 세미나
+date: 2024-05-30
+tags:
+  - llamaindex
+  - llm
+  - rag
+  - deep-learning
+  - document-processing
+  - indexing
+draft: false
+enableToc: true
+description: "LlamaIndex의 장점과 실무 활용 방법을 다룬 온라인 세미나 정리"
+published: 2024-05-30
+modified: 2024-05-30
 ---
+
+> [!summary]
+> POSCO E&C 조우철 연구원의 LlamaIndex 활용 세미나 내용을 정리한 노트이다. LlamaIndex의 주요 장점(쉽고 간결한 코드, 빠른 프로토타이핑), LangChain과의 비교, Document Loaders와 Readers 활용, Indexing 전략, Query Engine 구성, 그리고 실무에서의 활용 사례와 팁을 포함한다.
 
 # Why I use LlamaIndex
 - 조우철님 발표 

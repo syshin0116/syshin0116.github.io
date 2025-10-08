@@ -1,13 +1,23 @@
 ---
-layout: post
-title: TeddyNote LangGraph
-date: 2024-07-13 16:27 +0900
-categories:
-  - ETC
-  - 세미나
-tags: 
-math: true
+title: TeddyNote LangGraph 세미나
+date: 2024-07-13
+tags:
+  - langgraph
+  - langchain
+  - agent
+  - workflow
+  - teddynote
+  - seminar
+  - graph-based-agents
+draft: false
+enableToc: true
+description: "TeddyNote의 LangGraph를 활용한 에이전트 워크플로우 구축 세미나 정리"
+published: 2024-07-13
+modified: 2024-07-13
 ---
+
+> [!summary]
+> TeddyNote의 LangGraph 세미나 내용을 정리한 노트이다. LangGraph의 개념과 LangChain과의 차이, 그래프 기반 워크플로우 설계, State Graph 구조, 노드와 엣지 정의, 조건부 라우팅, 에이전트 간 협업 구현, 그리고 실제 복잡한 AI 워크플로우 구축 사례를 포함한다.
 
 ## TeddyNote LangGraph 
 
