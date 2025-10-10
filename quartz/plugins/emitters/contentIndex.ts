@@ -180,6 +180,16 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
             ext: ".xml",
           }),
         )
+
+        // Test sitemap copy
+        emitted.push(
+          await write({
+            ctx,
+            content: generateSiteMap(cfg, linkIndex),
+            slug: "sitemap-google-test" as FullSlug,
+            ext: ".xml",
+          }),
+        )
       }
 
       if (opts?.enableRSS) {
