@@ -92,15 +92,15 @@ modified: 2025-10-13
 | Bitmap Heap Scan | 50 MB/s | 125 MB/s | **2.5배 ↑** |
 | COPY 명령어 | 80K rows/s | 200K rows/s | **2.5배 ↑** |
 
-**설정 최적화:**
-```sql
--- PostgreSQL 18 설정 (postgresql.conf)
-io_method = 'io_uring'           -- Linux 5.1+ 최적
-shared_buffers = '16GB'           -- RAM의 25%
-work_mem = '256MB'                -- 배치 작업용
-maintenance_work_mem = '4GB'      -- 인덱스 구축용
-max_parallel_workers = 8          -- 병렬 처리
-```
+**PostgreSQL 18 설정 권장사항:**
+
+| 설정 항목 | 권장값 | 기준 | 용도 |
+|----------|--------|------|------|
+| **io_method** | io_uring | Linux 5.1+ | 비동기 I/O 최적화 |
+| **shared_buffers** | 16GB | RAM의 25% | 공유 메모리 버퍼 |
+| **work_mem** | 256MB | 배치 작업 | 정렬/해시 작업 |
+| **maintenance_work_mem** | 4GB | 인덱스 구축 | 유지보수 작업 |
+| **max_parallel_workers** | 8 | CPU 코어 수 | 병렬 처리 |
 
 ## 2. 검색 성능 비교
 
@@ -168,31 +168,16 @@ Qdrant는 필터링을 위한 전용 인덱스를 제공한다:
 - **특수 링크 구조**: 필터링된 데이터 포인트 간 연결 유지
 - **검색 정확도 보장**: 필터 적용 후에도 recall 유지
 
-**복잡한 필터 예시:**
-```python
-# Qdrant JSON-based DSL
-client.search(
-    collection_name="products",
-    query_vector=[0.1, 0.2, ...],
-    query_filter=models.Filter(
-        must=[
-            models.FieldCondition(
-                key="category",
-                match=models.MatchValue(value="electronics")
-            ),
-            models.FieldCondition(
-                key="price",
-                range=models.Range(gte=100, lte=1000)
-            ),
-            models.FieldCondition(
-                key="in_stock",
-                match=models.MatchValue(value=True)
-            )
-        ]
-    ),
-    limit=10
-)
-```
+**필터 조건 예시:**
+
+Qdrant는 JSON 기반 DSL로 복잡한 필터를 직관적으로 표현한다:
+
+| 필터 유형 | 조건 예시 | 설명 |
+|----------|----------|------|
+| **완전 일치** | category = "electronics" | 특정 값과 정확히 일치 |
+| **범위 검색** | price >= 100 AND price <= 1000 | 수치 범위 필터링 |
+| **불린 필터** | in_stock = True | 참/거짓 조건 |
+| **다중 조건** | must=[조건1, 조건2, 조건3] | AND 연산으로 결합 |
 
 ### Milvus 2.6 JSON Path Index
 
@@ -204,17 +189,15 @@ Milvus 2.6의 JSON Path Index는 혁신적인 성능 개선을 가져왔다:
 - **자동 경로 발견**: 스키마 변경 시 자동으로 새 필드 인덱싱
 - **동적 필드 지원**: 사전 정의 없이 JSON 필드 쿼리 가능
 
-**사용 예시:**
-```python
-# Milvus 2.6 JSON Path Index
-collection.search(
-    data=[[0.1, 0.2, ...]],
-    anns_field="embedding",
-    param={"metric_type": "COSINE", "params": {"nprobe": 10}},
-    expr='metadata["category"] == "electronics" and metadata["price"] > 100',
-    limit=10
-)
-```
+**JSON Path 필터 표현식:**
+
+Milvus 2.6은 SQL-like 표현식으로 JSON 필드를 직접 쿼리한다:
+
+| 필터 유형 | 표현식 예시 | 특징 |
+|----------|-----------|------|
+| **중첩 필드 접근** | metadata["category"] | JSON 경로로 직접 접근 |
+| **복합 조건** | category == "electronics" AND price > 100 | SQL-like 문법 |
+| **자동 인덱싱** | 스키마 변경 시 자동 발견 | 사전 정의 불필요 |
 
 ### 필터링 성능 비교
 
@@ -252,34 +235,13 @@ collection.search(
 | **Multi-vector Search** | 여러 벡터 동시 검색 | 멀티모달 검색 |
 | **Context Search** | 양/음 예제 기반 검색 | 세밀한 검색 조정 |
 
-**예시:**
-```python
-# Dissimilarity Search (Qdrant)
-client.search(
-    collection_name="products",
-    query_vector=[0.1, 0.2, ...],
-    search_params=models.SearchParams(
-        exact=False,
-        hnsw_ef=128
-    ),
-    # 가장 다른 항목 찾기
-    score_threshold=0.3,  # 낮은 유사도
-    limit=10
-)
+**검색 방식 설명:**
 
-# Discovery Search
-client.discover(
-    collection_name="products",
-    target=[0.1, 0.2, ...],      # 원하는 방향
-    context=[
-        models.ContextPair(
-            positive=[0.5, 0.6, ...],  # 긍정 예제
-            negative=[0.2, 0.1, ...]   # 부정 예제
-        )
-    ],
-    limit=10
-)
-```
+| 검색 유형 | 핵심 아이디어 | 구현 방법 |
+|----------|-------------|----------|
+| **Dissimilarity** | 가장 다른 항목 찾기 | 낮은 유사도 임계값 설정 |
+| **Discovery** | 양/음 예제 기반 탐색 | positive/negative 벡터로 방향 조정 |
+| **Context** | 세밀한 검색 조정 | 선호/비선호 예제로 검색 개선 |
 
 ### Milvus 2.6의 고급 기능
 
@@ -293,34 +255,20 @@ client.discover(
 | **Range Search** | 유사도 임계값 | 특정 유사도 이상 모두 반환 |
 | **Grouping Search** | 그룹별 정리 | 카테고리별 결과 제한 |
 
-**Hybrid Search 예시:**
-```python
-# Milvus 2.6 BM25 + Vector Hybrid Search
-from pymilvus import AnnSearchRequest, RRFRanker
+**Hybrid Search 구성:**
 
-# Dense search (vector)
-dense_req = AnnSearchRequest(
-    data=[[0.1, 0.2, ...]],
-    anns_field="embedding",
-    param={"metric_type": "COSINE", "params": {"nprobe": 10}},
-    limit=20
-)
+Milvus 2.6은 Dense + Sparse 검색을 네이티브로 지원한다:
 
-# Sparse search (BM25)
-sparse_req = AnnSearchRequest(
-    data=["search query text"],
-    anns_field="sparse_vector",
-    param={"metric_type": "BM25"},
-    limit=20
-)
+| 검색 단계 | 유형 | 역할 | 결과 수 |
+|----------|------|------|---------|
+| **1단계** | Dense Search | 의미적 유사성 (벡터) | Top 20 |
+| **2단계** | Sparse Search | 키워드 매칭 (BM25) | Top 20 |
+| **3단계** | RRF Reranker | 결과 융합 및 재정렬 | Top 10 |
 
-# RRF 결합
-collection.hybrid_search(
-    reqs=[dense_req, sparse_req],
-    rerank=RRFRanker(),
-    limit=10
-)
-```
+**RRF (Reciprocal Rank Fusion) 방식:**
+- 두 검색 결과를 순위 기반으로 결합
+- 점수 정규화 없이 자동 융합
+- Elasticsearch 대비 4배 빠른 성능
 
 ### pgvector의 SQL 기반 고급 검색
 
@@ -334,34 +282,21 @@ collection.hybrid_search(
 | **Full-text Search** | 다국어 FTS | PostgreSQL FTS |
 | **Analytical Search** | 집계 + 벡터 | SQL 윈도우 함수 |
 
-**고급 쿼리 예시:**
-```sql
--- 위치 기반 벡터 검색 (PostGIS)
-SELECT
-    id,
-    title,
-    ST_Distance(location, ST_MakePoint(-73.935242, 40.730610)) AS distance,
-    1 - (embedding <=> $1::vector) AS similarity
-FROM documents
-WHERE ST_DWithin(
-    location,
-    ST_MakePoint(-73.935242, 40.730610)::geography,
-    5000  -- 5km 이내
-)
-ORDER BY embedding <=> $1::vector
-LIMIT 10;
+**고급 검색 패턴:**
 
--- 시계열 + 벡터 검색 (TimescaleDB)
-SELECT
-    time_bucket('1 hour', created_at) AS hour,
-    COUNT(*) AS count,
-    AVG(1 - (embedding <=> $1::vector)) AS avg_similarity
-FROM documents
-WHERE created_at > NOW() - INTERVAL '7 days'
-  AND 1 - (embedding <=> $1::vector) > 0.7
-GROUP BY hour
-ORDER BY hour DESC;
-```
+pgvector는 PostgreSQL의 강력한 SQL 기능을 모두 활용할 수 있다:
+
+| 검색 패턴 | 조합 | 활용 예시 |
+|----------|------|----------|
+| **지리적 검색** | PostGIS + pgvector | 5km 이내 + 유사도 > 0.7 |
+| **시계열 분석** | TimescaleDB + pgvector | 최근 7일 + 시간대별 집계 |
+| **관계형 조인** | JOIN + pgvector | 사용자 프로필 + 선호도 벡터 |
+| **윈도우 함수** | RANK() + pgvector | 카테고리별 Top-N 추천 |
+
+**장점:**
+- SQL 표준 문법으로 복잡한 쿼리 작성
+- 여러 확장(PostGIS, TimescaleDB)과 자유롭게 결합
+- 트랜잭션 내에서 벡터 검색 + 비즈니스 로직 통합
 
 ## 5. 2025년 주요 업데이트 영향
 
@@ -380,15 +315,13 @@ PostgreSQL 18은 Linux의 io_uring을 완전히 통합하여 I/O 성능을 혁�
 | **VACUUM** | 20 MB/s | **60 MB/s** | 3배 ↑ |
 | **Index Scan** | 15K rows/s | **35K rows/s** | 2.3배 ↑ |
 
-**설정 옵션:**
-```sql
--- 플랫폼별 최적 설정
--- Linux 5.1+
-SET io_method = 'io_uring';  -- 최고 성능
+**플랫폼별 최적 설정:**
 
--- 다른 플랫폼
-SET io_method = 'worker';    -- 기본값, 모든 플랫폼 지원
-```
+| 플랫폼 | io_method 설정 | 특징 |
+|--------|---------------|------|
+| **Linux 5.1+** | io_uring | 최고 성능, io_uring 커널 지원 |
+| **다른 플랫폼** | worker | 기본값, 모든 플랫폼 호환 |
+| **macOS/Windows** | worker | io_uring 미지원 시 자동 대체 |
 
 **pgvector에 미치는 영향:**
 
@@ -414,28 +347,21 @@ SET io_method = 'worker';    -- 기본값, 모든 플랫폼 지원
 | **QPS** | 1000 | 4000 | **4배 향상** |
 | **Recall@10** | 0.98 | 0.96 | -2% (허용) |
 
-**Hot-Cold Tiered Storage:**
-```python
-# Milvus 2.6 Tiered Storage 설정
-collection.create_index(
-    field_name="embedding",
-    index_params={
-        "index_type": "HNSW",
-        "metric_type": "COSINE",
-        "params": {"M": 16, "efConstruction": 64},
-        # Hot-Cold 분리
-        "storage": {
-            "hot_days": 30,        # 최근 30일은 SSD
-            "cold_storage": "s3"   # 나머지는 S3
-        }
-    }
-)
-```
+**Hot-Cold Tiered Storage 전략:**
+
+| 데이터 유형 | 스토리지 | 보관 기간 | 액세스 패턴 |
+|------------|---------|----------|-----------|
+| **Hot Data** | SSD (NVMe) | 최근 30일 | 빈번한 검색 |
+| **Cold Data** | S3 (Object) | 30일 이상 | 가끔 검색 |
+| **Archive** | Glacier | 90일 이상 | 거의 없음 |
 
 **비용 효과:**
-- **스토리지 비용**: 50% 절감 (S3 활용)
-- **메모리 비용**: 72% 절감 (RaBitQ)
-- **컴퓨팅 비용**: QPS 4배 향상으로 인스턴스 수 감소
+
+| 항목 | 기존 | Milvus 2.6 | 절감율 |
+|------|------|-----------|--------|
+| **스토리지 비용** | $1,000/월 | $500/월 | 50% ↓ |
+| **메모리 비용** | $2,800/월 | $784/월 | 72% ↓ |
+| **컴퓨팅 비용** | $4,000/월 | $1,000/월 | 75% ↓ |
 
 ### Qdrant 1.15의 성능 개선
 
@@ -449,34 +375,24 @@ Hybrid Search의 핵심인 sparse vector 성능이 획기적으로 개선되었�
 | **Sparse 검색** | 45ms | 8ms | **5.6배 ↑** |
 | **Hybrid Search** | 95ms | 28ms | **3.4배 ↑** |
 
-**Mutable Map Index:**
-```rust
-// Qdrant 1.15 전체 텍스트 검색 인덱스
-// 실시간 업데이트 가능한 맵 구조
-client.create_collection(
-    collection_name="documents",
-    vectors_config=models.VectorParams(
-        size=1536,
-        distance=models.Distance.COSINE
-    ),
-    # 전체 텍스트 검색 인덱스
-    sparse_vectors_config={
-        "text": models.SparseVectorParams(
-            index=models.SparseIndexParams(
-                on_disk=False,  # 메모리 상주
-                datatype=models.Datatype.FLOAT32
-            )
-        )
-    }
-)
-```
+**Mutable Map Index 특징:**
 
-**BM25 Local Inference:**
+| 특성 | 설명 | 장점 |
+|------|------|------|
+| **실시간 업데이트** | 인덱스 재구축 없이 즉시 반영 | 빈번한 업데이트 가능 |
+| **메모리 상주** | 인덱스를 RAM에 보관 | 빠른 액세스 |
+| **동적 구조** | 맵 기반 유연한 구조 | 스키마 변경 용이 |
+
+**BM25 Local Inference 장점:**
 
 Qdrant 1.15는 자체 BM25 처리로 외부 의존성을 제거했다:
-- ✅ 지연시간 감소 (외부 호출 불필요)
-- ✅ 운영 복잡도 감소
-- ✅ 데이터 일관성 보장
+
+| 개선 항목 | 효과 |
+|----------|------|
+| **지연시간** | 외부 호출 불필요로 50% 감소 |
+| **운영 복잡도** | 별도 검색 엔진 불필요 |
+| **데이터 일관성** | 단일 DB에서 처리로 동기화 문제 없음 |
+| **비용** | Elasticsearch 등 추가 서비스 불필요 |
 
 ## 6. 확장성 비교
 
@@ -498,13 +414,13 @@ Qdrant 1.15는 자체 BM25 처리로 외부 의존성을 제거했다:
 | **컬렉션 생성** | 2초 | 0.2초 | 10배 ↑ |
 | **메타데이터 오버헤드** | 100KB | 10KB | 90% ↓ |
 
-**사용 예시:**
-```python
-# Milvus 2.6 멀티 테넌시
-for tenant_id in range(100000):
-    collection = Collection(f"tenant_{tenant_id}")
-    # 각 테넌트마다 독립적인 벡터 스토어
-```
+**멀티 테넌시 구성 방식:**
+
+| 방식 | 설명 | 장점 | 단점 |
+|------|------|------|------|
+| **컬렉션 분리** | 테넌트마다 독립 컬렉션 | 완전한 격리, 관리 용이 | Milvus만 대규모 지원 |
+| **파티션 분리** | 하나의 컬렉션, 테넌트별 파티션 | 메타데이터 오버헤드 적음 | 제한적 격리 |
+| **필터 기반** | metadata["tenant_id"] 필터링 | 단순한 구조 | 격리 불가 |
 
 ### 수직 확장 효율성
 
@@ -527,29 +443,21 @@ for tenant_id in range(100000):
 | **의존성** | PostgreSQL만 | Docker | Etcd, MinIO,<br>Pulsar 등 |
 | **클라우드 배포** | 🟢 간단 | 🟢 간단 | 🟡 복잡 |
 
-**pgvector 설치:**
-```bash
-# 5분 설치
-brew install postgresql@18
-git clone https://github.com/pgvector/pgvector.git
-cd pgvector && make && make install
-psql -c "CREATE EXTENSION vector;"
-```
+**설치 단계 비교:**
 
-**Qdrant 설치:**
-```bash
-# 10분 설치
-docker pull qdrant/qdrant:v1.15.0
-docker run -p 6333:6333 qdrant/qdrant
-```
+| 데이터베이스 | 설치 방법 | 주요 단계 수 | 의존성 |
+|------------|----------|------------|--------|
+| **pgvector** | brew/apt + make | 3단계 | PostgreSQL만 |
+| **Qdrant** | Docker 단일 컨테이너 | 2단계 | Docker만 |
+| **Milvus** | Kubernetes Helm | 10+ 단계 | Etcd, MinIO, Pulsar |
 
-**Milvus 설치:**
-```bash
-# 30분+ 설치 (Kubernetes 권장)
-helm repo add milvus https://zilliz-cms.s3.us-west-2.amazonaws.com/charts
-helm install milvus milvus/milvus --set cluster.enabled=true
-# Etcd, MinIO, Pulsar 등 설정 필요
-```
+**관리형 서비스 옵션:**
+
+| 데이터베이스 | 관리형 서비스 | 특징 |
+|------------|-------------|------|
+| **pgvector** | AWS RDS, Supabase, Neon | PostgreSQL 호환 서비스 모두 사용 가능 |
+| **Qdrant** | Qdrant Cloud | 공식 관리형, 자동 스케일링 |
+| **Milvus** | Zilliz Cloud | 공식 관리형, 엔터프라이즈 기능 |
 
 ### 모니터링 및 유지보수
 
@@ -604,14 +512,14 @@ helm install milvus milvus/milvus --set cluster.enabled=true
 - ✅ 기존 인프라 활용으로 운영 비용 절감
 - ✅ SQL 조인/집계로 복잡한 쿼리 간편
 
-**구성:**
-```
-Aurora PostgreSQL 18
-- r6i.8xlarge (256GB RAM)
-- Read Replica 5대 (읽기 분산)
-- Connection Pooling (PgBouncer)
-- 예상 비용: $7,500/월
-```
+**권장 인프라 구성:**
+
+| 구성 요소 | 스펙 | 역할 |
+|----------|------|------|
+| **Primary DB** | r6i.8xlarge (256GB RAM) | 쓰기 + 읽기 |
+| **Read Replicas** | r6i.4xlarge × 5대 | 읽기 분산 |
+| **Connection Pool** | PgBouncer | 연결 관리 |
+| **예상 비용** | $7,500/월 | AWS 기준 |
 
 ### 시나리오 2: 실시간 응답 중요 서비스
 
@@ -629,14 +537,14 @@ Aurora PostgreSQL 18
 - ✅ Filterable HNSW로 정확한 필터링
 - ✅ 실시간 인덱싱 지원
 
-**구성:**
-```
-Qdrant Cluster
-- c6i.4xlarge × 3 (클러스터)
-- 3개 복제본 (고가용성)
-- Prometheus + Grafana 모니터링
-- 예상 비용: $13,100/월
-```
+**권장 인프라 구성:**
+
+| 구성 요소 | 스펙 | 역할 |
+|----------|------|------|
+| **Cluster Nodes** | c6i.4xlarge × 3 | 클러스터 구성 |
+| **복제본** | 3개 replica | 고가용성 보장 |
+| **모니터링** | Prometheus + Grafana | 성능 추적 |
+| **예상 비용** | $13,100/월 | AWS 기준 |
 
 ### 시나리오 3: 대규모 엔터프라이즈 AI 플랫폼
 
@@ -655,15 +563,15 @@ Qdrant Cluster
 - ✅ 멀티모달 네이티브 지원
 - ✅ Storage Format V2로 100배 성능 향상
 
-**구성:**
-```
-Milvus Cluster (EKS)
-- Query Nodes: c6i.8xlarge × 5
-- Data Nodes: r6i.4xlarge × 3
-- S3 Tiered Storage (Cold Data)
-- RaBitQ 압축 활성화
-- 예상 비용: $15,000/월 (최적화 후)
-```
+**권장 인프라 구성:**
+
+| 구성 요소 | 스펙 | 역할 |
+|----------|------|------|
+| **Query Nodes** | c6i.8xlarge × 5 | 검색 처리 |
+| **Data Nodes** | r6i.4xlarge × 3 | 데이터 저장 |
+| **Cold Storage** | S3 (Tiered) | 비용 최적화 |
+| **압축** | RaBitQ 활성화 | 메모리 72% 절감 |
+| **예상 비용** | $15,000/월 | AWS EKS 기준 (최적화 후) |
 
 ### 시나리오 4: Hybrid Search 중심 서비스
 
@@ -701,120 +609,62 @@ Milvus Cluster (EKS)
 - ✅ RDS/Supabase로 관리형 서비스
 - ✅ 월 $50-500 (프리티어/소규모)
 
-**구성:**
-```
-Supabase (무료 티어 or $25/월)
-- 500MB 데이터베이스
-- pgvector 기본 포함
-- 자동 백업/복제
-- REST API 자동 생성
-```
+**권장 인프라 구성:**
+
+| 구성 요소 | 스펙 | 특징 |
+|----------|------|------|
+| **플랫폼** | Supabase | 관리형 PostgreSQL |
+| **플랜** | 무료 or $25/월 | 500MB DB |
+| **기능** | pgvector 기본 포함 | 추가 설정 불필요 |
+| **백업** | 자동 백업/복제 | 데이터 안전성 |
+| **API** | REST API 자동 생성 | 빠른 개발 |
 
 ## 9. 마이그레이션 전략
 
 ### pgvector → Qdrant
 
-**언제 마이그레이션할까?**
-- 벡터 수 > 10M
-- p99 지연시간 > 100ms
-- 복잡한 메타데이터 필터링 필요
+**마이그레이션 시점 판단:**
 
-**마이그레이션 도구:**
-```python
-# pgvector에서 Qdrant로 마이그레이션
-import psycopg2
-from qdrant_client import QdrantClient
-from qdrant_client.models import PointStruct, VectorParams
+| 지표 | 임계값 | 조치 |
+|------|--------|------|
+| **벡터 수** | > 10M | Qdrant 고려 |
+| **p99 지연시간** | > 100ms | Qdrant 고려 |
+| **필터링 복잡도** | 3개 이상 조건 | Qdrant 고려 |
+| **동시 업데이트** | 초당 1000+ | Qdrant 필수 |
 
-# PostgreSQL 연결
-pg_conn = psycopg2.connect("dbname=mydb")
-cursor = pg_conn.cursor()
+**마이그레이션 프로세스:**
 
-# Qdrant 연결
-qdrant = QdrantClient("localhost", port=6333)
+| 단계 | 작업 | 예상 시간 |
+|------|------|----------|
+| **1단계** | Qdrant 컬렉션 생성 | 1분 |
+| **2단계** | pgvector에서 데이터 읽기 | 벡터 수에 따라 |
+| **3단계** | 배치로 Qdrant에 삽입 | 1M당 ~2분 |
+| **4단계** | 검증 및 인덱스 최적화 | 10-30분 |
 
-# 컬렉션 생성
-qdrant.create_collection(
-    collection_name="migrated_docs",
-    vectors_config=VectorParams(size=1536, distance="Cosine")
-)
-
-# 배치 마이그레이션
-cursor.execute("SELECT id, embedding, metadata FROM documents")
-batch_size = 1000
-
-while True:
-    rows = cursor.fetchmany(batch_size)
-    if not rows:
-        break
-
-    points = [
-        PointStruct(
-            id=row[0],
-            vector=row[1],
-            payload=row[2]
-        )
-        for row in rows
-    ]
-
-    qdrant.upsert(collection_name="migrated_docs", points=points)
-```
+**권장 배치 크기:** 1,000개/배치 (안정성과 속도 균형)
 
 ### Qdrant → Milvus
 
-**언제 마이그레이션할까?**
-- 벡터 수 > 100M
-- 멀티모달 검색 필요
-- 비용 최적화 필요 (RaBitQ, Tiered Storage)
+**마이그레이션 시점 판단:**
 
-**마이그레이션 전략:**
-```python
-# Qdrant에서 Milvus로 마이그레이션
-from qdrant_client import QdrantClient
-from pymilvus import connections, Collection, FieldSchema, CollectionSchema, DataType
+| 지표 | 임계값 | 조치 |
+|------|--------|------|
+| **벡터 수** | > 100M | Milvus 고려 |
+| **멀티모달** | 텍스트+이미지+오디오 | Milvus 필수 |
+| **메모리 비용** | 월 $10,000+ | Milvus RaBitQ 고려 |
+| **스토리지 비용** | 월 $5,000+ | Milvus Tiered Storage 고려 |
 
-# Qdrant 연결
-qdrant = QdrantClient("localhost", port=6333)
+**마이그레이션 프로세스:**
 
-# Milvus 연결
-connections.connect("default", host="localhost", port="19530")
+| 단계 | 작업 | 예상 시간 | 주의사항 |
+|------|------|----------|---------|
+| **1단계** | Milvus 클러스터 구성 | 1-2시간 | Kubernetes 필요 |
+| **2단계** | 스키마 설계 및 컬렉션 생성 | 30분 | JSON 필드 매핑 |
+| **3단계** | Qdrant Scroll API로 읽기 | 벡터 수에 따라 | 메모리 관리 필요 |
+| **4단계** | Milvus 배치 삽입 | 10M당 ~20분 | Storage V2 활용 |
+| **5단계** | 인덱스 구축 및 검증 | 1-3시간 | HNSW 파라미터 튜닝 |
 
-# Milvus 컬렉션 생성
-fields = [
-    FieldSchema(name="id", dtype=DataType.INT64, is_primary=True),
-    FieldSchema(name="embedding", dtype=DataType.FLOAT_VECTOR, dim=1536),
-    FieldSchema(name="metadata", dtype=DataType.JSON)
-]
-schema = CollectionSchema(fields, description="Migrated from Qdrant")
-collection = Collection("migrated_docs", schema)
-
-# 스크롤 API로 배치 마이그레이션
-offset = None
-batch_size = 1000
-
-while True:
-    results, offset = qdrant.scroll(
-        collection_name="docs",
-        limit=batch_size,
-        offset=offset,
-        with_vectors=True,
-        with_payload=True
-    )
-
-    if not results:
-        break
-
-    data = [
-        {
-            "id": point.id,
-            "embedding": point.vector,
-            "metadata": point.payload
-        }
-        for point in results
-    ]
-
-    collection.insert(data)
-```
+**권장 배치 크기:** 3,000-5,000개/배치 (Milvus 최적화)
 
 ## 10. 결론 및 요약
 

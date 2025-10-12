@@ -61,22 +61,18 @@ modified: 2025-10-13
 
 pgvector는 고정 길이 벡터를 저장하는 `vector(n)` 타입을 제공한다.
 
-**예시:**
-```sql
--- 벡터 타입 컬럼 생성
-CREATE TABLE documents (
-    id SERIAL PRIMARY KEY,
-    content TEXT,
-    embedding vector(1536)  -- OpenAI text-embedding-3-small 차원수
-);
+**테이블 구조 예시:**
 
--- 벡터 데이터 삽입
-INSERT INTO documents (content, embedding)
-VALUES (
-    'PostgreSQL is a powerful database',
-    '[0.123, -0.456, 0.789, ...]'  -- 1536개 실수 배열
-);
-```
+| 컬럼명 | 데이터 타입 | 설명 | 예시 |
+|--------|-----------|------|------|
+| **id** | SERIAL | Primary Key | 1, 2, 3, ... |
+| **content** | TEXT | 원본 텍스트 | "PostgreSQL is powerful..." |
+| **embedding** | vector(1536) | 임베딩 벡터 | [0.123, -0.456, 0.789, ...] |
+
+**벡터 데이터 형식:**
+- 대괄호로 감싼 실수 배열: `'[0.1, 0.2, 0.3, ...]'`
+- 고정 길이: 정확히 선언한 차원수와 일치해야 함
+- 실수 정밀도: 기본 float4 (32-bit)
 
 **지원 차원수:**
 - 최대 16,000 차원까지 지원
@@ -96,25 +92,19 @@ pgvector는 세 가지 거리 함수를 제공한다.
 | `<=>` | 코사인 거리 | 방향 유사도 (텍스트) | [0, 2] |
 | `<#>` | 내적 (음수) | 벡터 곱 기반 유사도 | (-∞, ∞) |
 
-**코사인 유사도 계산:**
-```sql
--- 코사인 거리 (0에 가까울수록 유사)
-SELECT
-    id,
-    content,
-    embedding <=> '[0.1, 0.2, 0.3, ...]' AS cosine_distance
-FROM documents
-ORDER BY cosine_distance
-LIMIT 10;
+**거리 계산 방식:**
 
--- 코사인 유사도로 변환 (1에 가까울수록 유사)
-SELECT
-    id,
-    1 - (embedding <=> '[0.1, 0.2, 0.3, ...]') AS cosine_similarity
-FROM documents
-ORDER BY embedding <=> '[0.1, 0.2, 0.3, ...]'
-LIMIT 10;
-```
+| 연산 | SQL 표현식 | 결과 해석 | 사용 시기 |
+|------|-----------|----------|----------|
+| **코사인 거리** | `embedding <=> query` | 0에 가까울수록 유사 | 대부분의 텍스트 검색 |
+| **코사인 유사도** | `1 - (embedding <=> query)` | 1에 가까울수록 유사 | 점수 표시 시 |
+| **L2 거리** | `embedding <-> query` | 작을수록 가까움 | 절대 거리 중요 시 |
+| **내적** | `embedding <#> query` | 클수록 유사 | 정규화된 벡터 |
+
+**정렬 및 필터링:**
+- 정렬: `ORDER BY embedding <=> query` (가장 유사한 순)
+- 임계값: `WHERE 1 - (embedding <=> query) > 0.7` (유사도 70% 이상)
+- 제한: `LIMIT 10` (상위 10개)
 
 ## 인덱스: HNSW 알고리즘
 
@@ -144,12 +134,14 @@ Layer 0 (하위):  A-D-C-E-B-F-G    (조밀한 연결, 정확한 검색)
 
 ### HNSW 인덱스 생성
 
-```sql
--- HNSW 인덱스 생성
-CREATE INDEX ON documents
-USING hnsw (embedding vector_cosine_ops)
-WITH (m = 16, ef_construction = 64);
-```
+**인덱스 생성 문법:**
+
+| 요소 | 값 | 설명 |
+|------|-----|------|
+| **인덱스 타입** | hnsw | Hierarchical Navigable Small World |
+| **거리 함수** | vector_cosine_ops | 코사인 거리 (또는 vector_l2_ops) |
+| **m 파라미터** | 16 | 그래프 연결성 (기본값) |
+| **ef_construction** | 64 | 구축 시 탐색 깊이 (기본값) |
 
 **파라미터 튜닝:**
 
@@ -159,21 +151,19 @@ WITH (m = 16, ef_construction = 64);
 | **ef_construction** | 구축 시 탐색 깊이 | 64 | 64-200 | 높을수록 정확하지만 구축 시간↑ |
 | **ef_search** | 검색 시 탐색 깊이 | 40 | 40-400 | 높을수록 정확하지만 검색 속도↓ |
 
-**튜닝 가이드:**
+**데이터 규모별 권장 설정:**
 
-```sql
--- 소규모 데이터 (<10K 벡터): 빠른 구축
-WITH (m = 8, ef_construction = 64)
+| 벡터 수 | m | ef_construction | ef_search | 특징 |
+|--------|---|----------------|-----------|------|
+| **< 10K** | 8 | 64 | 40 | 빠른 구축, 소규모 데이터 |
+| **10K-100K** | 16 | 64 | 40 | 균형잡힌 성능 (기본) |
+| **> 100K** | 32 | 128 | 100 | 높은 정확도, 대규모 |
+| **정확도 우선** | 64 | 256 | 200 | 최고 품질, 느림 |
 
--- 중규모 데이터 (10K-100K): 균형
-WITH (m = 16, ef_construction = 64)  -- 기본 권장
-
--- 대규모 데이터 (>100K): 높은 정확도
-WITH (m = 32, ef_construction = 128)
-
--- 검색 시 정확도 조정 (세션별)
-SET hnsw.ef_search = 100;  -- 기본 40에서 증가
-```
+**런타임 조정:**
+- `ef_search`: 세션별로 검색 정확도 조정 가능
+- 기본값 40에서 100으로 증가 → 정확도 향상, 속도 감소
+- 쿼리마다 다른 값 설정 가능
 
 ### IVFFlat vs HNSW 비교
 
@@ -213,42 +203,28 @@ Supabase가 권장하는 RRF 방식으로 Dense와 Sparse 결과를 결합한다
 RRF_score = Σ 1 / (k + rank_i)
 ```
 
-**구현 예시:**
-```sql
-WITH dense_search AS (
-    SELECT
-        id,
-        content,
-        1 / (60 + ROW_NUMBER() OVER (ORDER BY embedding <=> $1)) AS dense_rank
-    FROM documents
-    ORDER BY embedding <=> $1::vector
-    LIMIT 20
-),
-sparse_search AS (
-    SELECT
-        id,
-        content,
-        1 / (60 + ROW_NUMBER() OVER (ORDER BY ts_rank_cd(fts, query) DESC)) AS sparse_rank
-    FROM documents,
-         plainto_tsquery('english', $2) query
-    WHERE fts @@ query
-    ORDER BY ts_rank_cd(fts, query) DESC
-    LIMIT 20
-)
-SELECT
-    COALESCE(d.id, s.id) AS id,
-    COALESCE(d.content, s.content) AS content,
-    COALESCE(d.dense_rank, 0.0) + COALESCE(s.sparse_rank, 0.0) AS rrf_score
-FROM dense_search d
-FULL OUTER JOIN sparse_search s ON d.id = s.id
-ORDER BY rrf_score DESC
-LIMIT 10;
+**Hybrid Search 프로세스:**
+
+| 단계 | 검색 방식 | 기술 | 결과 | RRF 점수 |
+|------|----------|------|------|---------|
+| **1단계** | Dense Search | pgvector 코사인 유사도 | Top 20 | 1/(60+rank) |
+| **2단계** | Sparse Search | PostgreSQL FTS (BM25) | Top 20 | 1/(60+rank) |
+| **3단계** | 결과 결합 | FULL OUTER JOIN | 중복 제거 | Dense + Sparse |
+| **4단계** | 최종 정렬 | RRF Score | Top 10 | 높은 순 |
+
+**RRF (Reciprocal Rank Fusion) 공식:**
+```
+RRF_score = 1/(k + rank_dense) + 1/(k + rank_sparse)
 ```
 
 **RRF 장점:**
-- ✅ 점수 범위가 다른 검색 방식도 정규화 없이 결합 가능
-- ✅ 상수 `k` (기본 60)로 간단하게 조정
-- ✅ 순위 기반이라 점수 스케일 문제 없음
+
+| 특징 | 설명 | 장점 |
+|------|------|------|
+| **정규화 불필요** | 점수 범위가 달라도 OK | 단순한 구현 |
+| **상수 k 조정** | 기본 60, 필요시 변경 | 쉬운 튜닝 |
+| **순위 기반** | 점수가 아닌 순위 사용 | 스케일 문제 없음 |
+| **검증된 방법** | Supabase 등에서 사용 | 신뢰성 높음 |
 
 ## PostgreSQL 18의 성능 개선
 
@@ -319,164 +295,140 @@ LIMIT 10;
 
 ### RAG (Retrieval Augmented Generation)
 
-**문서 임베딩 저장:**
-```sql
-CREATE TABLE documents (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    title TEXT NOT NULL,
-    content TEXT NOT NULL,
-    embedding vector(3072),
-    metadata JSONB,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+**테이블 스키마:**
 
-CREATE INDEX ON documents USING hnsw (embedding vector_cosine_ops);
+| 컬럼명 | 타입 | 제약조건 | 용도 |
+|--------|------|---------|------|
+| **id** | UUID | PRIMARY KEY | 문서 고유 ID |
+| **title** | TEXT | NOT NULL | 문서 제목 |
+| **content** | TEXT | NOT NULL | 문서 내용 |
+| **embedding** | vector(3072) | - | OpenAI 임베딩 (large) |
+| **metadata** | JSONB | - | 작성자, 태그 등 메타데이터 |
+| **created_at** | TIMESTAMP | DEFAULT NOW() | 생성 시간 |
 
--- 문서 삽입
-INSERT INTO documents (title, content, embedding, metadata)
-VALUES (
-    'PostgreSQL Performance Tuning',
-    'PostgreSQL offers various...',
-    '[0.123, -0.456, ...]',  -- OpenAI 임베딩
-    '{"author": "John Doe", "tags": ["database", "performance"]}'
-);
-```
+**인덱스 구성:**
+- HNSW 인덱스: embedding 컬럼에 vector_cosine_ops 적용
+- GIN 인덱스: metadata JSONB 검색 최적화 (선택)
 
-**유사 문서 검색:**
-```sql
--- 쿼리 임베딩과 유사한 문서 검색
-SELECT
-    id,
-    title,
-    content,
-    1 - (embedding <=> $1::vector) AS similarity,
-    metadata->>'author' AS author
-FROM documents
-WHERE 1 - (embedding <=> $1::vector) > 0.7  -- 유사도 threshold
-ORDER BY embedding <=> $1::vector
-LIMIT 5;
-```
+**검색 방식:**
+
+| 검색 유형 | 조건 | 결과 |
+|----------|------|------|
+| **유사도 검색** | `ORDER BY embedding <=> query` | 가장 유사한 순 |
+| **임계값 필터** | `WHERE similarity > 0.7` | 70% 이상만 |
+| **메타데이터 결합** | `metadata->>'author'` | JSON 필드 추출 |
+| **제한** | `LIMIT 5` | 상위 5개 |
 
 ### 의미적 검색 엔진
 
-**Hybrid Search 구현:**
-```sql
--- Dense (의미적) + Sparse (키워드) 결합
-WITH semantic_results AS (
-    SELECT id, 1 / (60 + ROW_NUMBER() OVER (ORDER BY embedding <=> $1)) AS score
-    FROM documents
-    ORDER BY embedding <=> $1::vector LIMIT 20
-),
-keyword_results AS (
-    SELECT id, 1 / (60 + ROW_NUMBER() OVER (ORDER BY rank DESC)) AS score
-    FROM documents,
-         ts_rank_cd(to_tsvector('english', content), plainto_tsquery('english', $2)) AS rank
-    WHERE to_tsvector('english', content) @@ plainto_tsquery('english', $2)
-    ORDER BY rank DESC LIMIT 20
-)
-SELECT
-    d.id,
-    d.title,
-    d.content,
-    COALESCE(s.score, 0) + COALESCE(k.score, 0) AS final_score
-FROM documents d
-LEFT JOIN semantic_results s ON d.id = s.id
-LEFT JOIN keyword_results k ON d.id = k.id
-WHERE COALESCE(s.score, 0) + COALESCE(k.score, 0) > 0
-ORDER BY final_score DESC
-LIMIT 10;
-```
+**Hybrid Search 구조:**
+
+| CTE 단계 | 검색 방식 | 기술 | 결과 수 | 점수 계산 |
+|----------|----------|------|---------|----------|
+| **semantic_results** | 의미적 검색 | pgvector 코사인 | Top 20 | 1/(60+rank) |
+| **keyword_results** | 키워드 검색 | PostgreSQL FTS | Top 20 | 1/(60+rank) |
+| **최종 결합** | LEFT JOIN | 점수 합산 | Top 10 | semantic + keyword |
+
+**검색 특징:**
+
+| 검색 유형 | 강점 | 약점 | 예시 쿼리 |
+|----------|------|------|----------|
+| **Semantic** | 의미 이해, 유의어 | 정확한 키워드 약함 | "데이터베이스 성능" |
+| **Keyword** | 정확한 매칭 | 의미 이해 불가 | "PostgreSQL 18" |
+| **Hybrid** | 두 장점 결합 | 구현 복잡 | 위 두 개 모두 |
+
+**점수 결합 전략:**
+- RRF (Reciprocal Rank Fusion) 사용
+- 0점인 경우 COALESCE로 처리
+- 최종 점수로 정렬하여 상위 10개 반환
 
 ### 추천 시스템
 
-**콘텐츠 기반 추천:**
-```sql
--- 특정 문서와 유사한 다른 문서 추천
-SELECT
-    d2.id,
-    d2.title,
-    1 - (d2.embedding <=> d1.embedding) AS similarity
-FROM documents d1
-CROSS JOIN documents d2
-WHERE d1.id = $1  -- 기준 문서
-  AND d2.id != $1  -- 자기 자신 제외
-ORDER BY d2.embedding <=> d1.embedding
-LIMIT 10;
-```
+**콘텐츠 기반 추천 구조:**
+
+| 단계 | SQL 요소 | 역할 | 설명 |
+|------|----------|------|------|
+| **1. 기준 선택** | `WHERE d1.id = $1` | 기준 문서 | 사용자가 본 문서 |
+| **2. 비교 대상** | `CROSS JOIN` | 모든 문서 | 전체 문서와 비교 |
+| **3. 자기 제외** | `AND d2.id != $1` | 중복 방지 | 같은 문서 제외 |
+| **4. 유사도 계산** | `embedding <=> embedding` | 벡터 거리 | 코사인 유사도 |
+| **5. 정렬** | `ORDER BY distance` | 가장 유사한 순 | 상위 10개 |
+
+**추천 알고리즘 유형:**
+
+| 유형 | 방법 | 장점 | 단점 |
+|------|------|------|------|
+| **Content-based** | 벡터 유사도 | 신규 아이템도 추천 가능 | 다양성 부족 |
+| **User-based** | 사용자 임베딩 비교 | 개인화 가능 | Cold start 문제 |
+| **Hybrid** | Content + User 결합 | 두 장점 활용 | 구현 복잡 |
 
 ## 모범 사례 (Best Practices)
 
 ### 1. 임베딩 정규화
 
-코사인 거리 사용 시 벡터를 정규화하면 검색 속도가 향상된다.
+**정규화의 중요성:**
 
-```python
-import numpy as np
+| 항목 | 정규화 전 | 정규화 후 | 효과 |
+|------|----------|----------|------|
+| **검색 속도** | 기준 | 10-20% 향상 | 연산 최적화 |
+| **코사인 유사도** | 계산 필요 | 내적만으로 계산 가능 | 단순화 |
+| **정확도** | 동일 | 동일 | 변화 없음 |
 
-# 벡터 정규화
-def normalize_vector(vector):
-    return vector / np.linalg.norm(vector)
-
-embedding = normalize_vector(embedding)
-```
+**정규화 방법:**
+- 벡터를 단위 벡터로 변환 (길이 = 1)
+- L2 norm으로 나누기: `vector / ||vector||`
+- OpenAI 등 대부분 모델은 이미 정규화됨
 
 ### 2. 배치 삽입
 
-대량 벡터 삽입 시 배치 처리로 성능 향상.
+**삽입 방식별 성능:**
 
-```sql
--- COPY 명령어로 배치 삽입 (가장 빠름)
-COPY documents (id, content, embedding)
-FROM '/path/to/embeddings.csv'
-WITH (FORMAT csv);
+| 방식 | 속도 | 사용 시기 | 특징 |
+|------|------|----------|------|
+| **COPY** | 🥇 최고속 | 대량 초기 삽입 | CSV 파일에서 직접 |
+| **준비된 명령문** | 🥈 빠름 | 프로그램에서 삽입 | 반복 실행 최적화 |
+| **단일 INSERT** | 🥉 느림 | 소량 데이터 | 간단한 테스트 |
 
--- 또는 준비된 명령문 사용
-PREPARE insert_doc AS
-INSERT INTO documents (content, embedding) VALUES ($1, $2);
-
--- 여러 번 실행
-EXECUTE insert_doc('content1', '[0.1, 0.2, ...]');
-EXECUTE insert_doc('content2', '[0.3, 0.4, ...]');
-```
+**권장 배치 크기:**
+- 500-2,000개/배치
+- PostgreSQL 메모리 한계 고려
+- 트랜잭션 단위로 커밋
 
 ### 3. 인덱스 구축 타이밍
 
-```sql
--- 대량 삽입 전 인덱스 삭제
-DROP INDEX IF EXISTS documents_embedding_idx;
+**대량 삽입 시 전략:**
 
--- 데이터 삽입
-COPY documents FROM ...;
+| 단계 | 작업 | 이유 |
+|------|------|------|
+| **1단계** | 기존 인덱스 삭제 | 삽입 속도 향상 |
+| **2단계** | 데이터 대량 삽입 | 인덱스 없이 빠르게 |
+| **3단계** | 인덱스 재생성 | 한 번에 구축이 효율적 |
 
--- 인덱스 재생성 (한 번에 구축이 더 빠름)
-CREATE INDEX documents_embedding_idx ON documents
-USING hnsw (embedding vector_cosine_ops)
-WITH (m = 16, ef_construction = 64);
-```
+**성능 비교:**
+- 인덱스 유지: 100K 벡터 → 2시간
+- 인덱스 재구축: 100K 벡터 → 1시간
 
 ### 4. 메모리 설정 최적화
 
-```sql
--- postgresql.conf
-shared_buffers = 8GB             -- 전체 RAM의 25%
-work_mem = 256MB                 -- 정렬/해시 작업용
-maintenance_work_mem = 2GB       -- 인덱스 구축용
-effective_cache_size = 24GB      -- OS 캐시 포함 추정치
-```
+**PostgreSQL 설정 권장값:**
+
+| 설정 | 권장값 | 기준 | 용도 |
+|------|--------|------|------|
+| **shared_buffers** | 8GB | RAM의 25% | 공유 메모리 버퍼 |
+| **work_mem** | 256MB | 쿼리별 | 정렬/해시 작업 |
+| **maintenance_work_mem** | 2GB | 인덱스 구축 | 유지보수 작업 |
+| **effective_cache_size** | 24GB | RAM의 75% | OS 캐시 추정 |
 
 ### 5. 모니터링
 
-```sql
--- 인덱스 크기 확인
-SELECT
-    pg_size_pretty(pg_relation_size('documents_embedding_idx')) AS index_size;
+**주요 모니터링 지표:**
 
--- 쿼리 성능 분석
-EXPLAIN ANALYZE
-SELECT * FROM documents
-ORDER BY embedding <=> '[0.1, 0.2, ...]'::vector
-LIMIT 10;
-```
+| 지표 | 확인 방법 | 정상 범위 | 조치 |
+|------|----------|----------|------|
+| **인덱스 크기** | pg_relation_size() | 벡터 크기의 3-5배 | 파라미터 조정 |
+| **쿼리 시간** | EXPLAIN ANALYZE | < 50ms (100K 벡터) | 인덱스 최적화 |
+| **캐시 히트율** | pg_stat_database | > 95% | shared_buffers 증가 |
+| **인덱스 스캔 비율** | pg_stat_user_indexes | > 80% | 인덱스 효율성 확인 |
 
 ## 제한사항 및 고려사항
 
