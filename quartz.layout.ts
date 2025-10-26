@@ -63,13 +63,15 @@ export const homePageLayout: Partial<FullPageLayout> = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.Explorer(),
+    Component.Explorer({
+      folderDefaultState: "collapsed", // 모든 폴더 기본 닫힘 상태
+      useSavedState: false, // 모바일 성능을 위해 저장된 상태 사용 안함
+    }),
   ],
   right: [
     Component.Graph({
       localGraph: {
-        depth: -1,  // 모든 페이지 보여줌
-
+        depth: 2,  // 2단계 깊이만 보여줌 (모바일 성능 개선)
       }
     }),
     Component.DesktopOnly(Component.TableOfContents()),
@@ -80,6 +82,8 @@ export const homePageLayout: Partial<FullPageLayout> = {
       limit: 15,
       showTags: true,
       linkToMore: false,
+      showPagination: true, // pagination 활성화
+      itemsPerPage: 6, // 페이지당 6개 아이템 표시
       filter: (f: QuartzPluginData) => f.slug !== "index" // index 페이지 제외
     }),
   ],

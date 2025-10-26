@@ -130,6 +130,45 @@
     }
   }
 
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem 0;
+
+    .pagination-btn {
+      padding: 0.6rem 1.2rem;
+      background: var(--lightgray);
+      color: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover:not(:disabled) {
+        background: var(--secondary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+
+    .pagination-info {
+      font-weight: 600;
+      color: var(--dark);
+      min-width: 60px;
+      text-align: center;
+    }
+  }
+
   .recent-more {
     margin-top: 1.5rem;
     text-align: center;
