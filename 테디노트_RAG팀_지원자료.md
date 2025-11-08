@@ -9,6 +9,10 @@
 - Production Level End-to-End RAG 파이프라인 운영 경험
 - Qdrant, PostgreSQL(pgvector), Neo4j 등 다양한 Vector DB 활용 경험
 
+**온라인 프로필**:
+- GitHub: https://github.com/syshin0116 (25+ repositories, 꾸준한 일일 커밋 습관)
+- 기술 블로그: https://syshin0116.github.io (Quartz 기반 개인 기술 블로그, 지속적 포스팅)
+
 ---
 
 ## 📋 채용 요구사항별 역량 매칭
@@ -469,6 +473,13 @@
 - **3개 튜토리얼 작성**: LlamaParse, Memory Management, Smart Web Search
 - **Peer Review 경험**: 협업 및 기술 인사이트 확장
 - **최신 트렌드 파악**: RAG, Agent, MCP 등 꾸준한 학습
+
+### 꾸준한 개발 습관 및 기술 공유
+- **GitHub 일일 커밋 습관**: 25+ repositories, 매일 무언가를 개발하는 습관 유지
+- **기술 블로그 운영**: Quartz 기반 개인 기술 블로그 (https://syshin0116.github.io)
+  - 프로젝트 회고, 기술 학습 내용, 문제 해결 과정 지속적 기록
+  - 학습한 내용을 문서화하고 공유하는 습관
+- **지속적 학습**: 새로운 기술 스택 및 트렌드를 빠르게 습득하고 적용
 
 ---
 
