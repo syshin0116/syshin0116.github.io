@@ -25,7 +25,8 @@
   "smart_notices": {
     "muted": {
       "done_import": true,
-      "new_version_available": true
+      "new_version_available": true,
+      "embedding_complete": true
     }
   }
 }
