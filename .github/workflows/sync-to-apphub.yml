@@ -26,14 +26,26 @@ jobs:
 
       - name: Update blog content in apphub-ai
         run: |
-          # apphub-ai의 data/blog로 이동
-          cd apphub-ai/data/blog
+          cd apphub-ai
 
-          # 최신 블로그 content 가져오기
-          git pull origin main
-
-          # apphub-ai 루트로 이동
-          cd ../..
+          # data/blog 디렉토리 확인 및 생성
+          if [ ! -d "data/blog" ]; then
+            echo "Initializing data/blog directory..."
+            mkdir -p data/blog
+            cd data/blog
+            git init
+            git remote add origin https://github.com/syshin0116/syshin0116.github.io.git
+            git config core.sparseCheckout true
+            mkdir -p .git/info
+            echo "content/" > .git/info/sparse-checkout
+            git pull origin main
+            cd ../..
+          else
+            echo "Updating existing data/blog directory..."
+            cd data/blog
+            git pull origin main
+            cd ../..
+          fi
 
           # Git 설정
           git config user.name "github-actions[bot]"
