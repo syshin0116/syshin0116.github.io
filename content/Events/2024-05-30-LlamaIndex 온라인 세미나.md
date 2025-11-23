@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: LlamaIndex의 장점과 실무 활용 방법을 다룬 온라인 세미나 정리
+summary: LlamaIndex의 장점과 실무 활용 방법을 다룬 온라인 세미나 정리
 published: 2024-05-30
 modified: 2024-05-30
 ---

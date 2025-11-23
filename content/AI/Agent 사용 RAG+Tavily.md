@@ -12,6 +12,9 @@ tags:
 draft: false
 enableToc: true
 description: LangChain Agent와 Tavily 검색 엔진을 활용한 고급 RAG 시스템 구현 방법과 활용 사례 분석
+summary: LangChain Agent와 Tavily 검색 엔진을 결합한 RAG 시스템은 PDF 검색, 웹 검색 등 다양한 정보 소스를 통합하여
+  더 정확하고 신뢰할 수 있는 응답을 생성한다. 에이전트 기반 접근 방식은 복잡한 질의에 대해 단계적 추론과 정보 탐색이 가능하며, 특히 법률,
+  의학 등 전문 도메인에서 뛰어난 성능을 보인다.
 published: 2024-05-05
 modified: 2024-05-05
 ---

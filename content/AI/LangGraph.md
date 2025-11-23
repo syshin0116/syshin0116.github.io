@@ -11,6 +11,9 @@ tags:
 draft: false
 enableToc: true
 description: LangGraph 라이브러리의 개념과 다중 에이전트 협업 시스템 구현 방법 설명
+summary: LangGraph는 LangChain 위에 구축된 상태 유지형 다중 에이전트 애플리케이션을 구축하기 위한 라이브러리다. 주요 특징은
+  LLM 애플리케이션에 순환(cycle) 기능을 추가하는 것으로, 이는 에이전트가 다음 행동을 결정하는 반복적 프로세스에 중요하다. 다중 에이전트
+  협업 모델에서는 각 작업이나 도메인에 전문화된 에이전트를 할당하여 "분할 정복" 방식으로 복잡한 문제를 해결한다.
 published: 2024-03-06
 modified: 2024-03-06
 ---

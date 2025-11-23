@@ -12,6 +12,7 @@ tags:
 draft: false
 enableToc: true
 description: 블랙박스 영상에서 교통 법규 위반 차량을 자동으로 감지하고 신고하는 AI 시스템 프로젝트
+summary: 블랙박스 영상에서 교통 법규 위반 차량을 자동으로 감지하고 신고하는 AI 시스템 프로젝트
 published: 2023-11-19
 modified: 2023-11-19
 ---

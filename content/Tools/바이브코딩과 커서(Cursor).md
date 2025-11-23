@@ -12,6 +12,7 @@ tags:
 draft: false
 enableToc: true
 description: 바이브코딩이란 무엇인지, 그리고 AI 코딩 도구인 Cursor를 활용하는 방법과 사용 후기에 대한 글이다.
+summary: 바이브코딩이란 무엇인지, 그리고 AI 코딩 도구인 Cursor를 활용하는 방법과 사용 후기에 대한 글이다.
 published: *id001
 modified: *id001
 ---

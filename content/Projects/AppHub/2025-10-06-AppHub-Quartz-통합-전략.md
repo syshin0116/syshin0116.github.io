@@ -15,6 +15,8 @@ draft: false
 enableToc: true
 description: Obsidian Quartz 블로그를 AppHub 플랫폼에 통합하는 전략. Obsidian의 강력한 기능들을 유지하면서 Next.js
   기반 통합 플랫폼의 일부로 만드는 방법과 RAG 시스템 구축 계획
+summary: Obsidian Quartz 블로그를 AppHub 플랫폼에 통합하는 전략. Obsidian의 강력한 기능들을 유지하면서 Next.js
+  기반 통합 플랫폼의 일부로 만드는 방법과 RAG 시스템 구축 계획
 published: *id001
 modified: *id001
 ---

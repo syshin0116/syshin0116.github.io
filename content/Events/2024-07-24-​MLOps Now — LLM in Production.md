@@ -14,6 +14,7 @@ tags:
 draft: false
 enableToc: true
 description: 프로덕션 환경에서의 LLM 운영을 위한 MLOps 전략 세미나 정리
+summary: 프로덕션 환경에서의 LLM 운영을 위한 MLOps 전략 세미나 정리
 published: 2024-07-24
 modified: 2024-07-24
 ---

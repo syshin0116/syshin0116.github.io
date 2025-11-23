@@ -10,6 +10,7 @@ tags:
 draft: false
 enableToc: true
 description: Zettelkasten 노트 작성 시스템의 원리와 Second Brain 구축 방법
+summary: Zettelkasten 노트 작성 시스템의 원리와 Second Brain 구축 방법
 published: 2024-07-29
 modified: 2024-07-29
 ---

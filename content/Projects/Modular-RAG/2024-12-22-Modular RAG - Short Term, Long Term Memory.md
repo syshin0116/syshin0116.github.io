@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: 챗봇의 단기 기억과 장기 기억 구현 - 사람처럼 기억하는 AI 시스템 설계
+summary: 챗봇의 단기 기억과 장기 기억 구현 - 사람처럼 기억하는 AI 시스템 설계
 published: 2024-12-22
 modified: 2024-12-22
 ---

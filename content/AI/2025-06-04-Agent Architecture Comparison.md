@@ -19,6 +19,8 @@ draft: false
 enableToc: true
 description: 워크플로우와 에이전트의 차이점, 그리고 ReAct, Plan-and-Execute, Supervisor 아키텍처의 특징과 장단점을
   체계적으로 비교 분석한 포괄적 가이드
+summary: 워크플로우와 에이전트의 차이점, 그리고 ReAct, Plan-and-Execute, Supervisor 아키텍처의 특징과 장단점을
+  체계적으로 비교 분석한 포괄적 가이드
 published: *id001
 modified: *id001
 ---

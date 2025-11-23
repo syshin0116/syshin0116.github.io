@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Google Cloud Platform VM 인스턴스에 SSH 키를 생성하고 VS Code로 원격 연결하는 방법
+summary: Google Cloud Platform VM 인스턴스에 SSH 키를 생성하고 VS Code로 원격 연결하는 방법
 published: 2024-09-23
 modified: 2024-09-23
 ---

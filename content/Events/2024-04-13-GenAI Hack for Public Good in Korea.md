@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: 생성형 AI로 공공부문 업무혁신을 실현하는 해커톤 참가 기록
+summary: 생성형 AI로 공공부문 업무혁신을 실현하는 해커톤 참가 기록
 published: 2024-04-13
 modified: 2024-04-13
 ---

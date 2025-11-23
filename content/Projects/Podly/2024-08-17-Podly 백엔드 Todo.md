@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Podly 프로젝트 백엔드 개발을 위한 상세 작업 계획 및 Todo 리스트
+summary: Podly 프로젝트 백엔드 개발을 위한 상세 작업 계획 및 Todo 리스트
 published: 2024-08-17
 modified: 2024-08-17
 ---

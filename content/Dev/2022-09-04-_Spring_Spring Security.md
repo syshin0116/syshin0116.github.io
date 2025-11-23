@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Spring Security의 기본 개념과 인증, 인가 메커니즘 설명
+summary: Spring Security의 기본 개념과 인증, 인가 메커니즘 설명
 published: 2022-09-04
 modified: 2022-09-04
 ---

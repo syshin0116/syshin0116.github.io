@@ -13,6 +13,7 @@ tags:
 draft: false
 enableToc: true
 description: Anthropic에서 개발한 MCP(Model Context Protocol)의 개념, 구조 및 활용에 대한 설명
+summary: Anthropic에서 개발한 MCP(Model Context Protocol)의 개념, 구조 및 활용에 대한 설명
 published: 2025-03-31
 modified: 2025-03-31
 ---

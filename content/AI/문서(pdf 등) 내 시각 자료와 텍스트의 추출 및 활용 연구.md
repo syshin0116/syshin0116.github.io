@@ -10,9 +10,15 @@ tags:
 draft: false
 enableToc: true
 description: 멀티모달 RAG를 통한 문서 내 텍스트와 이미지 추출 및 활용 연구
+summary: 멀티모달 RAG를 통한 문서 내 텍스트와 이미지 추출 및 활용 연구
 published: *id001
 modified: *id001
 ---
+
+> [!summary]
+> 
+> 멀티모달 RAG를 통한 문서 내 텍스트와 이미지 추출 및 활용 연구
+
 
 # Multi-Modal RAG
 

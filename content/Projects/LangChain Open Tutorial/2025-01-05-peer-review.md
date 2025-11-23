@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: LangChain Open Tutorial Week 2 GraphRAG 및 Academic Search System 피어 리뷰
+summary: LangChain Open Tutorial Week 2 GraphRAG 및 Academic Search System 피어 리뷰
 published: 2025-01-10
 modified: 2025-01-10
 ---

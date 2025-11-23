@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: LangChain Open Tutorial Week 2 신규 튜토리얼 개발을 위한 브레인스토밍 세션
+summary: LangChain Open Tutorial Week 2 신규 튜토리얼 개발을 위한 브레인스토밍 세션
 published: 2025-01-05
 modified: 2025-01-05
 ---

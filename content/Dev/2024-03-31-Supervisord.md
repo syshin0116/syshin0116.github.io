@@ -12,6 +12,7 @@ tags:
 draft: false
 enableToc: true
 description: Supervisord를 사용한 Flask, Celery, Redis 등 다중 프로세스 관리 및 문제 해결
+summary: Supervisord를 사용한 Flask, Celery, Redis 등 다중 프로세스 관리 및 문제 해결
 published: 2024-03-31
 modified: 2024-03-31
 ---

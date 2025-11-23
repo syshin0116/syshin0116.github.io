@@ -12,6 +12,9 @@ tags:
 draft: false
 enableToc: true
 description: LayoutLM의 발전 과정과 시각적으로 풍부한 문서 이해를 위한 다양한 버전별 특징 및 성능 분석
+summary: LayoutLM은 시각적으로 풍부한 문서 이해(VrDU)를 위한 멀티모달 프레임워크로, 텍스트뿐만 아니라 레이아웃과 시각적 정보를
+  함께 활용한다. V1부터 V3까지 발전하면서 문서 이미지에서 정보 추출, 양식 이해, 영수증 분석, 문서 분류 등 다양한 작업에서 우수한 성능을
+  보이고 있다.
 published: 2024-04-04
 modified: 2024-04-04
 ---

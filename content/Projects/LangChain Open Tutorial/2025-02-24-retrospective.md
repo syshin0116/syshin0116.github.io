@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: LangChain Open Tutorial 오픈소스 프로젝트 7주간의 기여 경험 회고록
+summary: LangChain Open Tutorial 오픈소스 프로젝트 7주간의 기여 경험 회고록
 published: 2025-02-24
 modified: 2025-02-24
 ---

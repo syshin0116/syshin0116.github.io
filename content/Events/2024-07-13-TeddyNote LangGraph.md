@@ -12,6 +12,7 @@ tags:
 draft: false
 enableToc: true
 description: TeddyNote의 LangGraph를 활용한 에이전트 워크플로우 구축 세미나 정리
+summary: TeddyNote의 LangGraph를 활용한 에이전트 워크플로우 구축 세미나 정리
 published: 2024-07-13
 modified: 2024-07-13
 ---

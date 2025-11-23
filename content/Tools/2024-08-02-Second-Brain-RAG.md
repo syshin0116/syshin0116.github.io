@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Second Brain 개념을 RAG 시스템에 적용하여 개인화된 AI 에이전트 구축하기
+summary: Second Brain 개념을 RAG 시스템에 적용하여 개인화된 AI 에이전트 구축하기
 published: 2024-08-02
 modified: 2024-08-02
 ---

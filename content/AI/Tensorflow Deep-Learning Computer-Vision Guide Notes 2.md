@@ -12,6 +12,9 @@ draft: false
 enableToc: true
 description: 컴퓨터 비전에서 객체 탐지(Object Detection)와 위치 찾기(Localization) 개념 및 Region Proposal
   방식에 대해 설명한 글이다.
+summary: 객체 탐지(Object Detection)와 객체 위치 찾기(Localization)의 개념과 차이점을 설명하고, Bounding
+  Box 학습 방법과 Region Proposal 기법을 다룬다. 특히 여러 객체를 동시에 감지하는 방법과 슬라이딩 윈도우 접근법의 원리와 한계에
+  대해 살펴본다.
 published: 2022-08-11
 modified: 2022-08-11
 ---

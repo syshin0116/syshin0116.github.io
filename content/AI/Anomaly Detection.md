@@ -11,6 +11,8 @@ tags:
 draft: false
 enableToc: true
 description: 이상 탐지(Anomaly Detection)의 주요 방법론과 기법을 정리하고 각 접근법의 장단점을 비교한 글이다.
+summary: 이상 탐지(Anomaly Detection)는 데이터에서 일반적인 패턴과 다른 비정상적인 샘플을 식별하는 기법이다. 지도학습, 준지도학습,
+  비지도학습 방식으로 나뉘며, 각 방식은 데이터와 문제 상황에 따라 선택적으로 적용할 수 있다.
 published: 2024-03-12
 modified: 2024-03-12
 ---

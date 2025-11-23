@@ -10,6 +10,8 @@ tags:
 draft: false
 enableToc: true
 description: Cursor에서 Project Rules 기능을 활용하여 AI 응답을 프로젝트별로 맞춤화하는 방법을 알아본다.
+summary: Cursor의 Project Rules 기능을 통해 AI 코딩 어시스턴트의 행동을 맞춤 설정할 수 있다. 프로젝트별 규칙, 글로벌
+  규칙을 통해 AI가 코드를 생성하고 이해하는 방식을 정밀하게 제어할 수 있다.
 published: 2025-04-07
 modified: 2025-04-07
 ---
@@ -145,8 +147,7 @@ modified: YYYY-MM-DD
 ```markdown
 > [!summary]
 >
-> [핵심 내용을 2-3줄로 간결하게 요약]
-```
+> Cursor의 Project Rules 기능을 통해 AI 코딩 어시스턴트의 행동을 맞춤 설정할 수 있다. 프로젝트별 규칙, 글로벌 규칙을 통해 AI가 코드를 생성하고 이해하는 방식을 정밀하게 제어할 수 있다.
 
 3. 본문 구조:
 - 내용에 맞는 자연스러운 섹션 구성

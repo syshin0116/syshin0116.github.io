@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Docker Compose 환경에서 Flask와 MySQL 컨테이너 간 연결 문제 진단 및 해결
+summary: Docker Compose 환경에서 Flask와 MySQL 컨테이너 간 연결 문제 진단 및 해결
 published: 2024-03-27
 modified: 2024-03-27
 ---

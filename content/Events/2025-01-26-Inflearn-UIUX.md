@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Inflearn UX/UI 디자인 강의 정리 - UI 디자인 기초부터 실습까지
+summary: Inflearn UX/UI 디자인 강의 정리 - UI 디자인 기초부터 실습까지
 published: 2025-01-26
 modified: 2025-01-26
 ---

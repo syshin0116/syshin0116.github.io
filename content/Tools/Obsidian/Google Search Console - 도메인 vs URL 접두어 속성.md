@@ -15,6 +15,8 @@ draft: false
 enableToc: true
 description: Google Search Console's Domain property covers all URLs, while URL Prefix
   tracks only specific URL prefixes, offering different verification methods.
+summary: Google Search Console's Domain property covers all URLs, while URL Prefix
+  tracks only specific URL prefixes, offering different verification methods.
 published: *id001
 modified: *id001
 ---

@@ -12,6 +12,8 @@ draft: false
 enableToc: true
 description: LangChain Open Tutorial open-source project 7-week contribution retrospective
   (English version)
+summary: LangChain Open Tutorial open-source project 7-week contribution retrospective
+  (English version)
 published: 2025-02-27
 modified: 2025-02-27
 ---

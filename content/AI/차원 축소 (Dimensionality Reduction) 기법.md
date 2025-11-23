@@ -11,6 +11,8 @@ tags:
 draft: false
 enableToc: true
 description: 데이터의 복잡성을 줄이는 주요 차원 축소 기법인 PCA, t-SNE, UMAP의 개념과 활용법을 정리한 글이다.
+summary: 차원 축소는 고차원 데이터를 저차원으로 변환하여 데이터의 핵심 정보를 보존하면서 복잡성을 줄이는 기법이다. 선형 방법인 PCA와 비선형
+  방법인 t-SNE, UMAP의 특징과 활용법을 설명한다.
 published: 2023-09-12
 modified: 2023-09-12
 ---

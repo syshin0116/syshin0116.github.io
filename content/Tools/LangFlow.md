@@ -16,6 +16,8 @@ draft: false
 enableToc: true
 description: GitHub trending에서 발견한 MIT 라이센스 오픈소스 도구 LangFlow를 리뷰한 글이다. 노코드 챗봇 개발을
   위한 다양한 도구 리서치 과정에서 살펴본 장단점과 실제 사용 경험을 공유하는 글이다.
+summary: GitHub trending에서 발견한 MIT 라이센스 오픈소스 도구 LangFlow를 리뷰한 글이다. 노코드 챗봇 개발을 위한 다양한
+  도구 리서치 과정에서 살펴본 장단점과 실제 사용 경험을 공유하는 글이다.
 published: *id001
 modified: *id001
 ---

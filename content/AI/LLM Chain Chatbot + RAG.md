@@ -12,6 +12,9 @@ draft: false
 enableToc: true
 description: LangChain의 ConversationalRetrievalChain을 활용한 대화형 RAG 시스템 구현 방법과 주요 기능
   설명
+summary: ConversationalRetrievalChain은 LangChain에서 제공하는 대화형 정보 검색 시스템으로, 사용자 질의와 대화
+  이력을 바탕으로 관련 문서를 검색하고 적절한 응답을 생성한다. 이 시스템은 질문 이해, 정보 검색, 컨텍스트 유지, 응답 생성의 단계를 통합하여
+  자연스러운 대화형 정보 제공을 가능하게 한다.
 published: 2024-04-11
 modified: 2024-04-11
 ---

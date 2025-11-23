@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Excalidraw를 활용한 시각적 Zettelkasten 시스템 구축
+summary: Excalidraw를 활용한 시각적 Zettelkasten 시스템 구축
 published: 2024-08-25
 modified: 2024-08-25
 ---

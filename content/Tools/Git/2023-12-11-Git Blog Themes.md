@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: 깃 블로그 리뉴얼을 위한 마음에 드는 테마 모음
+summary: 깃 블로그 템플릿 선정하기 전 마음에 드는 템플릿 정리
 published: 2023-12-11
 modified: 2023-12-11
 ---

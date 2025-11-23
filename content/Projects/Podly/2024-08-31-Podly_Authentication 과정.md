@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Podly 서비스의 소셜 로그인 및 JWT 기반 인증 시스템 구현 과정
+summary: Podly 서비스의 소셜 로그인 및 JWT 기반 인증 시스템 구현 과정
 published: 2024-08-31
 modified: 2024-08-31
 ---

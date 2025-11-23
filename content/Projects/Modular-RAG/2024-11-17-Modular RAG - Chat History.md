@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: 효율적인 채팅 기록 저장과 확장 가능한 구조 설계 - Chat Session과 Messages 분리
+summary: 효율적인 채팅 기록 저장과 확장 가능한 구조 설계 - Chat Session과 Messages 분리
 published: 2024-11-17
 modified: 2024-11-17
 ---

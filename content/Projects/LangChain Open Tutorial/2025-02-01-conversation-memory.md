@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: LangChain을 활용한 대화 메모리 관리 시스템 튜토리얼
+summary: LangChain을 활용한 대화 메모리 관리 시스템 튜토리얼
 published: 2025-02-01
 modified: 2025-02-01
 ---

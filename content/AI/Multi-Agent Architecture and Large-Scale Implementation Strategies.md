@@ -14,6 +14,8 @@ draft: false
 enableToc: true
 description: 멀티에이전트 시스템의 핵심 아키텍처 패턴들과 대규모 환경에서의 구현 전략을 분석하고, 최신 통신 프로토콜과 확장성 해결책을
   포괄적으로 다룬 가이드
+summary: 멀티에이전트 시스템의 핵심 아키텍처 패턴들과 대규모 환경에서의 구현 전략을 분석하고, 최신 통신 프로토콜과 확장성 해결책을 포괄적으로
+  다룬 가이드
 published: *id001
 modified: *id001
 categories:

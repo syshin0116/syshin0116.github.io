@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: LangChain 기반 Web Search 시스템 연구 - Language Agent Tree Search, Plan-and-Execute
+summary: LangChain 기반 Web Search 시스템 연구 - Language Agent Tree Search, Plan-and-Execute
 published: 2025-01-18
 modified: 2025-01-18
 ---

@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: Modular RAG 프로젝트를 위한 RDBMS와 NoSQL 비교 및 최적 데이터베이스 선택
+summary: Modular RAG 프로젝트를 위한 RDBMS와 NoSQL 비교 및 최적 데이터베이스 선택
 published: 2024-11-25
 modified: 2024-11-25
 ---

@@ -12,6 +12,7 @@ tags:
 draft: false
 enableToc: true
 description: Git 블로그를 위한 정적 사이트 생성기(SSG) 비교 및 선택 가이드
+summary: Git 블로그를 위한 정적 사이트 생성기(SSG) 비교 및 선택 가이드
 published: 2024-01-03
 modified: 2024-01-03
 ---

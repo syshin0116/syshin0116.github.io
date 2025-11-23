@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: GitHub Actions를 활용하여 GCP Compute Engine에 Docker 기반 CI/CD 파이프라인 구축하기
+summary: GitHub Actions를 활용하여 GCP Compute Engine에 Docker 기반 CI/CD 파이프라인 구축하기
 published: 2024-11-17
 modified: 2024-11-17
 ---

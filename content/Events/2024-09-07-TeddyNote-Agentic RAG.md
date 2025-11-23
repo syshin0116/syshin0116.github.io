@@ -12,6 +12,7 @@ tags:
 draft: false
 enableToc: true
 description: Agentic RAG의 개념과 구현 방법을 다룬 TeddyNote 세미나 정리
+summary: Agentic RAG의 개념과 구현 방법을 다룬 TeddyNote 세미나 정리
 published: 2024-09-07
 modified: 2024-09-07
 ---
