@@ -1,6 +1,6 @@
 ---
 title: LLM이 고유명사를 틀리는 이유와 해결 방법
-date: &id001 2025-11-11
+date: 2025-11-11
 tags:
 - AI
 - LLM
@@ -13,8 +13,8 @@ draft: false
 enableToc: true
 description: 헬스케어 챗봇 개발 중 발견한 LLM의 고유명사 오표기 문제의 근본 원인을 분석하고, 다양한 해결 방법을 실험한 과정을 정리한다.
 summary: 헬스케어 챗봇 개발 중 발견한 LLM의 고유명사 오표기 문제의 근본 원인을 분석하고, 다양한 해결 방법을 실험한 과정을 정리한다.
-published: *id001
-modified: *id001
+published: 2025-11-11
+modified: 2025-11-11
 ---
 
 > [!summary]

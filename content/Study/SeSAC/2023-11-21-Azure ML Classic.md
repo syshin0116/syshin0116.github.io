@@ -1,7 +1,11 @@
 ---
 title: Azure ML Classic
 date: 2023-11-21 14:58 +0900
-tags: []
+tags:
+- Cloud
+- Azure
+- Machine-Learning
+- Data-Science
 draft: false
 enableToc: true
 summary: 1. https://studio.azureml.net/ 접속 1. Experiments > Blank Experiment

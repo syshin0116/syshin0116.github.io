@@ -1,7 +1,12 @@
 ---
 title: Transformers
 date: 2023-11-30 16:08 +0900
-tags: []
+tags:
+- SeSAC
+- Study
+- Data-Science
+- Education
+- 교육
 draft: false
 enableToc: true
 summary: 예를 들어, '나는'이라는 단어(Query)에 대해, 모델은 학습 데이터에서 이와 관련된 Key-Value 쌍을 찾아 'I'(Value)로
