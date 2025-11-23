@@ -14,19 +14,15 @@ tags:
 - layout-analysis
 draft: false
 enableToc: true
-description: MinerU는 PDF 문서를 Markdown과 JSON으로 고품질 변환해주는 오픈소스 데이터 추출 도구이다.
-summary: MinerU는 복잡한 PDF 파일을 구조화된 Markdown과 JSON으로 고품질 변환하는 오픈소스 도구다. PDF-Extract-Kit,
-  DocLayout-YOLO, StructEqTable, RapidTable 등 최신 문서 처리 기술을 통합하여 정교한 레이아웃 분석과 요소 추출을
-  제공한다. PaddleOCR로 텍스트 인식, PyMuPDF로 PDF 처리, layoutreader로 구조 분석, fast-langdetect로
-  언어 감지, pdfminer.six로 기본 파싱을 수행한다. 복잡한 레이아웃, 표, 수식, 이미지 등을 정확하게 인식하여 변환하며, CPU/GPU/NPU
-  가속을 지원해 효율적인 처리가 가능하다. AGPL-3 라이센스 제약이 있지만 PDF 파싱 성능은 최고 수준이다.
+description: MinerU 고품질 PDF 변환 도구를 다룬다. PDF-Extract-Kit 엔진, DocLayout-YOLO 레이아웃 감지, UniMERNet 수식 인식, StructEqTable 테이블 변환(LaTeX/HTML/Markdown), PaddleOCR 텍스트 인식, CPU/GPU/NPU 가속, AGPL-3 라이센스 제약을 설명한다.
+summary: MinerU는 PDF를 Markdown/JSON으로 고품질 변환하는 오픈소스 도구로 PDF-Extract-Kit 엔진을 기반으로 한다. DocLayout-YOLO/LayoutLMv3로 레이아웃 감지하고, YOLOv8로 수식 탐지하며, UniMERNet으로 LaTeX 수식 인식한다. StructEqTable은 InternVL2-1B 기반으로 테이블을 LaTeX/HTML/Markdown으로 변환하고, PaddleOCR로 텍스트를 인식한다. PyMuPDF로 PDF 처리, layoutreader로 구조 분석, fast-langdetect로 언어 감지, pdfminer.six로 기본 파싱을 수행한다. 복잡한 레이아웃·표·수식·이미지를 정확히 인식하고, 헤더/푸터를 자동 제거하며, CPU/GPU/NPU/MPS 가속을 지원한다. YOLO와 PyMuPDF 의존성으로 AGPL-3 라이센스를 적용하여 상업 서비스 통합 시 주의가 필요하다.
 published: 2025-04-03
 modified: 2025-04-03
 ---
 
 > [!summary]
 >
-> MinerU는 복잡한 PDF 파일을 구조화된 Markdown과 JSON으로 고품질 변환하는 오픈소스 도구다. PDF-Extract-Kit, DocLayout-YOLO, StructEqTable, RapidTable 등 최신 문서 처리 기술을 통합하여 정교한 레이아웃 분석과 요소 추출을 제공한다. PaddleOCR로 텍스트 인식, PyMuPDF로 PDF 처리, layoutreader로 구조 분석, fast-langdetect로 언어 감지, pdfminer.six로 기본 파싱을 수행한다. 복잡한 레이아웃, 표, 수식, 이미지 등을 정확하게 인식하여 변환하며, CPU/GPU/NPU 가속을 지원해 효율적인 처리가 가능하다. AGPL-3 라이센스 제약이 있지만 PDF 파싱 성능은 최고 수준이다.
+> MinerU는 PDF를 Markdown/JSON으로 고품질 변환하는 오픈소스 도구로 PDF-Extract-Kit 엔진을 기반으로 한다. DocLayout-YOLO/LayoutLMv3로 레이아웃 감지하고, YOLOv8로 수식 탐지하며, UniMERNet으로 LaTeX 수식 인식한다. StructEqTable은 InternVL2-1B 기반으로 테이블을 LaTeX/HTML/Markdown으로 변환하고, PaddleOCR로 텍스트를 인식한다. PyMuPDF로 PDF 처리, layoutreader로 구조 분석, fast-langdetect로 언어 감지, pdfminer.six로 기본 파싱을 수행한다. 복잡한 레이아웃·표·수식·이미지를 정확히 인식하고, 헤더/푸터를 자동 제거하며, CPU/GPU/NPU/MPS 가속을 지원한다. YOLO와 PyMuPDF 의존성으로 AGPL-3 라이센스를 적용하여 상업 서비스 통합 시 주의가 필요하다.
 
 ## MinerU 소개
 

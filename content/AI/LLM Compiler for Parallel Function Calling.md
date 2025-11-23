@@ -11,17 +11,15 @@ tags:
 - Plan-and-Execute
 draft: false
 enableToc: true
-description: LLM 기능 호출을 병렬로 처리하여 지연 시간과 비용을 줄이는 LLM Compiler 연구에 대한 검토
-summary: 본 문서는 LLM Compiler 연구에 대한 검토로, 함수 호출을 병렬로 처리함으로써 지연 시간과 비용을 크게 줄일 수 있는 방법을
-  설명한다. 기존 ReAct 방식 대비 최대 3.7배 속도 향상, 6.7배 비용 절감, 9%의 정확도 향상 효과를 제공한다. Function Calling
-  Planner, Task Fetching Unit, Executor의 세 구성요소를 통해 효율적인 병렬 처리를 구현하는 방식을 자세히 다룬다.
+description: LLM Compiler 병렬 함수 호출 최적화 연구를 다룬다. ReAct 대비 3.7배 속도 향상·6.7배 비용 절감·9% 정확도 향상, Function Calling Planner DAG 생성, Task Fetching Unit 의존성 관리, Executor 병렬 실행, HotpotQA/ParallelQA/WebShop 벤치마크, 동적 재계획을 설명한다.
+summary: LLM Compiler는 함수 호출을 병렬로 실행하여 ReAct 대비 최대 3.7배 속도 향상, 6.7배 비용 절감, 9% 정확도 향상을 달성한다. Function Calling Planner는 작업 상호 의존성을 DAG(방향성 비순환 그래프)로 생성하고, Task Fetching Unit이 의존성에 따라 독립 작업을 병렬 배포하며, Executor가 동시 실행 후 자리 표시자를 대체하여 종속 작업을 차단 해제한다. HotpotQA는 1.80배, Movie Recommendation은 3.74배, ParallelQA는 2.27배 속도 향상을 보이며, WebShop은 101.7배 속도 향상과 25.7% 성공률 증가를 기록한다. 동적 재계획으로 실행 중 오류를 처리하고 컴파일러 최적화 기법을 적용한다.
 published: 2025-01-26
 modified: 2025-01-26
 ---
 
 > [!summary]
-> 
-> 본 문서는 LLM Compiler 연구에 대한 검토로, 함수 호출을 병렬로 처리함으로써 지연 시간과 비용을 크게 줄일 수 있는 방법을 설명한다. 기존 ReAct 방식 대비 최대 3.7배 속도 향상, 6.7배 비용 절감, 9%의 정확도 향상 효과를 제공한다. Function Calling Planner, Task Fetching Unit, Executor의 세 구성요소를 통해 효율적인 병렬 처리를 구현하는 방식을 자세히 다룬다.
+>
+> LLM Compiler는 함수 호출을 병렬로 실행하여 ReAct 대비 최대 3.7배 속도 향상, 6.7배 비용 절감, 9% 정확도 향상을 달성한다. Function Calling Planner는 작업 상호 의존성을 DAG(방향성 비순환 그래프)로 생성하고, Task Fetching Unit이 의존성에 따라 독립 작업을 병렬 배포하며, Executor가 동시 실행 후 자리 표시자를 대체하여 종속 작업을 차단 해제한다. HotpotQA는 1.80배, Movie Recommendation은 3.74배, ParallelQA는 2.27배 속도 향상을 보이며, WebShop은 101.7배 속도 향상과 25.7% 성공률 증가를 기록한다. 동적 재계획으로 실행 중 오류를 처리하고 컴파일러 최적화 기법을 적용한다.
 
 - paper: [https://arxiv.org/abs/2312.04511](https://arxiv.org/abs/2312.04511)
 - github: [https://github.com/SqueezeAILab/LLMCompiler](https://github.com/SqueezeAILab/LLMCompiler)

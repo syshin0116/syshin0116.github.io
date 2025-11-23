@@ -11,17 +11,15 @@ tags:
 - information-retrieval
 draft: false
 enableToc: true
-description: LangChain Agent와 Tavily 검색 엔진을 활용한 고급 RAG 시스템 구현 방법과 활용 사례 분석
-summary: LangChain Agent와 Tavily 검색 엔진을 결합한 RAG 시스템은 PDF 검색, 웹 검색 등 다양한 정보 소스를 통합하여
-  더 정확하고 신뢰할 수 있는 응답을 생성한다. 에이전트 기반 접근 방식은 복잡한 질의에 대해 단계적 추론과 정보 탐색이 가능하며, 특히 법률,
-  의학 등 전문 도메인에서 뛰어난 성능을 보인다.
+description: LangChain Agent와 Tavily 검색을 결합한 고급 RAG 시스템 구축 방법을 다룬다. ReAct 패턴 에이전트 구현, PDF/웹 검색 도구 통합, ConversationalRetrievalChain 설정, 메모리 관리, 복잡한 질의 처리 프로세스를 실전 코드로 설명한다.
+summary: LangChain Agent와 Tavily 검색을 결합한 RAG 시스템은 도구 사용 능력, 단계적 추론, 자율적 의사결정으로 복잡한 질의를 해결한다. PyPDFLoader와 TextLoader로 문서를 로드하고 RecursiveCharacterTextSplitter로 청킹하며, OpenAIEmbeddings와 Chroma로 벡터 저장한다. Tavily는 AI 최적화 웹 검색 API로 관련성 높은 결과를 제공하고, ConversationalRetrievalChain이 대화 이력을 관리하며 문맥 인식 응답을 생성한다.
 published: 2024-05-05
 modified: 2024-05-05
 ---
 
 > [!summary]
-> 
-> LangChain Agent와 Tavily 검색 엔진을 결합한 RAG 시스템은 PDF 검색, 웹 검색 등 다양한 정보 소스를 통합하여 더 정확하고 신뢰할 수 있는 응답을 생성한다. 에이전트 기반 접근 방식은 복잡한 질의에 대해 단계적 추론과 정보 탐색이 가능하며, 특히 법률, 의학 등 전문 도메인에서 뛰어난 성능을 보인다.
+>
+> LangChain Agent와 Tavily 검색을 결합한 RAG 시스템은 도구 사용 능력, 단계적 추론, 자율적 의사결정으로 복잡한 질의를 해결한다. PyPDFLoader와 TextLoader로 문서를 로드하고 RecursiveCharacterTextSplitter로 청킹하며, OpenAIEmbeddings와 Chroma로 벡터 저장한다. Tavily는 AI 최적화 웹 검색 API로 관련성 높은 결과를 제공하고, ConversationalRetrievalChain이 대화 이력을 관리하며 문맥 인식 응답을 생성한다.
 
 ## 개요
 

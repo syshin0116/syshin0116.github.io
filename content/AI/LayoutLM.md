@@ -11,17 +11,15 @@ tags:
 - ocr
 draft: false
 enableToc: true
-description: LayoutLM의 발전 과정과 시각적으로 풍부한 문서 이해를 위한 다양한 버전별 특징 및 성능 분석
-summary: LayoutLM은 시각적으로 풍부한 문서 이해(VrDU)를 위한 멀티모달 프레임워크로, 텍스트뿐만 아니라 레이아웃과 시각적 정보를
-  함께 활용한다. V1부터 V3까지 발전하면서 문서 이미지에서 정보 추출, 양식 이해, 영수증 분석, 문서 분류 등 다양한 작업에서 우수한 성능을
-  보이고 있다.
+description: LayoutLM 멀티모달 문서 이해 모델의 V1부터 V3까지 발전 과정을 다룬다. BERT + 2D 위치 임베딩, VrDU(Visually-rich Document Understanding), IIT-CDIP 6M 문서 사전학습, FUNSD 양식 이해, SROIE/CORD 영수증 파싱, RVL-CDIP 16 클래스 분류, DocVQA ANLS 평가를 제시한다.
+summary: LayoutLM은 텍스트·레이아웃·시각 정보를 통합한 VrDU 멀티모달 프레임워크다. V1은 BERT + 2D 위치 임베딩으로 레이아웃 정보를 통합하고, IIT-CDIP 6M 문서로 사전학습하여 문서 분류와 양식 이해에 적용된다. FUNSD는 시맨틱 라벨링으로 질문/답변/헤더를 구분하고 엔티티 관계를 예측하며, SROIE와 CORD는 영수증에서 회사명/주소/총액을 추출한다. RVL-CDIP는 16개 문서 클래스를 정확도로 평가하고, DocVQA는 ANLS Levenshtein 유사도로 문서 질의응답을 측정한다.
 published: 2024-04-04
 modified: 2024-04-04
 ---
 
 > [!summary]
-> 
-> LayoutLM은 시각적으로 풍부한 문서 이해(VrDU)를 위한 멀티모달 프레임워크로, 텍스트뿐만 아니라 레이아웃과 시각적 정보를 함께 활용한다. V1부터 V3까지 발전하면서 문서 이미지에서 정보 추출, 양식 이해, 영수증 분석, 문서 분류 등 다양한 작업에서 우수한 성능을 보이고 있다.
+>
+> LayoutLM은 텍스트·레이아웃·시각 정보를 통합한 VrDU 멀티모달 프레임워크다. V1은 BERT + 2D 위치 임베딩으로 레이아웃 정보를 통합하고, IIT-CDIP 6M 문서로 사전학습하여 문서 분류와 양식 이해에 적용된다. FUNSD는 시맨틱 라벨링으로 질문/답변/헤더를 구분하고 엔티티 관계를 예측하며, SROIE와 CORD는 영수증에서 회사명/주소/총액을 추출한다. RVL-CDIP는 16개 문서 클래스를 정확도로 평가하고, DocVQA는 ANLS Levenshtein 유사도로 문서 질의응답을 측정한다.
 
 ## 개요
 

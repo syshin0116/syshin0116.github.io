@@ -9,15 +9,15 @@ tags:
 - pdf-parser
 draft: false
 enableToc: true
-description: 멀티모달 RAG를 활용한 PDF 문서 내 시각 자료와 텍스트 추출 및 활용 기법
-summary: 멀티모달 RAG를 활용한 PDF 문서 내 시각 자료와 텍스트 추출 및 활용 기법
+description: 멀티모달 RAG로 PDF 내 텍스트·이미지·테이블을 추출하는 방법을 다룬다. Unstructured partition_pdf 파서, GPT-4V/LLaVA 이미지 요약, CLIP 멀티모달 임베딩, ColPali Late Interaction, ChartGemma 차트 파싱, MultiVector Retriever 다중 벡터 검색, RecursiveCharacterTextSplitter 청킹을 실전 코드로 설명한다.
+summary: 멀티모달 RAG는 텍스트와 이미지를 동시에 활용하여 PDF에서 복잡한 정보를 추출한다. Unstructured partition_pdf는 extract_images_in_pdf와 infer_table_structure로 이미지·테이블·텍스트를 분리하고, GPT-4V/GPT-4o/LLaVA/FUYU가 이미지 요약을 생성한다. CLIP 멀티모달 임베딩은 이미지-텍스트 유사도 검색을 수행하고, ColPali는 SigLIP→BiSigLIP→BiPali→ColPali로 발전하며 ColBert Late Interaction으로 토큰 단위 세밀한 매칭을 실현한다. MultiVector Retriever는 작은 청크, 요약, 가설 질문 3가지 방식으로 다중 벡터를 생성하여 검색 정확도를 향상시킨다.
 published: *id001
 modified: *id001
 ---
 
 > [!summary]
-> 
-> 멀티모달 RAG를 활용한 PDF 문서 내 시각 자료와 텍스트 추출 및 활용 기법
+>
+> 멀티모달 RAG는 텍스트와 이미지를 동시에 활용하여 PDF에서 복잡한 정보를 추출한다. Unstructured partition_pdf는 extract_images_in_pdf와 infer_table_structure로 이미지·테이블·텍스트를 분리하고, GPT-4V/GPT-4o/LLaVA/FUYU가 이미지 요약을 생성한다. CLIP 멀티모달 임베딩은 이미지-텍스트 유사도 검색을 수행하고, ColPali는 SigLIP→BiSigLIP→BiPali→ColPali로 발전하며 ColBert Late Interaction으로 토큰 단위 세밀한 매칭을 실현한다. MultiVector Retriever는 작은 청크, 요약, 가설 질문 3가지 방식으로 다중 벡터를 생성하여 검색 정확도를 향상시킨다.
 
 
 # 1. 문서(pdf 등) 내 시각 자료와 텍스트의 추출 및 활용

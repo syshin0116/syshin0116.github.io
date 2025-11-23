@@ -9,18 +9,15 @@ tags:
 - segmentation
 draft: false
 enableToc: true
-description: 딥러닝 기반 컴퓨터 비전의 객체 탐지(Object Detection)와 세그멘테이션(Segmentation)에 대한 기본 개념과
-  발전 과정을 정리한 글이다.
-summary: 컴퓨터 비전에서 핵심 기술인 객체 탐지(Object Detection)와 세그멘테이션(Segmentation)의 기본 개념과 주요
-  구성 요소를 정리했다. 딥러닝 기반 방법론의 발전 과정과 One-stage/Two-stage detector의 특징, 그리고 이 분야가 직면한
-  주요 난제를 다룬다.
+description: 딥러닝 객체 탐지와 세그멘테이션의 발전 과정을 다룬다. Classification→Localization→Detection→Segmentation 진화, One-stage(YOLO/SSD/Retina-Net/EfficientDet) vs Two-stage(R-CNN 계열), Backbone/Neck/Head 구조, IOU/NMS/mAP 평가, Anchor box, MS COCO 80 클래스와 실전 난제를 설명한다.
+summary: 객체 탐지는 Classification→Localization→Detection→Segmentation으로 진화하며 복잡도가 증가한다. One-stage detector는 YOLO/SSD/Retina-Net/EfficientDet로 실시간 처리에 유리하고, Two-stage는 R-CNN/Fast R-CNN/Faster R-CNN/Mask R-CNN으로 정확도가 높다. 모델 구조는 Backbone(ResNet/VGG), Neck(FPN), Head(Classification + Bbox Regression)로 구성되며, IOU로 박스 겹침을 측정하고 NMS로 중복 제거하며 mAP로 성능을 평가한다. MS COCO 80 클래스와 Google Open Image 500 클래스로 학습하지만, 복합 문제(분류+회귀), 다양한 객체 크기, 실시간 처리, 데이터 품질이 주요 난제다.
 published: 2022-07-25
 modified: 2022-07-25
 ---
 
 > [!summary]
-> 
-> 컴퓨터 비전에서 핵심 기술인 객체 탐지(Object Detection)와 세그멘테이션(Segmentation)의 기본 개념과 주요 구성 요소를 정리했다. 딥러닝 기반 방법론의 발전 과정과 One-stage/Two-stage detector의 특징, 그리고 이 분야가 직면한 주요 난제를 다룬다.
+>
+> 객체 탐지는 Classification→Localization→Detection→Segmentation으로 진화하며 복잡도가 증가한다. One-stage detector는 YOLO/SSD/Retina-Net/EfficientDet로 실시간 처리에 유리하고, Two-stage는 R-CNN/Fast R-CNN/Faster R-CNN/Mask R-CNN으로 정확도가 높다. 모델 구조는 Backbone(ResNet/VGG), Neck(FPN), Head(Classification + Bbox Regression)로 구성되며, IOU로 박스 겹침을 측정하고 NMS로 중복 제거하며 mAP로 성능을 평가한다. MS COCO 80 클래스와 Google Open Image 500 클래스로 학습하지만, 복합 문제(분류+회귀), 다양한 객체 크기, 실시간 처리, 데이터 품질이 주요 난제다.
 
 ## 서론
 

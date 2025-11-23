@@ -17,16 +17,15 @@ tags:
 - A2A
 draft: false
 enableToc: true
-description: 워크플로우와 에이전트의 차이점, 그리고 ReAct, Plan-and-Execute, Supervisor 아키텍처의 특징과 장단점을
-  체계적으로 비교 분석한 포괄적 가이드
-summary: 워크플로우와 에이전트의 차이점, 그리고 ReAct, Plan-and-Execute, Supervisor 아키텍처의 특징과 장단점을
-  체계적으로 비교 분석한 포괄적 가이드
+description: LLM 에이전트 아키텍처 3가지(ReAct, Plan-and-Execute, Supervisor)의 작동 원리, 장단점, 실전 활용 사례를 비교 분석한다. 워크플로우와 에이전트의 근본적 차이, 각 아키텍처의 의사결정 과정, 복잡도별 최적 선택 가이드를 제시한다.
+summary: LLM 에이전트는 ReAct, Plan-and-Execute, Supervisor 세 가지 주요 아키텍처로 구현된다. ReAct는 사고-행동-관찰 반복으로 동적 적응성이 뛰어나고, Plan-and-Execute는 계획과 실행 분리로 체계적 접근이 가능하며, Supervisor는 작업 분배와 멀티에이전트 조정으로 복잡한 문제를 해결한다. MCP와 A2A 같은 표준 프로토콜 등장으로 에이전트 통합과 협업이 강화되고 있다.
 published: *id001
 modified: *id001
 ---
 
 > [!summary]
-> LLM 기반 시스템의 두 가지 주요 접근법인 워크플로우와 에이전트의 근본적인 차이점을 설명하고, 에이전트 아키텍처인 ReAct, Plan-and-Execute, Supervisor의 작동 원리와 장단점을 비교 분석한다. 각 아키텍처의 적합한 사용 사례와 함께 사용자 경험 향상을 위한 의사결정 과정 시각화의 중요성, 그리고 MCP와 A2A 같은 표준화 프로토콜의 미래 발전 방향을 알아본다.
+>
+> LLM 에이전트는 ReAct, Plan-and-Execute, Supervisor 세 가지 주요 아키텍처로 구현된다. ReAct는 사고-행동-관찰 반복으로 동적 적응성이 뛰어나고, Plan-and-Execute는 계획과 실행 분리로 체계적 접근이 가능하며, Supervisor는 작업 분배와 멀티에이전트 조정으로 복잡한 문제를 해결한다. MCP와 A2A 같은 표준 프로토콜 등장으로 에이전트 통합과 협업이 강화되고 있다.
 
 > [!info]
 > 이 글은 [[데블챌 데이터 블로그 챌린지]] 참여 글입니다.

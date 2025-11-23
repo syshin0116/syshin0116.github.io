@@ -9,15 +9,15 @@ tags:
 - pdf-parser
 draft: false
 enableToc: true
-description: 멀티모달 RAG를 통한 문서 내 텍스트와 이미지 추출 및 활용 연구
-summary: 멀티모달 RAG를 통한 문서 내 텍스트와 이미지 추출 및 활용 연구
+description: 멀티모달 RAG로 PDF 텍스트·이미지를 추출하는 연구를 다룬다. UnStructured partition_pdf 파서, extract_images_in_pdf/infer_table_structure, GPT-4V/LLaVA 이미지 요약, CLIP 임베딩, Retrieve Raw Image/Image Summary/Raw+Summary 3가지 방법, Docstore/Vectorstore 저장을 실전 코드로 설명한다.
+summary: 멀티모달 RAG는 PDF에서 텍스트와 이미지를 동시에 활용하여 복잡한 정보를 추출한다. Retrieve Raw Image는 CLIP 임베딩으로 이미지-텍스트 유사도 검색 후 원본 전달하고, Retrieve Image Summary는 GPT-4V/GPT-4o/LLaVA/FUYU로 이미지 요약을 생성하여 텍스트로 검색하며, Retrieve Raw+Summary는 둘을 결합한다. UnStructured partition_pdf는 extract_images_in_pdf와 infer_table_structure로 이미지·테이블·텍스트를 분리하고 by_title 청킹 전략으로 4000자 단위 조각화한다. Docstore는 원본 텍스트·테이블·이미지를 저장하고, Vectorstore는 임베딩 벡터를 저장하여 검색에 활용한다.
 published: *id001
 modified: *id001
 ---
 
 > [!summary]
-> 
-> 멀티모달 RAG를 통한 문서 내 텍스트와 이미지 추출 및 활용 연구
+>
+> 멀티모달 RAG는 PDF에서 텍스트와 이미지를 동시에 활용하여 복잡한 정보를 추출한다. Retrieve Raw Image는 CLIP 임베딩으로 이미지-텍스트 유사도 검색 후 원본 전달하고, Retrieve Image Summary는 GPT-4V/GPT-4o/LLaVA/FUYU로 이미지 요약을 생성하여 텍스트로 검색하며, Retrieve Raw+Summary는 둘을 결합한다. UnStructured partition_pdf는 extract_images_in_pdf와 infer_table_structure로 이미지·테이블·텍스트를 분리하고 by_title 청킹 전략으로 4000자 단위 조각화한다. Docstore는 원본 텍스트·테이블·이미지를 저장하고, Vectorstore는 임베딩 벡터를 저장하여 검색에 활용한다.
 
 
 # Multi-Modal RAG

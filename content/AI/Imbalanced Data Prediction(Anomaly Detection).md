@@ -10,16 +10,15 @@ tags:
 - deep-learning
 draft: false
 enableToc: true
-description: 불균형 데이터에서의 이상치 탐지를 위한 다양한 모델과 기법을 비교 분석한 글이다.
-summary: 불균형 데이터에서 이상치를 탐지하는 다양한 방법론을 비교한다. 지도학습 분류 모델과 비지도학습 이상 탐지 모델의 성능을 평가하고,
-  샘플링 기법의 효과를 분석한다.
+description: 불균형 데이터 이상 탐지를 위한 지도/비지도 학습 모델 성능 비교를 다룬다. PyCaret 기반 16개 분류기 평가, CatBoost + SMOTE 샘플링, PyOD(Isolation Forest/LOF), DeepOD(DeepSVDD), PyThresh 임계값 계산, Stratified K-Fold 교차검증을 실전 코드로 설명한다.
+summary: 불균형 데이터 이상 탐지는 지도학습 분류와 비지도학습 탐지 두 접근법으로 구현된다. 16개 분류 모델 중 CatBoost가 최고 성능을 보이며, SMOTE 오버샘플링으로 소수 클래스 정확도를 향상시킨다. PyOD는 Isolation Forest, LOF, One-Class SVM, CBLOF로 레이블 없이 이상치를 탐지하고, DeepOD는 DeepSVDD/DevNet/GOAD 딥러닝으로 복잡한 패턴을 학습한다. PyThresh는 SPOT/DSPOT 극단값 이론으로 동적 임계값을 계산하며, Stratified K-Fold 5-fold 교차검증으로 F1-score/Precision/Recall 평가한다.
 published: 2024-03-18
 modified: 2024-03-18
 ---
 
 > [!summary]
-> 
-> 불균형 데이터에서 이상치를 탐지하는 다양한 방법론을 비교한다. 지도학습 분류 모델과 비지도학습 이상 탐지 모델의 성능을 평가하고, 샘플링 기법의 효과를 분석한다.
+>
+> 불균형 데이터 이상 탐지는 지도학습 분류와 비지도학습 탐지 두 접근법으로 구현된다. 16개 분류 모델 중 CatBoost가 최고 성능을 보이며, SMOTE 오버샘플링으로 소수 클래스 정확도를 향상시킨다. PyOD는 Isolation Forest, LOF, One-Class SVM, CBLOF로 레이블 없이 이상치를 탐지하고, DeepOD는 DeepSVDD/DevNet/GOAD 딥러닝으로 복잡한 패턴을 학습한다. PyThresh는 SPOT/DSPOT 극단값 이론으로 동적 임계값을 계산하며, Stratified K-Fold 5-fold 교차검증으로 F1-score/Precision/Recall 평가한다.
 
 ## 이상치 탐지 모델 성능 비교
 

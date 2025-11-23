@@ -9,16 +9,14 @@ tags:
 - groq
 draft: false
 enableToc: true
-description: Groq LPU 모델을 활용한 RAG 시스템 구축 및 성능 특징 설명
-summary: 이 문서는 RAG(Retrieval-Augmented Generation) 시스템에 Groq의 고성능 LPU(Language Processing
-  Unit)를 결합한 아키텍처를 설명한다. Groq는 GenAI 추론 속도의 새로운 기준을 제시하며, 특히 LPU는 언어 처리와 같은 순차적 특성을
-  가진 계산 집약적 애플리케이션에 최적화된 처리 유닛이다. 이 조합을 통해 높은 처리 속도와 정확성을 동시에 달성할 수 있는 방법을 소개한다.
+description: Groq LPU를 활용한 고속 RAG 시스템 구축 방법을 다룬다. LPU(Language Processing Unit) 순차적 처리 최적화, GPU 대비 낮은 지연시간과 높은 처리량, 비용 효율성, 문서 청킹·임베딩·벡터 스토어·Groq API 연결·실시간 응답 생성 파이프라인을 설명한다.
+summary: Groq LPU는 언어 처리에 최적화된 GenAI 추론 가속기로 순차적 LLM 작업에서 GPU 대비 탁월한 성능을 발휘한다. LPU는 낮은 지연시간으로 거의 실시간 응답을 제공하고, 높은 처리량으로 동시 다중 요청을 처리하며, 기존 GPU 솔루션 대비 경제적 비용 효율성을 달성한다. RAG 파이프라인은 문서 수집·청킹·임베딩·벡터 저장소 구축 후 Groq API로 사용자 쿼리를 처리하고 관련 문서를 검색하여 응답을 생성한다.
 published: 2024-04-29
 modified: 2024-04-29
 ---
 > [!summary]
-> 
-> 이 문서는 RAG(Retrieval-Augmented Generation) 시스템에 Groq의 고성능 LPU(Language Processing Unit)를 결합한 아키텍처를 설명한다. Groq는 GenAI 추론 속도의 새로운 기준을 제시하며, 특히 LPU는 언어 처리와 같은 순차적 특성을 가진 계산 집약적 애플리케이션에 최적화된 처리 유닛이다. 이 조합을 통해 높은 처리 속도와 정확성을 동시에 달성할 수 있는 방법을 소개한다.
+>
+> Groq LPU는 언어 처리에 최적화된 GenAI 추론 가속기로 순차적 LLM 작업에서 GPU 대비 탁월한 성능을 발휘한다. LPU는 낮은 지연시간으로 거의 실시간 응답을 제공하고, 높은 처리량으로 동시 다중 요청을 처리하며, 기존 GPU 솔루션 대비 경제적 비용 효율성을 달성한다. RAG 파이프라인은 문서 수집·청킹·임베딩·벡터 저장소 구축 후 Groq API로 사용자 쿼리를 처리하고 관련 문서를 검색하여 응답을 생성한다.
 
 ## 개요
 

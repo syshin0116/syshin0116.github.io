@@ -9,16 +9,14 @@ tags:
 - development
 draft: false
 enableToc: true
-description: 빠르게 대화형 AI 애플리케이션을 개발할 수 있는 Chainlit 라이브러리 사용법
-summary: Chainlit은 빠르게 프로덕션 준비가 된 대화형 AI 애플리케이션을 개발할 수 있는 오픈소스 파이썬 패키지이다. LangChain과의
-  통합을 통해 문서에서 정보를 추출하고 질문에 답변하는 챗봇을 쉽게 만들 수 있다. 파일 업로드, 벡터 스토어 기반 검색, 대화 기록 관리 등의
-  기능을 제공하며, 직관적인 UI로 사용자 경험을 향상시킨다.
+description: Chainlit으로 대화형 AI 애플리케이션을 빠르게 개발하는 방법을 다룬다. LangChain 통합, 파일 업로드(PDF/텍스트), RecursiveCharacterTextSplitter 청킹, Chroma 벡터 스토어, ConversationalRetrievalChain 설정, 대화 이력 관리, UI 커스터마이징을 실전 코드로 설명한다.
+summary: Chainlit은 프로덕션급 대화형 AI를 빠르게 구축하는 오픈소스 파이썬 패키지다. PyPDFLoader와 TextLoader로 파일을 로드하고, RecursiveCharacterTextSplitter로 청킹하며, OpenAIEmbeddings와 Chroma로 벡터 스토어를 구성한다. ConversationalRetrievalChain은 ConversationBufferMemory로 대화 이력을 관리하고 문맥 인식 응답을 생성한다. 파일 업로드 UI, 실시간 스트리밍, 세션 관리, 사용자 정의 액션 등 직관적인 인터페이스를 제공한다.
 published: 2024-08-13
 modified: 2024-08-13
 ---
 > [!summary]
-> 
-> Chainlit은 빠르게 프로덕션 준비가 된 대화형 AI 애플리케이션을 개발할 수 있는 오픈소스 파이썬 패키지이다. LangChain과의 통합을 통해 문서에서 정보를 추출하고 질문에 답변하는 챗봇을 쉽게 만들 수 있다. 파일 업로드, 벡터 스토어 기반 검색, 대화 기록 관리 등의 기능을 제공하며, 직관적인 UI로 사용자 경험을 향상시킨다.
+>
+> Chainlit은 프로덕션급 대화형 AI를 빠르게 구축하는 오픈소스 파이썬 패키지다. PyPDFLoader와 TextLoader로 파일을 로드하고, RecursiveCharacterTextSplitter로 청킹하며, OpenAIEmbeddings와 Chroma로 벡터 스토어를 구성한다. ConversationalRetrievalChain은 ConversationBufferMemory로 대화 이력을 관리하고 문맥 인식 응답을 생성한다. 파일 업로드 UI, 실시간 스트리밍, 세션 관리, 사용자 정의 액션 등 직관적인 인터페이스를 제공한다.
 
 ## 개요
 
