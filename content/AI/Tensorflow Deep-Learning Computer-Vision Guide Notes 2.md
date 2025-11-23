@@ -10,18 +10,15 @@ tags:
 - region-proposal
 draft: false
 enableToc: true
-description: 컴퓨터 비전에서 객체 탐지(Object Detection)와 위치 찾기(Localization) 개념 및 Region Proposal
-  방식에 대해 설명한 글이다.
-summary: 객체 탐지(Object Detection)와 객체 위치 찾기(Localization)의 개념과 차이점을 설명하고, Bounding
-  Box 학습 방법과 Region Proposal 기법을 다룬다. 특히 여러 객체를 동시에 감지하는 방법과 슬라이딩 윈도우 접근법의 원리와 한계에
-  대해 살펴본다.
+description: 객체 탐지와 위치 찾기의 핵심 기술을 다룬다. Bounding Box Regression, Region Proposal, 슬라이딩 윈도우, R-CNN·Fast R-CNN·Faster R-CNN 진화, RPN·RoI Pooling, YOLO 그리드 기반 탐지, IoU·mAP·FPS 평가 지표를 설명한다.
+summary: 객체 위치 찾기는 FC Layer로 클래스 분류와 Bounding Box Regression을 동시 수행하며 Class Confidence Score로 확률을 측정한다. 객체 탐지는 Region Proposal로 후보 영역을 생성하는데, 슬라이딩 윈도우는 모든 영역을 순차 탐색하여 처리 시간이 길다는 단점이 있다. R-CNN은 선택적 검색으로 2000개 영역을 생성하고, Fast R-CNN은 RoI Pooling으로 20배 속도 향상하며, Faster R-CNN은 RPN으로 end-to-end 학습하여 10배 더 빠르다. YOLO는 이미지를 그리드로 나눠 단일 네트워크로 45-155 FPS 실시간 탐지를 구현한다. IoU는 예측·실제 경계 상자 겹침 정도, mAP는 클래스별 Average Precision 평균, FPS는 초당 프레임 수로 성능을 평가한다.
 published: 2022-08-11
 modified: 2022-08-11
 ---
 
 > [!summary]
-> 
-> 객체 탐지(Object Detection)와 객체 위치 찾기(Localization)의 개념과 차이점을 설명하고, Bounding Box 학습 방법과 Region Proposal 기법을 다룬다. 특히 여러 객체를 동시에 감지하는 방법과 슬라이딩 윈도우 접근법의 원리와 한계에 대해 살펴본다.
+>
+> 객체 위치 찾기는 FC Layer로 클래스 분류와 Bounding Box Regression을 동시 수행하며 Class Confidence Score로 확률을 측정한다. 객체 탐지는 Region Proposal로 후보 영역을 생성하는데, 슬라이딩 윈도우는 모든 영역을 순차 탐색하여 처리 시간이 길다는 단점이 있다. R-CNN은 선택적 검색으로 2000개 영역을 생성하고, Fast R-CNN은 RoI Pooling으로 20배 속도 향상하며, Faster R-CNN은 RPN으로 end-to-end 학습하여 10배 더 빠르다. YOLO는 이미지를 그리드로 나눠 단일 네트워크로 45-155 FPS 실시간 탐지를 구현한다. IoU는 예측·실제 경계 상자 겹침 정도, mAP는 클래스별 Average Precision 평균, FPS는 초당 프레임 수로 성능을 평가한다.
 
 ## 객체 위치 찾기와 탐지의 이해
 

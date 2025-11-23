@@ -12,15 +12,14 @@ tags:
 - smithery
 draft: false
 enableToc: true
-description: Anthropic에서 개발한 MCP(Model Context Protocol)의 개념, 구조 및 활용에 대한 설명
-summary: Anthropic에서 개발한 MCP(Model Context Protocol)의 개념, 구조 및 활용에 대한 설명
+description: Anthropic MCP 표준 프로토콜을 다룬다. 클라이언트-서버 아키텍처, JSON-RPC 2.0, stdio·SSE 전송, Tools·Resources·Prompts 3대 기능, Smithery 3200+ 서버, Python·TypeScript SDK, FastMCP, StdioServerParameters, LangChain 통합을 설명한다.
+summary: MCP는 Anthropic의 AI-데이터 연결 개방형 표준 프로토콜로 USB-C처럼 통합을 단순화한다. Host가 연결 조율하고 Client가 서버와 대화하며 Server가 Tools·Resources·Prompts를 제공하는 클라이언트-서버 구조를 사용한다. JSON-RPC 2.0으로 메시지를 교환하고, stdio는 로컬 프로세스 간 빠른 통신에, SSE는 HTTP 기반 원격 서버 통신에 활용된다. Smithery로 3200+ MCP 서버에 접근하고, Cursor·Windsurf·Claude Desktop에서 지원하며, 네트워크 효과로 OpenAI ChatGPT까지 확산되어 산업 표준으로 자리잡았다. Python·TypeScript·Java·C#·Swift SDK로 구현하고, FastMCP로 간편히 서버를 작성하며, StdioServerParameters·stdio_client로 세션을 초기화하고, Sampling·Progress tracking·Cancellation·Error reporting·Logging 유틸리티를 제공한다.
 published: 2025-03-31
 modified: 2025-03-31
 ---
 > [!summary]
-> MCP(Model Context Protocol)는 Anthropic에서 개발한 개방형 프로토콜로, AI 모델과 외부 데이터/도구를 표준화된 방식으로 연결한다.
-> USB-C와 같이 AI 애플리케이션과 다양한 데이터 소스 간의 통합을 단순화하며, 클라이언트-서버 구조를 통해 안전하고 확장 가능한 AI 시스템 구축을 지원한다.
-> Smithery를 통해 3,200개 이상의 MCP 서버에 접근할 수 있으며, Cursor와 Claude에서 쉽게 설정하여 사용할 수 있다.
+>
+> MCP는 Anthropic의 AI-데이터 연결 개방형 표준 프로토콜로 USB-C처럼 통합을 단순화한다. Host가 연결 조율하고 Client가 서버와 대화하며 Server가 Tools·Resources·Prompts를 제공하는 클라이언트-서버 구조를 사용한다. JSON-RPC 2.0으로 메시지를 교환하고, stdio는 로컬 프로세스 간 빠른 통신에, SSE는 HTTP 기반 원격 서버 통신에 활용된다. Smithery로 3200+ MCP 서버에 접근하고, Cursor·Windsurf·Claude Desktop에서 지원하며, 네트워크 효과로 OpenAI ChatGPT까지 확산되어 산업 표준으로 자리잡았다. Python·TypeScript·Java·C#·Swift SDK로 구현하고, FastMCP로 간편히 서버를 작성하며, StdioServerParameters·stdio_client로 세션을 초기화하고, Sampling·Progress tracking·Cancellation·Error reporting·Logging 유틸리티를 제공한다.
 
 ## 개요
 
