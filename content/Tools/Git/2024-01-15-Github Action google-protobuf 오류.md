@@ -2,15 +2,16 @@
 title: GitHub Actions google-protobuf 오류 해결
 date: 2024-01-15
 tags:
-  - github-actions
-  - troubleshooting
-  - google-protobuf
-  - python
-  - dependency
-  - error-fix
+- github-actions
+- troubleshooting
+- google-protobuf
+- python
+- dependency
+- error-fix
 draft: false
 enableToc: true
-description: "GitHub Actions에서 발생한 google-protobuf 의존성 오류 진단 및 해결 방법"
+description: GitHub Actions에서 발생한 google-protobuf 의존성 오류 진단 및 해결 방법
+summary: GitHub Actions에서 발생한 google-protobuf 의존성 오류 진단 및 해결 방법
 published: 2024-01-15
 modified: 2024-01-15
 ---

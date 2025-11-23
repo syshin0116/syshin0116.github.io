@@ -1,17 +1,18 @@
 ---
-title: "TeddyNote - Agentic RAG 세미나"
+title: TeddyNote - Agentic RAG 세미나
 date: 2024-09-07
 tags:
-  - rag
-  - agent
-  - llm
-  - langgraph
-  - agentic-rag
-  - semantic-search
-  - teddynote
+- rag
+- agent
+- llm
+- langgraph
+- agentic-rag
+- semantic-search
+- teddynote
 draft: false
 enableToc: true
-description: "Agentic RAG의 개념과 구현 방법을 다룬 TeddyNote 세미나 정리"
+description: Agentic RAG의 개념과 구현 방법을 다룬 TeddyNote 세미나 정리
+summary: Agentic RAG의 개념과 구현 방법을 다룬 TeddyNote 세미나 정리
 published: 2024-09-07
 modified: 2024-09-07
 ---

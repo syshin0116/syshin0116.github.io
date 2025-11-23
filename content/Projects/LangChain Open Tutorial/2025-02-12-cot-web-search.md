@@ -1,16 +1,17 @@
 ---
-title: "LangChain Open Tutorial - CoT 기반 스마트 웹 검색"
+title: LangChain Open Tutorial - CoT 기반 스마트 웹 검색
 date: 2025-02-13
 tags:
-  - langchain
-  - chain-of-thought
-  - web-search
-  - reasoning
-  - tutorial
-  - agents
+- langchain
+- chain-of-thought
+- web-search
+- reasoning
+- tutorial
+- agents
 draft: false
 enableToc: true
-description: "Chain-of-Thought를 활용한 스마트 웹 검색 시스템 튜토리얼"
+description: Chain-of-Thought를 활용한 스마트 웹 검색 시스템 튜토리얼
+summary: Chain-of-Thought를 활용한 스마트 웹 검색 시스템 튜토리얼
 published: 2025-02-13
 modified: 2025-02-13
 ---

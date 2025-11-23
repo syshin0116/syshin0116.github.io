@@ -1,17 +1,20 @@
 ---
 title: 바이브코딩과 커서(Cursor)
-date: 2025-06-02
+date: &id001 2025-06-02
 tags:
-  - 데블챌
-  - 데이터블로그
-  - 챌린지
-  - 바이브코딩
-  - Cursor
-  - AI코딩
-  - 개발도구
+- 데블챌
+- 데이터블로그
+- 챌린지
+- 바이브코딩
+- Cursor
+- AI코딩
+- 개발도구
 draft: false
 enableToc: true
 description: 바이브코딩이란 무엇인지, 그리고 AI 코딩 도구인 Cursor를 활용하는 방법과 사용 후기에 대한 글이다.
+summary: 바이브코딩이란 무엇인지, 그리고 AI 코딩 도구인 Cursor를 활용하는 방법과 사용 후기에 대한 글이다.
+published: *id001
+modified: *id001
 ---
 
 > [!summary]

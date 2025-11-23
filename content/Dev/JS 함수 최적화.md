@@ -2,13 +2,16 @@
 title: JS 함수 최적화
 date: 2024-07-03
 tags:
-  - javascript
-  - optimization
-  - code-refactoring
-  - web-development
+- javascript
+- optimization
+- code-refactoring
+- web-development
 draft: false
 enableToc: true
-description: "자바스크립트 함수 최적화 방법과 실제 코드 개선 사례를 분석하고, 코드 가독성과 성능을 향상시키는 기법 소개"
+description: 자바스크립트 함수 최적화 방법과 실제 코드 개선 사례를 분석하고, 코드 가독성과 성능을 향상시키는 기법 소개
+summary: 자바스크립트 함수를 최적화하는 방법을 실제 코드 사례를 통해 알아본다. var/let/const의 적절한 사용, 불필요한 변수 제거,
+  간결한 조건문 작성 등의 기법을 적용하여 코드 가독성과 성능을 모두 향상시키는 방법을 소개한다. 추가로 자바스크립트의 동등 비교 연산자(===,
+  ==)와 값 비교 방식에 대한 심층 분석도 다룬다.
 published: 2024-07-03
 modified: 2024-07-03
 ---

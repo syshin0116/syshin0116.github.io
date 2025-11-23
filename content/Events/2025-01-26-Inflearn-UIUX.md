@@ -1,16 +1,17 @@
 ---
-title: "Inflearn - UX/UI 시작하기: UI 디자인"
+title: 'Inflearn - UX/UI 시작하기: UI 디자인'
 date: 2025-01-26
 tags:
-  - ux
-  - ui
-  - design
-  - inflearn
-  - online-course
-  - interface-design
+- ux
+- ui
+- design
+- inflearn
+- online-course
+- interface-design
 draft: false
 enableToc: true
-description: "Inflearn UX/UI 디자인 강의 정리 - UI 디자인 기초부터 실습까지"
+description: Inflearn UX/UI 디자인 강의 정리 - UI 디자인 기초부터 실습까지
+summary: Inflearn UX/UI 디자인 강의 정리 - UI 디자인 기초부터 실습까지
 published: 2025-01-26
 modified: 2025-01-26
 ---

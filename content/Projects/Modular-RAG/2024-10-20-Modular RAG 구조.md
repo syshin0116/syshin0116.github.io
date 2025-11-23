@@ -1,16 +1,17 @@
 ---
-title: "Modular RAG 아키텍처 설계"
+title: Modular RAG 아키텍처 설계
 date: 2024-10-20
 tags:
-  - modular-rag
-  - rag
-  - architecture
-  - modularity
-  - llm
-  - advanced-rag
+- modular-rag
+- rag
+- architecture
+- modularity
+- llm
+- advanced-rag
 draft: false
 enableToc: true
-description: "LEGO 블록처럼 조합 가능한 Modular RAG 시스템 설계 - 재사용 가능한 RAG 모듈 구축"
+description: LEGO 블록처럼 조합 가능한 Modular RAG 시스템 설계 - 재사용 가능한 RAG 모듈 구축
+summary: LEGO 블록처럼 조합 가능한 Modular RAG 시스템 설계 - 재사용 가능한 RAG 모듈 구축
 published: 2024-10-20
 modified: 2024-10-20
 ---

@@ -1,16 +1,17 @@
 ---
-title: "Spring - DAO vs DTO vs VO"
+title: Spring - DAO vs DTO vs VO
 date: 2022-09-04
 tags:
-  - spring
-  - java
-  - dao
-  - dto
-  - vo
-  - design-pattern
+- spring
+- java
+- dao
+- dto
+- vo
+- design-pattern
 draft: false
 enableToc: true
-description: "Spring 프레임워크에서 사용되는 DAO, DTO, VO의 개념과 차이점 설명"
+description: Spring 프레임워크에서 사용되는 DAO, DTO, VO의 개념과 차이점 설명
+summary: Spring 프레임워크에서 사용되는 DAO, DTO, VO의 개념과 차이점 설명
 published: 2022-09-04
 modified: 2022-09-04
 ---

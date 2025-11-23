@@ -1,16 +1,17 @@
 ---
-title: "LangChain Open Tutorial 프로젝트 회고록"
+title: LangChain Open Tutorial 프로젝트 회고록
 date: 2025-02-24
 tags:
-  - langchain
-  - open-tutorial
-  - retrospective
-  - open-source
-  - collaboration
-  - rag
+- langchain
+- open-tutorial
+- retrospective
+- open-source
+- collaboration
+- rag
 draft: false
 enableToc: true
-description: "LangChain Open Tutorial 오픈소스 프로젝트 7주간의 기여 경험 회고록"
+description: LangChain Open Tutorial 오픈소스 프로젝트 7주간의 기여 경험 회고록
+summary: LangChain Open Tutorial 오픈소스 프로젝트 7주간의 기여 경험 회고록
 published: 2025-02-24
 modified: 2025-02-24
 ---

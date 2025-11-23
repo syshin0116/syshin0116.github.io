@@ -1,13 +1,23 @@
 ---
-layout: post
 title: Structural Patterns
 date: 2024-08-11 17:47 +0900
+tags: []
+draft: false
+enableToc: true
+summary: Structural Patterns에 대한 내용을 다룬다.
+published: 2024-08-11 17:47 +0900
+modified: 2024-08-11 17:47 +0900
+layout: post
 categories:
-  - 스터디
-  - Design Pattern
-tags: 
+- 스터디
+- Design Pattern
 math: true
 ---
+
+> [!summary]
+> 
+> Structural Patterns에 대한 내용을 다룬다.
+
 ## Adapter
 
 ### Adapter 이란?

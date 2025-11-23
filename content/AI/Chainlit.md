@@ -2,14 +2,17 @@
 title: Chainlit
 date: 2024-08-13
 tags:
-  - ai
-  - ui
-  - langchain
-  - chatbot
-  - development
+- ai
+- ui
+- langchain
+- chatbot
+- development
 draft: false
 enableToc: true
-description: "빠르게 대화형 AI 애플리케이션을 개발할 수 있는 Chainlit 라이브러리 사용법"
+description: 빠르게 대화형 AI 애플리케이션을 개발할 수 있는 Chainlit 라이브러리 사용법
+summary: Chainlit은 빠르게 프로덕션 준비가 된 대화형 AI 애플리케이션을 개발할 수 있는 오픈소스 파이썬 패키지이다. LangChain과의
+  통합을 통해 문서에서 정보를 추출하고 질문에 답변하는 챗봇을 쉽게 만들 수 있다. 파일 업로드, 벡터 스토어 기반 검색, 대화 기록 관리 등의
+  기능을 제공하며, 직관적인 UI로 사용자 경험을 향상시킨다.
 published: 2024-08-13
 modified: 2024-08-13
 ---

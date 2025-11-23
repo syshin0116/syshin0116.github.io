@@ -1,19 +1,24 @@
 ---
 title: AppHub와 Quartz 블로그 통합 전략
-date: 2025-10-06
+date: &id001 2025-10-06
 tags:
-  - AppHub
-  - Projects
-  - Quartz
-  - Obsidian
-  - NextJS
-  - 아키텍처
-  - 통합전략
-  - RAG
-  - 블로그
+- AppHub
+- Projects
+- Quartz
+- Obsidian
+- NextJS
+- 아키텍처
+- 통합전략
+- RAG
+- 블로그
 draft: false
 enableToc: true
-description: Obsidian Quartz 블로그를 AppHub 플랫폼에 통합하는 전략. Obsidian의 강력한 기능들을 유지하면서 Next.js 기반 통합 플랫폼의 일부로 만드는 방법과 RAG 시스템 구축 계획
+description: Obsidian Quartz 블로그를 AppHub 플랫폼에 통합하는 전략. Obsidian의 강력한 기능들을 유지하면서 Next.js
+  기반 통합 플랫폼의 일부로 만드는 방법과 RAG 시스템 구축 계획
+summary: Obsidian Quartz 블로그를 AppHub 플랫폼에 통합하는 전략. Obsidian의 강력한 기능들을 유지하면서 Next.js
+  기반 통합 플랫폼의 일부로 만드는 방법과 RAG 시스템 구축 계획
+published: *id001
+modified: *id001
 ---
 
 > [!summary] **Quartz 블로그 + AppHub 통합**
