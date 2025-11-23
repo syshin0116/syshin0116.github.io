@@ -11,16 +11,15 @@ tags:
 - pdf-parser
 draft: false
 enableToc: true
-description: LangChain에서 사용 가능한 다양한 PDF Loader 라이브러리들의 특징과 성능을 비교 분석한 문서
-summary: RAG 시스템의 성능은 PDF 문서에서 얼마나 정확하게 텍스트와 이미지를 추출하는지에 크게 의존한다. PyMuPDF와 PyPDFium2
-  같은 Loader들은 각각 고유한 장단점을 가지고 있으며, 사용 목적에 따라 적절한 선택이 필요하다.
+description: RAG용 PDF Loader 비교 분석을 다룬다. PyMuPDF C 기반 고속 처리(pdfminer.six 대비 6배), OpenAI·Notion·Anthropic 채택, 상업용 라이선스, PyPDFium2Loader 오픈소스, LangChain 통합, 텍스트·이미지 추출 성능, Hallucination 방지를 설명한다.
+summary: RAG 시스템 성능은 PDF 텍스트·이미지 추출 정확도에 의존한다. PyMuPDF는 C 기반 MuPDF 기반으로 pdfminer.six 대비 6배 빠른 처리 속도를 제공하고, OpenAI·Notion·Anthropic가 고객사로 채택했으며, 정확한 텍스트·이미지 추출을 지원하지만 상업 목적 사용 시 별도 라이선스 구매가 필요하다. PyPDFium2Loader는 오픈소스 기반으로 상업적 사용 제약이 적고 기본 텍스트 추출 기능을 제공하지만 이미지 추출이 제한적이다. Hallucination 확인·출처 표기·이미지 추출을 위해 성능 좋은 PDF Loader가 필수적이며, 처리 속도·텍스트 정확도·이미지 추출·라이선스 비용·LangChain 통합 편의성을 고려하여 선택해야 한다.
 published: 2024-05-22
 modified: 2024-05-22
 ---
 
 > [!summary]
-> 
-> RAG 시스템의 성능은 PDF 문서에서 얼마나 정확하게 텍스트와 이미지를 추출하는지에 크게 의존한다. PyMuPDF와 PyPDFium2 같은 Loader들은 각각 고유한 장단점을 가지고 있으며, 사용 목적에 따라 적절한 선택이 필요하다.
+>
+> RAG 시스템 성능은 PDF 텍스트·이미지 추출 정확도에 의존한다. PyMuPDF는 C 기반 MuPDF 기반으로 pdfminer.six 대비 6배 빠른 처리 속도를 제공하고, OpenAI·Notion·Anthropic가 고객사로 채택했으며, 정확한 텍스트·이미지 추출을 지원하지만 상업 목적 사용 시 별도 라이선스 구매가 필요하다. PyPDFium2Loader는 오픈소스 기반으로 상업적 사용 제약이 적고 기본 텍스트 추출 기능을 제공하지만 이미지 추출이 제한적이다. Hallucination 확인·출처 표기·이미지 추출을 위해 성능 좋은 PDF Loader가 필수적이며, 처리 속도·텍스트 정확도·이미지 추출·라이선스 비용·LangChain 통합 편의성을 고려하여 선택해야 한다.
 
 ## 개요
 

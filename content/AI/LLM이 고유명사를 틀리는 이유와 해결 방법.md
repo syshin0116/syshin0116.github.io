@@ -11,14 +11,15 @@ tags:
 - NLP
 draft: false
 enableToc: true
-description: 헬스케어 챗봇 개발 중 발견한 LLM의 고유명사 오표기 문제의 근본 원인을 분석하고, 다양한 해결 방법을 실험한 과정을 정리한다.
-summary: 헬스케어 챗봇 개발 중 발견한 LLM의 고유명사 오표기 문제의 근본 원인을 분석하고, 다양한 해결 방법을 실험한 과정을 정리한다.
+description: LLM 고유명사 오표기 문제의 근본 원인과 해결법을 다룬다. Tokenization 토큰 분리, Transformer 다음 토큰 예측, OpenAI Tokenizer 실험, Evaluate+Rewrite 패턴, Master Entity List, Tool Response 정확도, Fine-tuning·Few-shot 한계, Catalin Vieru 조언을 설명한다.
+summary: LLM은 헬스케어 도메인 고유명사(약품명·병원명)를 5% 미만이지만 일관되게 오표기한다. OpenAI Tokenizer 실험 결과 고유명사가 여러 토큰으로 분리되고, Transformer 다음 토큰 예측 특성상 학습되지 않은 토큰 조합을 정확히 생성하기 어려워 오류가 발생한다. 긴 프롬프트가 원인이 아니라 토큰화 레벨 문제이며, Few-shot과 Fine-tuning은 빠르게 변화하는 도메인에 비효율적이다. Evaluate+Rewrite 패턴은 Tool Response에서 정확한 고유명사 목록을 추출하고 답변 생성 후 문자열 매칭으로 검증·교정하여 오류율을 거의 0%로 낮춘다. Catalin Vieru(Google Principal Architect for Gen AI)는 Lexicon 관리·Azure Evaluation Service·DPO·정규표현식·커스텀 임베딩 모델 활용을 권장한다.
 published: *id001
 modified: *id001
 ---
 
 > [!summary]
-> 헬스케어 도메인 챗봇을 개발하면서 LLM이 특정 고유명사(약품명, 병원명 등)를 5% 미만이지만 일관되게 틀리는 문제를 발견했다. 초기에는 긴 프롬프트로 인한 Context Engineering 문제로 추정했으나, 실험 결과 토큰화(Tokenization) 과정에서 고유명사가 여러 토큰으로 분리되고 Transformer 모델의 다음 토큰 예측 특성상 학습되지 않은 고유명사를 정확히 생성하기 어렵다는 것을 발견했다. Few-shot, Fine-tuning 등 여러 방법을 시도한 결과, Evaluate + Rewrite 방식으로 문제를 효과적으로 해결할 수 있었다.
+>
+> LLM은 헬스케어 도메인 고유명사(약품명·병원명)를 5% 미만이지만 일관되게 오표기한다. OpenAI Tokenizer 실험 결과 고유명사가 여러 토큰으로 분리되고, Transformer 다음 토큰 예측 특성상 학습되지 않은 토큰 조합을 정확히 생성하기 어려워 오류가 발생한다. 긴 프롬프트가 원인이 아니라 토큰화 레벨 문제이며, Few-shot과 Fine-tuning은 빠르게 변화하는 도메인에 비효율적이다. Evaluate+Rewrite 패턴은 Tool Response에서 정확한 고유명사 목록을 추출하고 답변 생성 후 문자열 매칭으로 검증·교정하여 오류율을 거의 0%로 낮춘다. Catalin Vieru(Google Principal Architect for Gen AI)는 Lexicon 관리·Azure Evaluation Service·DPO·정규표현식·커스텀 임베딩 모델 활용을 권장한다.
 
 ## 1. 문제 발견
 

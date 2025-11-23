@@ -12,17 +12,14 @@ tags:
 - streamlit
 draft: false
 enableToc: true
-description: LangChain 프레임워크의 기본 개념, 활용 방법 및 LLama2와 결합한 실전 프로젝트 구현 과정 설명
-summary: LangChain은 대규모 언어 모델을 활용한 애플리케이션 개발을 위한 프레임워크로, LLM을 다양한 데이터 소스 및 환경과 연결하는
-  도구를 제공한다. 이 문서는 LangChain의 기초부터 LLM(OpenAI, Llama2, Gemini Pro)과의 통합, PDF 쿼리 구현,
-  블로그 생성 애플리케이션 개발까지 실습 중심으로 다룬다. 특히 Llama2의 아키텍처, 훈련 세부사항, 하드웨어 요구사항 및 미세 조정 방법에
-  대한 연구 내용을 포함한다.
+description: LangChain LLM 애플리케이션 프레임워크를 다룬다. PromptTemplate·LLM·OutputParser 체인, PDF 쿼리 시스템, Astra DB 벡터 검색, Llama2 아키텍처(RMSNorm·SwiGLU·GQA), SFT·RLHF Fine-tuning, Streamlit 블로그 생성, OpenAI·Llama2·Gemini Pro 통합을 설명한다.
+summary: LangChain은 LLM을 데이터 소스·환경과 연결하는 애플리케이션 프레임워크다. PromptTemplate+LLM+OutputParser로 체인을 구성하고, Apache Cassandra(Astra DB) NoSQL 데이터베이스에서 벡터 검색으로 임베딩 유사도를 비교하여 PDF 쿼리 시스템을 구축한다. Llama2는 Transformer 아키텍처에 RMSNorm 사전 정규화와 SwiGLU 활성화 함수를 적용하고, GQA로 컨텍스트 길이를 확장하며, AdamW 옵티마이저·코사인 학습률 스케줄·2000 스텝 워밍업으로 학습한다. NVIDIA A100 GPU로 사전 학습하고 SFT·RLHF로 미세 조정하며, Hugging Face에서 모델을 다운로드하여 Streamlit으로 블로그 생성 웹 인터페이스를 구현한다. OpenAI·Llama2·Gemini Pro를 통합하여 다양한 LLM 기반 솔루션을 개발한다.
 published: 2024-02-02
 modified: 2024-02-02
 ---
 > [!summary]
-> 
-> LangChain은 대규모 언어 모델을 활용한 애플리케이션 개발을 위한 프레임워크로, LLM을 다양한 데이터 소스 및 환경과 연결하는 도구를 제공한다. 이 문서는 LangChain의 기초부터 LLM(OpenAI, Llama2, Gemini Pro)과의 통합, PDF 쿼리 구현, 블로그 생성 애플리케이션 개발까지 실습 중심으로 다룬다. 특히 Llama2의 아키텍처, 훈련 세부사항, 하드웨어 요구사항 및 미세 조정 방법에 대한 연구 내용을 포함한다.
+>
+> LangChain은 LLM을 데이터 소스·환경과 연결하는 애플리케이션 프레임워크다. PromptTemplate+LLM+OutputParser로 체인을 구성하고, Apache Cassandra(Astra DB) NoSQL 데이터베이스에서 벡터 검색으로 임베딩 유사도를 비교하여 PDF 쿼리 시스템을 구축한다. Llama2는 Transformer 아키텍처에 RMSNorm 사전 정규화와 SwiGLU 활성화 함수를 적용하고, GQA로 컨텍스트 길이를 확장하며, AdamW 옵티마이저·코사인 학습률 스케줄·2000 스텝 워밍업으로 학습한다. NVIDIA A100 GPU로 사전 학습하고 SFT·RLHF로 미세 조정하며, Hugging Face에서 모델을 다운로드하여 Streamlit으로 블로그 생성 웹 인터페이스를 구현한다. OpenAI·Llama2·Gemini Pro를 통합하여 다양한 LLM 기반 솔루션을 개발한다.
 
 ## 개요
 
