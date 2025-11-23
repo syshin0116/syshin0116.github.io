@@ -2,15 +2,15 @@
 title: Hostit README
 date: 2025-05-04
 tags:
-  - project
-  - HostIt
-  - MCP
-  - Next.js
-  - AI
-  - documentation
+- project
+- HostIt
+- MCP
+- Next.js
+- AI
+- documentation
 draft: false
 enableToc: true
-description: "MCP 도구를 쉽게 호스팅하고 사용할 수 있는 플랫폼 Hostit의 설치 및 사용 가이드"
+description: MCP 도구를 쉽게 호스팅하고 사용할 수 있는 플랫폼 Hostit의 설치 및 사용 가이드
 published: 2025-05-04
 modified: 2025-05-04
 ---

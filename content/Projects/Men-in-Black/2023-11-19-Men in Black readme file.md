@@ -2,16 +2,16 @@
 title: Men in Black - 도로 교통 법규 위반 차량 자동 감지 시스템
 date: 2023-11-19
 tags:
-  - project
-  - computer-vision
-  - yolo
-  - ocr
-  - depth-estimation
-  - traffic-violation
-  - sesac
+- project
+- computer-vision
+- yolo
+- ocr
+- depth-estimation
+- traffic-violation
+- sesac
 draft: false
 enableToc: true
-description: "블랙박스 영상에서 교통 법규 위반 차량을 자동으로 감지하고 신고하는 AI 시스템 프로젝트"
+description: 블랙박스 영상에서 교통 법규 위반 차량을 자동으로 감지하고 신고하는 AI 시스템 프로젝트
 published: 2023-11-19
 modified: 2023-11-19
 ---

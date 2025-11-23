@@ -2,17 +2,17 @@
 title: LangChain
 date: 2024-02-02
 tags:
-  - ai
-  - deep-learning
-  - langchain
-  - llm
-  - openai
-  - llama2
-  - gemini-pro
-  - streamlit
+- ai
+- deep-learning
+- langchain
+- llm
+- openai
+- llama2
+- gemini-pro
+- streamlit
 draft: false
 enableToc: true
-description: "LangChain 프레임워크의 기본 개념, 활용 방법 및 LLama2와 결합한 실전 프로젝트 구현 과정 설명"
+description: LangChain 프레임워크의 기본 개념, 활용 방법 및 LLama2와 결합한 실전 프로젝트 구현 과정 설명
 published: 2024-02-02
 modified: 2024-02-02
 ---

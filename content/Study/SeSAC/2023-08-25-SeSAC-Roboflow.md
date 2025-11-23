@@ -1,9 +1,15 @@
 ---
-layout: post
-title: "[SeSAC]Roboflow"
+title: '[SeSAC]Roboflow'
 date: 2023-08-25 09:09 +0900
-categories: [SeSAC, 머신러닝 데이터분석]
 tags: []
+draft: false
+enableToc: true
+published: 2023-08-25 09:09 +0900
+modified: 2023-08-25 09:09 +0900
+layout: post
+categories:
+- SeSAC
+- 머신러닝 데이터분석
 math: true
 ---
 

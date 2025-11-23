@@ -1,10 +1,15 @@
 ---
 title: NextJS 선택 전 알아야 할 것들
 date: 2025-04-18
-tags: NextJS, 웹개발, 프레임워크, 1일1아티클
+tags:
+- NextJS
+- 웹개발
+- 프레임워크
+- 1일1아티클
 draft: false
 enableToc: true
-description: '"You should know this before choosing Next.js" 아티클 리뷰로, Next.js 프레임워크의 거버넌스 및 오픈소스 특성에 관한 고려사항을 다루고 있다.'
+description: '"You should know this before choosing Next.js" 아티클 리뷰로, Next.js 프레임워크의
+  거버넌스 및 오픈소스 특성에 관한 고려사항을 다루고 있다.'
 published: 2025-04-18
 modified: 2025-04-18
 ---

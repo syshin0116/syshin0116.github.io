@@ -1,10 +1,17 @@
 ---
-title: "Tensorflow Deep-Learning Computer-Vision Guide Notes 2"
+title: Tensorflow Deep-Learning Computer-Vision Guide Notes 2
 date: 2022-08-11
-tags: deep-learning, computer-vision, tensorflow, object-detection, localization, region-proposal
+tags:
+- deep-learning
+- computer-vision
+- tensorflow
+- object-detection
+- localization
+- region-proposal
 draft: false
 enableToc: true
-description: 컴퓨터 비전에서 객체 탐지(Object Detection)와 위치 찾기(Localization) 개념 및 Region Proposal 방식에 대해 설명한 글이다.
+description: 컴퓨터 비전에서 객체 탐지(Object Detection)와 위치 찾기(Localization) 개념 및 Region Proposal
+  방식에 대해 설명한 글이다.
 published: 2022-08-11
 modified: 2022-08-11
 ---

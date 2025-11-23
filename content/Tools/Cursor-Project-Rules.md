@@ -1,7 +1,12 @@
 ---
 title: Cursor Project Rules로 AI 코딩 어시스턴트 맞춤화하기
 date: 2025-04-07
-tags: cursor, ai, coding-assistant, project-rules, cursor-ai
+tags:
+- cursor
+- ai
+- coding-assistant
+- project-rules
+- cursor-ai
 draft: false
 enableToc: true
 description: Cursor에서 Project Rules 기능을 활용하여 AI 응답을 프로젝트별로 맞춤화하는 방법을 알아본다.

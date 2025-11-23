@@ -2,13 +2,13 @@
 title: RAG용 PDF Loader 비교
 date: 2024-05-22
 tags:
-  - rag
-  - langchain
-  - pymupdf
-  - pypdflium2
-  - document-loader
-  - PDF
-  - pdf-parser
+- rag
+- langchain
+- pymupdf
+- pypdflium2
+- document-loader
+- PDF
+- pdf-parser
 draft: false
 enableToc: true
 description: LangChain에서 사용 가능한 다양한 PDF Loader 라이브러리들의 특징과 성능을 비교 분석한 문서

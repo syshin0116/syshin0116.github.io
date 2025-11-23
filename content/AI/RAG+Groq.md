@@ -2,14 +2,14 @@
 title: RAG+Groq
 date: 2024-04-29
 tags:
-  - ai
-  - deep-learning
-  - langchain
-  - rag
-  - groq
+- ai
+- deep-learning
+- langchain
+- rag
+- groq
 draft: false
 enableToc: true
-description: "Groq LPU 모델을 활용한 RAG 시스템 구축 및 성능 특징 설명"
+description: Groq LPU 모델을 활용한 RAG 시스템 구축 및 성능 특징 설명
 published: 2024-04-29
 modified: 2024-04-29
 ---

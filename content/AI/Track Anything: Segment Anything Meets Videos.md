@@ -1,7 +1,13 @@
 ---
-title: "Track Anything: Segment Anything Meets Videos"
+title: 'Track Anything: Segment Anything Meets Videos'
 date: 2023-06-19
-tags: tam, sam, paper, computer-vision, tracking, segmentation
+tags:
+- tam
+- sam
+- paper
+- computer-vision
+- tracking
+- segmentation
 draft: false
 enableToc: true
 description: SAM을 비디오에 적용한 Track Anything Model(TAM)의 특징과 활용 방안을 정리한 글이다.

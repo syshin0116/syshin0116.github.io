@@ -1,9 +1,19 @@
 ---
-layout: post
-title: "[lvl2][Summer/Winder Coding(~2018)]영어 끝말잇기"
+title: '[lvl2][Summer/Winder Coding(~2018)]영어 끝말잇기'
 date: 2023-05-01 10:31:29 +0900
-categories: [Code-Test, Programmers]
-tags: [lvl2, programmers, python, Summer/Winter-Coding]
+tags:
+- lvl2
+- programmers
+- python
+- Summer/Winter-Coding
+draft: false
+enableToc: true
+published: 2023-05-01 10:31:29 +0900
+modified: 2023-05-01 10:31:29 +0900
+layout: post
+categories:
+- Code-Test
+- Programmers
 ---
 
 출처: [Programmers > 코딩테스트 연습 > 연습문제 > Summer/Winder Coding(~2018) > 영어 끝말잇기](https://school.programmers.co.kr/learn/courses/30/lessons/12981)

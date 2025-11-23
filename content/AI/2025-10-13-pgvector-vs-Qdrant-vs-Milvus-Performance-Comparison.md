@@ -1,19 +1,20 @@
 ---
-title: "2025년 pgvector vs Qdrant vs Milvus 상세 성능 비교"
+title: 2025년 pgvector vs Qdrant vs Milvus 상세 성능 비교
 date: 2025-10-13
 tags:
-  - AI
-  - pgvector
-  - Qdrant
-  - Milvus
-  - Vector-Database
-  - Performance
-  - Benchmark
-  - RAG
-  - Hybrid-Search
+- AI
+- pgvector
+- Qdrant
+- Milvus
+- Vector-Database
+- Performance
+- Benchmark
+- RAG
+- Hybrid-Search
 draft: false
 enableToc: true
-description: "2025년 최신 버전을 기준으로 pgvector (PostgreSQL 18), Qdrant 1.15, Milvus 2.6의 실제 성능, 기능, 비용을 상세 비교한다. 데이터 삽입, 검색 속도, 필터링, 확장성, 실전 시나리오별 권장사항을 다룬다."
+description: 2025년 최신 버전을 기준으로 pgvector (PostgreSQL 18), Qdrant 1.15, Milvus 2.6의
+  실제 성능, 기능, 비용을 상세 비교한다. 데이터 삽입, 검색 속도, 필터링, 확장성, 실전 시나리오별 권장사항을 다룬다.
 published: 2025-10-13
 modified: 2025-10-13
 ---

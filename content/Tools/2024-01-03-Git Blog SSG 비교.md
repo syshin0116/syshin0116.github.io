@@ -2,16 +2,16 @@
 title: 정적 사이트 생성기(SSG) 비교 - Jekyll vs Hugo vs Hexo
 date: 2024-01-03
 tags:
-  - ssg
-  - jekyll
-  - hugo
-  - hexo
-  - gatsby
-  - blog
-  - comparison
+- ssg
+- jekyll
+- hugo
+- hexo
+- gatsby
+- blog
+- comparison
 draft: false
 enableToc: true
-description: "Git 블로그를 위한 정적 사이트 생성기(SSG) 비교 및 선택 가이드"
+description: Git 블로그를 위한 정적 사이트 생성기(SSG) 비교 및 선택 가이드
 published: 2024-01-03
 modified: 2024-01-03
 ---

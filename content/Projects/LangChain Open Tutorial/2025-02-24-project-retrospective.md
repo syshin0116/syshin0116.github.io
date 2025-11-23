@@ -1,16 +1,17 @@
 ---
-title: "LangChain Open Tutorial Project Retrospective (English)"
+title: LangChain Open Tutorial Project Retrospective (English)
 date: 2025-02-27
 tags:
-  - langchain
-  - open-tutorial
-  - retrospective
-  - open-source
-  - collaboration
-  - english
+- langchain
+- open-tutorial
+- retrospective
+- open-source
+- collaboration
+- english
 draft: false
 enableToc: true
-description: "LangChain Open Tutorial open-source project 7-week contribution retrospective (English version)"
+description: LangChain Open Tutorial open-source project 7-week contribution retrospective
+  (English version)
 published: 2025-02-27
 modified: 2025-02-27
 ---

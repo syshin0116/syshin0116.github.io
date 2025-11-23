@@ -1,10 +1,16 @@
 ---
-title: "Tensorflow Deep-Learning Computer-Vision Guide Notes 1"
+title: Tensorflow Deep-Learning Computer-Vision Guide Notes 1
 date: 2022-07-25
-tags: deep-learning, computer-vision, tensorflow, object-detection, segmentation
+tags:
+- deep-learning
+- computer-vision
+- tensorflow
+- object-detection
+- segmentation
 draft: false
 enableToc: true
-description: 딥러닝 기반 컴퓨터 비전의 객체 탐지(Object Detection)와 세그멘테이션(Segmentation)에 대한 기본 개념과 발전 과정을 정리한 글이다.
+description: 딥러닝 기반 컴퓨터 비전의 객체 탐지(Object Detection)와 세그멘테이션(Segmentation)에 대한 기본 개념과
+  발전 과정을 정리한 글이다.
 published: 2022-07-25
 modified: 2022-07-25
 ---

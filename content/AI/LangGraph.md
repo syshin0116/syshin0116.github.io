@@ -2,15 +2,15 @@
 title: LangGraph
 date: 2024-03-06
 tags:
-  - ai
-  - deep-learning
-  - langchain
-  - langgraph
-  - agent
-  - llm
+- ai
+- deep-learning
+- langchain
+- langgraph
+- agent
+- llm
 draft: false
 enableToc: true
-description: "LangGraph 라이브러리의 개념과 다중 에이전트 협업 시스템 구현 방법 설명"
+description: LangGraph 라이브러리의 개념과 다중 에이전트 협업 시스템 구현 방법 설명
 published: 2024-03-06
 modified: 2024-03-06
 ---

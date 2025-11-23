@@ -1,16 +1,16 @@
 ---
-title: "LangChain Open Tutorial - LlamaParse 튜토리얼"
+title: LangChain Open Tutorial - LlamaParse 튜토리얼
 date: 2025-01-12
 tags:
-  - langchain
-  - llamaparse
-  - document-parsing
-  - pdf
-  - tutorial
-  - llama-index
+- langchain
+- llamaparse
+- document-parsing
+- pdf
+- tutorial
+- llama-index
 draft: false
 enableToc: true
-description: "LlamaParse를 활용한 문서 파싱 튜토리얼 - PDF 및 다양한 문서 형식 처리"
+description: LlamaParse를 활용한 문서 파싱 튜토리얼 - PDF 및 다양한 문서 형식 처리
 published: 2025-01-12
 modified: 2025-01-12
 ---

@@ -2,16 +2,16 @@
 title: LayoutLM
 date: 2024-04-04
 tags:
-  - document-ai
-  - nlp
-  - deep-learning
-  - computer-vision
-  - multimodal
-  - layout-analysis
-  - ocr
+- document-ai
+- nlp
+- deep-learning
+- computer-vision
+- multimodal
+- layout-analysis
+- ocr
 draft: false
 enableToc: true
-description: "LayoutLM의 발전 과정과 시각적으로 풍부한 문서 이해를 위한 다양한 버전별 특징 및 성능 분석"
+description: LayoutLM의 발전 과정과 시각적으로 풍부한 문서 이해를 위한 다양한 버전별 특징 및 성능 분석
 published: 2024-04-04
 modified: 2024-04-04
 ---

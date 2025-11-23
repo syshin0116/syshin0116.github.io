@@ -1,7 +1,12 @@
 ---
 title: 아티클 리뷰 - 자바 클래스 설계의 다섯 가지 SOLID 원칙
 date: 2025-04-16
-tags: 자바, 객체지향, SOLID, 클래스설계, 1일1아티클
+tags:
+- 자바
+- 객체지향
+- SOLID
+- 클래스설계
+- 1일1아티클
 draft: false
 enableToc: true
 description: SOLID 원칙에 관한 CodeGym 아티클을 읽고, 객체지향 설계에서 이 원칙들의 중요성과 실제 적용 방법에 대해 리뷰한다.

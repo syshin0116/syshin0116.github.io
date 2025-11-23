@@ -1,7 +1,13 @@
 ---
-title: "Anomaly Detection"
+title: Anomaly Detection
 date: 2024-03-12
-tags: anomaly-detection, machine-learning, deep-learning, imbalanced-data, classification, autoencoder
+tags:
+- anomaly-detection
+- machine-learning
+- deep-learning
+- imbalanced-data
+- classification
+- autoencoder
 draft: false
 enableToc: true
 description: 이상 탐지(Anomaly Detection)의 주요 방법론과 기법을 정리하고 각 접근법의 장단점을 비교한 글이다.

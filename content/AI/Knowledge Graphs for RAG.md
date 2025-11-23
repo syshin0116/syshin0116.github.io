@@ -2,15 +2,15 @@
 title: Knowledge Graphs for RAG
 date: 2024-08-15
 tags:
-  - ai
-  - deep-learning
-  - knowledge-graph
-  - rag
-  - neo4j
-  - graph-database
+- ai
+- deep-learning
+- knowledge-graph
+- rag
+- neo4j
+- graph-database
 draft: false
 enableToc: true
-description: "RAG(Retrieval-Augmented Generation) 시스템에서 지식 그래프 활용 방법과 Neo4j 구현"
+description: RAG(Retrieval-Augmented Generation) 시스템에서 지식 그래프 활용 방법과 Neo4j 구현
 published: 2024-08-15
 modified: 2024-08-15
 ---

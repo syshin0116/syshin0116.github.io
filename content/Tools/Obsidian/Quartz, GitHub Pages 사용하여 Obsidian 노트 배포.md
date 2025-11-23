@@ -2,13 +2,13 @@
 title: Quartz, GitHub Pages 사용하여 Obsidian 노트 배포
 date: 2025-03-06
 tags:
-  - obsidian
-  - quartz
-  - github-pages
-  - blog
+- obsidian
+- quartz
+- github-pages
+- blog
 draft: false
 enableToc: true
-description: "Obsidian 노트를 Quartz를 사용하여 GitHub Pages에 배포하는 방법을 단계별로 설명"
+description: Obsidian 노트를 Quartz를 사용하여 GitHub Pages에 배포하는 방법을 단계별로 설명
 published: 2025-03-06
 modified: 2025-03-06
 ---

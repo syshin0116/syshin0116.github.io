@@ -1,7 +1,13 @@
 ---
-title: "T-SNE (t-distributed stochastic neighbor embedding)"
+title: T-SNE (t-distributed stochastic neighbor embedding)
 date: 2024-03-16
-tags: dimensionality-reduction, t-sne, visualization, machine-learning, deep-learning, data-science
+tags:
+- dimensionality-reduction
+- t-sne
+- visualization
+- machine-learning
+- deep-learning
+- data-science
 draft: false
 enableToc: true
 description: 고차원 데이터를 효과적으로 시각화하는 비선형 차원 축소 기법인 t-SNE의 원리와 활용법을 설명한 글이다.

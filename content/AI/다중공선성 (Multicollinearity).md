@@ -1,10 +1,17 @@
 ---
 title: 다중공선성 (Multicollinearity)
-date: 2025-04-22
-tags: ["AI", "Machine Learning", "Statistics", "Regression", "Feature Engineering"]
+date: &id001 2025-04-22
+tags:
+- AI
+- Machine Learning
+- Statistics
+- Regression
+- Feature Engineering
 draft: false
 enableToc: true
 description: 다중공선성의 개념, 탐지 방법, 해결 방법 및 관련 작업들에 대한 포괄적인 가이드
+published: *id001
+modified: *id001
 ---
 
 > [!summary]

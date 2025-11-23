@@ -2,14 +2,14 @@
 title: MCP(Model Context Protocol)
 date: 2025-03-31
 tags:
-  - ai
-  - anthropic
-  - mcp
-  - claude
-  - langchain
-  - langgraph
-  - tool-use
-  - smithery
+- ai
+- anthropic
+- mcp
+- claude
+- langchain
+- langgraph
+- tool-use
+- smithery
 draft: false
 enableToc: true
 description: Anthropic에서 개발한 MCP(Model Context Protocol)의 개념, 구조 및 활용에 대한 설명

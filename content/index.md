@@ -1,5 +1,6 @@
 ---
-title: "Syshin's Knowledge Base"
+title: Syshin's Knowledge Base
+draft: false
 enableToc: false
 ---
 

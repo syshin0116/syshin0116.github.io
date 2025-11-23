@@ -1,13 +1,17 @@
 ---
 title: 문서(pdf 등) 내 시각 자료와 텍스트의 추출 및 활용 연구
-date: 2024-06-08
+date: &id001 2024-06-08
 tags:
-  - AI
-  - RAG
-  - MultiModal
-  - PDF
-  - pdf-parser
+- AI
+- RAG
+- MultiModal
+- PDF
+- pdf-parser
+draft: false
+enableToc: true
 description: 멀티모달 RAG를 통한 문서 내 텍스트와 이미지 추출 및 활용 연구
+published: *id001
+modified: *id001
 ---
 
 # Multi-Modal RAG

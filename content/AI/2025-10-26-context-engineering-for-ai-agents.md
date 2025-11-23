@@ -1,16 +1,17 @@
 ---
-title: "Context Engineering for AI Agents: With LangChain and Manus"
+title: 'Context Engineering for AI Agents: With LangChain and Manus'
 date: 2025-10-26
 tags:
-  - AI
-  - Agent
-  - LLM
-  - Context-Engineering
-  - Manus
-  - LangChain
+- AI
+- Agent
+- LLM
+- Context-Engineering
+- Manus
+- LangChain
 draft: false
 enableToc: true
-description: LangChain과 Manus 웨비나에서 배운 AI 에이전트의 컨텍스트 엔지니어링 핵심 전략. 컨텍스트 오프로딩, 축소(압축 vs 요약), 격리(통신 vs 메모리 공유), 계층형 액션 공간 등 실전 검증된 기법과 '덜 구축하고 더 이해하라'는 철학을 다룬다.
+description: LangChain과 Manus 웨비나에서 배운 AI 에이전트의 컨텍스트 엔지니어링 핵심 전략. 컨텍스트 오프로딩, 축소(압축
+  vs 요약), 격리(통신 vs 메모리 공유), 계층형 액션 공간 등 실전 검증된 기법과 '덜 구축하고 더 이해하라'는 철학을 다룬다.
 published: 2025-10-26
 modified: 2025-10-26
 ---

@@ -1,10 +1,16 @@
 ---
 title: 아티클 리뷰 - 프론트엔드와 SOLID 원칙
 date: 2025-04-15
-tags: 프론트엔드, 객체지향, SOLID, 코드품질, 1일1아티클
+tags:
+- 프론트엔드
+- 객체지향
+- SOLID
+- 코드품질
+- 1일1아티클
 draft: false
 enableToc: true
-description: 카카오엔터테인먼트 임성묵님의 '프론트엔드와 SOLID 원칙' 아티클을 읽고, 프론트엔드 개발에서 SOLID 원칙의 적용 방법과 그 중요성에 대해 리뷰한다.
+description: 카카오엔터테인먼트 임성묵님의 '프론트엔드와 SOLID 원칙' 아티클을 읽고, 프론트엔드 개발에서 SOLID 원칙의 적용 방법과
+  그 중요성에 대해 리뷰한다.
 published: 2025-04-15
 modified: 2025-04-15
 ---

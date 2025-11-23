@@ -2,15 +2,15 @@
 title: LlamaIndex 활용 가이드 온라인 세미나
 date: 2024-05-30
 tags:
-  - llamaindex
-  - llm
-  - rag
-  - deep-learning
-  - document-processing
-  - indexing
+- llamaindex
+- llm
+- rag
+- deep-learning
+- document-processing
+- indexing
 draft: false
 enableToc: true
-description: "LlamaIndex의 장점과 실무 활용 방법을 다룬 온라인 세미나 정리"
+description: LlamaIndex의 장점과 실무 활용 방법을 다룬 온라인 세미나 정리
 published: 2024-05-30
 modified: 2024-05-30
 ---

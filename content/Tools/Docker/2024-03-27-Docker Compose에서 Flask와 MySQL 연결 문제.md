@@ -2,15 +2,15 @@
 title: Docker Compose Flask-MySQL 연결 문제 해결
 date: 2024-03-27
 tags:
-  - docker
-  - docker-compose
-  - flask
-  - mysql
-  - troubleshooting
-  - networking
+- docker
+- docker-compose
+- flask
+- mysql
+- troubleshooting
+- networking
 draft: false
 enableToc: true
-description: "Docker Compose 환경에서 Flask와 MySQL 컨테이너 간 연결 문제 진단 및 해결"
+description: Docker Compose 환경에서 Flask와 MySQL 컨테이너 간 연결 문제 진단 및 해결
 published: 2024-03-27
 modified: 2024-03-27
 ---

@@ -1,16 +1,16 @@
 ---
-title: "LangChain Open Tutorial - 대화 메모리 관리 시스템"
+title: LangChain Open Tutorial - 대화 메모리 관리 시스템
 date: 2025-02-01
 tags:
-  - langchain
-  - conversation-memory
-  - chatbot
-  - memory-management
-  - tutorial
-  - rag
+- langchain
+- conversation-memory
+- chatbot
+- memory-management
+- tutorial
+- rag
 draft: false
 enableToc: true
-description: "LangChain을 활용한 대화 메모리 관리 시스템 튜토리얼"
+description: LangChain을 활용한 대화 메모리 관리 시스템 튜토리얼
 published: 2025-02-01
 modified: 2025-02-01
 ---

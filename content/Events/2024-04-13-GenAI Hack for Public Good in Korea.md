@@ -2,15 +2,15 @@
 title: GenAI Hack for Public Good in Korea 해커톤
 date: 2024-04-13
 tags:
-  - hackathon
-  - genai
-  - public-good
-  - ai-for-social-impact
-  - generative-ai
-  - event
+- hackathon
+- genai
+- public-good
+- ai-for-social-impact
+- generative-ai
+- event
 draft: false
 enableToc: true
-description: "생성형 AI로 공공부문 업무혁신을 실현하는 해커톤 참가 기록"
+description: 생성형 AI로 공공부문 업무혁신을 실현하는 해커톤 참가 기록
 published: 2024-04-13
 modified: 2024-04-13
 ---

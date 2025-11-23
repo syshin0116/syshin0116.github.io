@@ -1,21 +1,23 @@
 ---
 title: Ubuntu 서버 초기 설정 스크립트
-date: 2025-01-27
+date: &id001 2025-01-27
 tags:
-  - Ubuntu
-  - server
-  - setup
-  - script
-  - docker
-  - dev-tools
-  - automation
-  - bash
-  - DevOps
-  - infrastructure
-  - tools
+- Ubuntu
+- server
+- setup
+- script
+- docker
+- dev-tools
+- automation
+- bash
+- DevOps
+- infrastructure
+- tools
 draft: false
 enableToc: true
 description: Ubuntu 서버 초기 설정을 자동화하는 bash 스크립트와 설치되는 각 패키지의 상세 설명 및 사용법 가이드
+published: *id001
+modified: *id001
 ---
 
 # Ubuntu 서버 초기 설정 스크립트

@@ -1,11 +1,15 @@
 ---
-layout: post
 title: Behavior Patterns
 date: 2024-08-11 17:50 +0900
+tags: []
+draft: false
+enableToc: true
+published: 2024-08-11 17:50 +0900
+modified: 2024-08-11 17:50 +0900
+layout: post
 categories:
-  - 스터디
-  - Design Pattern
-tags: 
+- 스터디
+- Design Pattern
 math: true
 ---
 

@@ -1,11 +1,15 @@
 ---
-layout: post
 title: Transformers
 date: 2023-11-30 16:08 +0900
+tags: []
+draft: false
+enableToc: true
+published: 2023-11-30 16:08 +0900
+modified: 2023-11-30 16:08 +0900
+layout: post
 categories:
-  - SeSAC
-  - NLP
-tags: 
+- SeSAC
+- NLP
 math: true
 ---
 

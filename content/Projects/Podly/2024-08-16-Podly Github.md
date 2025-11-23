@@ -2,15 +2,15 @@
 title: Podly Git 서브모듈 활용 가이드
 date: 2024-08-16
 tags:
-  - podly
-  - git
-  - submodule
-  - version-control
-  - project-structure
-  - github
+- podly
+- git
+- submodule
+- version-control
+- project-structure
+- github
 draft: false
 enableToc: true
-description: "Podly 프로젝트에서 Git 서브모듈을 활용한 효과적인 컴포넌트 관리 방법"
+description: Podly 프로젝트에서 Git 서브모듈을 활용한 효과적인 컴포넌트 관리 방법
 published: 2024-08-16
 modified: 2024-08-16
 ---

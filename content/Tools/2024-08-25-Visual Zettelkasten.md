@@ -2,15 +2,15 @@
 title: Visual Zettelkasten - 시각적 지식 관리
 date: 2024-08-25
 tags:
-  - zettelkasten
-  - second-brain
-  - visual-thinking
-  - knowledge-graph
-  - excalidraw
-  - obsidian
+- zettelkasten
+- second-brain
+- visual-thinking
+- knowledge-graph
+- excalidraw
+- obsidian
 draft: false
 enableToc: true
-description: "Excalidraw를 활용한 시각적 Zettelkasten 시스템 구축"
+description: Excalidraw를 활용한 시각적 Zettelkasten 시스템 구축
 published: 2024-08-25
 modified: 2024-08-25
 ---

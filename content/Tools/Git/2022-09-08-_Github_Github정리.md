@@ -1,8 +1,15 @@
 ---
-title: "[Github]Github 정리"
+title: '[Github]Github 정리'
 date: 2022-09-08 02:35:29 +0900
-categories: [ETC, Github]
-tags: [github]
+tags:
+- github
+draft: false
+enableToc: true
+published: 2022-09-08 02:35:29 +0900
+modified: 2022-09-08 02:35:29 +0900
+categories:
+- ETC
+- Github
 ---
 
 # [Github]Github 정리

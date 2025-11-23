@@ -2,14 +2,14 @@
 title: PPV and PARA
 date: 2023-06-25
 tags:
-  - study
-  - second-brain
-  - ppv
-  - para
-  - 지식관리
+- study
+- second-brain
+- ppv
+- para
+- 지식관리
 draft: false
 enableToc: true
-description: "PPV와 PARA 지식 관리 시스템의 개념과 구조를 비교 설명"
+description: PPV와 PARA 지식 관리 시스템의 개념과 구조를 비교 설명
 published: 2023-06-25
 modified: 2023-06-25
 ---

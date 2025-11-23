@@ -1,19 +1,20 @@
 ---
-title: "pgvector: PostgreSQL의 벡터 검색 익스텐션"
+title: 'pgvector: PostgreSQL의 벡터 검색 익스텐션'
 date: 2025-10-13
 tags:
-  - AI
-  - pgvector
-  - PostgreSQL
-  - Vector-Database
-  - Embedding
-  - ANN
-  - HNSW
-  - RAG
-  - Semantic-Search
+- AI
+- pgvector
+- PostgreSQL
+- Vector-Database
+- Embedding
+- ANN
+- HNSW
+- RAG
+- Semantic-Search
 draft: false
 enableToc: true
-description: "PostgreSQL에서 벡터 검색을 가능하게 하는 pgvector 익스텐션의 개념, 작동 원리, 인덱스 알고리즘(HNSW), 그리고 다른 벡터 데이터베이스와의 비교를 다룬다."
+description: PostgreSQL에서 벡터 검색을 가능하게 하는 pgvector 익스텐션의 개념, 작동 원리, 인덱스 알고리즘(HNSW),
+  그리고 다른 벡터 데이터베이스와의 비교를 다룬다.
 published: 2025-10-13
 modified: 2025-10-13
 ---

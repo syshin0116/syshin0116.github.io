@@ -2,18 +2,18 @@
 title: MLOps Now - LLM in Production 세미나
 date: 2024-07-24
 tags:
-  - mlops
-  - llmops
-  - production
-  - vessl
-  - weaviate
-  - samsung-sds
-  - liner
-  - seminar
-  - llm-deployment
+- mlops
+- llmops
+- production
+- vessl
+- weaviate
+- samsung-sds
+- liner
+- seminar
+- llm-deployment
 draft: false
 enableToc: true
-description: "프로덕션 환경에서의 LLM 운영을 위한 MLOps 전략 세미나 정리"
+description: 프로덕션 환경에서의 LLM 운영을 위한 MLOps 전략 세미나 정리
 published: 2024-07-24
 modified: 2024-07-24
 ---

@@ -2,15 +2,15 @@
 title: Obsidian to Notion 자동화 가이드
 date: 2024-03-09
 tags:
-  - obsidian
-  - notion
-  - automation
-  - markdown
-  - workflow
-  - productivity
+- obsidian
+- notion
+- automation
+- markdown
+- workflow
+- productivity
 draft: false
 enableToc: true
-description: "Obsidian에서 작성한 문서를 Notion으로 자동 동기화하는 방법"
+description: Obsidian에서 작성한 문서를 Notion으로 자동 동기화하는 방법
 published: 2024-03-09
 modified: 2024-03-09
 ---

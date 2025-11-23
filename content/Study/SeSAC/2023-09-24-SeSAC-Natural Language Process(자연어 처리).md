@@ -1,11 +1,15 @@
 ---
-layout: post
 title: Natural Language Process(자연어 처리)
 date: 2023-09-24 13:27 +0900
+tags: []
+draft: false
+enableToc: true
+published: 2023-09-24 13:27 +0900
+modified: 2023-09-24 13:27 +0900
+layout: post
 categories:
-  - ETC
-  - Tech
-tags: 
+- ETC
+- Tech
 math: true
 ---
 ## 1. 자연어 처리의 개념

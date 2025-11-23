@@ -2,16 +2,16 @@
 title: Agent 사용 RAG+Tavily
 date: 2024-05-05
 tags:
-  - rag
-  - agent
-  - langchain
-  - tavily
-  - llm
-  - pdf-search
-  - information-retrieval
+- rag
+- agent
+- langchain
+- tavily
+- llm
+- pdf-search
+- information-retrieval
 draft: false
 enableToc: true
-description: "LangChain Agent와 Tavily 검색 엔진을 활용한 고급 RAG 시스템 구현 방법과 활용 사례 분석"
+description: LangChain Agent와 Tavily 검색 엔진을 활용한 고급 RAG 시스템 구현 방법과 활용 사례 분석
 published: 2024-05-05
 modified: 2024-05-05
 ---

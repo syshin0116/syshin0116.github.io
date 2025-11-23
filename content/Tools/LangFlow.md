@@ -1,20 +1,23 @@
 ---
 title: LangFlow - AI 워크플로우 시각적 구축 도구
-date: 2025-06-03
+date: &id001 2025-06-03
 tags:
-  - 데블챌
-  - 데이터블로그
-  - 챌린지
-  - LangFlow
-  - AI
-  - no-code
-  - low-code
-  - LLM
-  - workflow
-  - open-source
+- 데블챌
+- 데이터블로그
+- 챌린지
+- LangFlow
+- AI
+- no-code
+- low-code
+- LLM
+- workflow
+- open-source
 draft: false
 enableToc: true
-description: GitHub trending에서 발견한 MIT 라이센스 오픈소스 도구 LangFlow를 리뷰한 글이다. 노코드 챗봇 개발을 위한 다양한 도구 리서치 과정에서 살펴본 장단점과 실제 사용 경험을 공유하는 글이다.
+description: GitHub trending에서 발견한 MIT 라이센스 오픈소스 도구 LangFlow를 리뷰한 글이다. 노코드 챗봇 개발을
+  위한 다양한 도구 리서치 과정에서 살펴본 장단점과 실제 사용 경험을 공유하는 글이다.
+published: *id001
+modified: *id001
 ---
 
 > [!summary]

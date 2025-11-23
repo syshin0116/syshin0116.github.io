@@ -1,16 +1,16 @@
 ---
-title: "GitHub CI/CD와 GCP 통합 정리"
+title: GitHub CI/CD와 GCP 통합 정리
 date: 2024-11-09
 tags:
-  - github-actions
-  - cicd
-  - gcp
-  - devops
-  - automation
-  - cloud
+- github-actions
+- cicd
+- gcp
+- devops
+- automation
+- cloud
 draft: false
 enableToc: true
-description: "GitHub Actions와 GCP를 연동한 CI/CD 파이프라인 개념 및 구조 정리"
+description: GitHub Actions와 GCP를 연동한 CI/CD 파이프라인 개념 및 구조 정리
 published: 2024-11-09
 modified: 2024-11-09
 ---

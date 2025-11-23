@@ -1,16 +1,16 @@
 ---
-title: "Spring Security 기초"
+title: Spring Security 기초
 date: 2022-09-04
 tags:
-  - spring
-  - spring-security
-  - java
-  - thymeleaf
-  - authentication
-  - authorization
+- spring
+- spring-security
+- java
+- thymeleaf
+- authentication
+- authorization
 draft: false
 enableToc: true
-description: "Spring Security의 기본 개념과 인증, 인가 메커니즘 설명"
+description: Spring Security의 기본 개념과 인증, 인가 메커니즘 설명
 published: 2022-09-04
 modified: 2022-09-04
 ---

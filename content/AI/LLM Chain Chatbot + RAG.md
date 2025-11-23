@@ -2,15 +2,16 @@
 title: LLM Chain Chatbot + RAG
 date: 2024-04-11
 tags:
-  - llm
-  - langchain
-  - chatbot
-  - rag
-  - nlp
-  - conversational-ai
+- llm
+- langchain
+- chatbot
+- rag
+- nlp
+- conversational-ai
 draft: false
 enableToc: true
-description: "LangChain의 ConversationalRetrievalChain을 활용한 대화형 RAG 시스템 구현 방법과 주요 기능 설명"
+description: LangChain의 ConversationalRetrievalChain을 활용한 대화형 RAG 시스템 구현 방법과 주요 기능
+  설명
 published: 2024-04-11
 modified: 2024-04-11
 ---

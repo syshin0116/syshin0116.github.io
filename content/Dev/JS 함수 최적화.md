@@ -2,13 +2,13 @@
 title: JS 함수 최적화
 date: 2024-07-03
 tags:
-  - javascript
-  - optimization
-  - code-refactoring
-  - web-development
+- javascript
+- optimization
+- code-refactoring
+- web-development
 draft: false
 enableToc: true
-description: "자바스크립트 함수 최적화 방법과 실제 코드 개선 사례를 분석하고, 코드 가독성과 성능을 향상시키는 기법 소개"
+description: 자바스크립트 함수 최적화 방법과 실제 코드 개선 사례를 분석하고, 코드 가독성과 성능을 향상시키는 기법 소개
 published: 2024-07-03
 modified: 2024-07-03
 ---

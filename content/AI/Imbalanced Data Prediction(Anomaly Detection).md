@@ -1,7 +1,13 @@
 ---
-title: "Imbalanced Data Prediction(Anomaly Detection)"
+title: Imbalanced Data Prediction(Anomaly Detection)
 date: 2024-03-18
-tags: anomaly-detection, imbalanced-data, classification, clustering, machine-learning, deep-learning
+tags:
+- anomaly-detection
+- imbalanced-data
+- classification
+- clustering
+- machine-learning
+- deep-learning
 draft: false
 enableToc: true
 description: 불균형 데이터에서의 이상치 탐지를 위한 다양한 모델과 기법을 비교 분석한 글이다.

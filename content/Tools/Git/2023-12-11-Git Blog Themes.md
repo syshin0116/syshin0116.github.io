@@ -2,15 +2,15 @@
 title: 깃 블로그 테마 모음
 date: 2023-12-11
 tags:
-  - blog
-  - themes
-  - jekyll
-  - portfolio
-  - design
-  - templates
+- blog
+- themes
+- jekyll
+- portfolio
+- design
+- templates
 draft: false
 enableToc: true
-description: "깃 블로그 리뉴얼을 위한 마음에 드는 테마 모음"
+description: 깃 블로그 리뉴얼을 위한 마음에 드는 테마 모음
 published: 2023-12-11
 modified: 2023-12-11
 ---

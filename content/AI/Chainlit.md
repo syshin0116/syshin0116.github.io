@@ -2,14 +2,14 @@
 title: Chainlit
 date: 2024-08-13
 tags:
-  - ai
-  - ui
-  - langchain
-  - chatbot
-  - development
+- ai
+- ui
+- langchain
+- chatbot
+- development
 draft: false
 enableToc: true
-description: "빠르게 대화형 AI 애플리케이션을 개발할 수 있는 Chainlit 라이브러리 사용법"
+description: 빠르게 대화형 AI 애플리케이션을 개발할 수 있는 Chainlit 라이브러리 사용법
 published: 2024-08-13
 modified: 2024-08-13
 ---

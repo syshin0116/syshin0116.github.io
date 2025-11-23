@@ -2,15 +2,16 @@
 title: Monkey Patching
 date: 2024-03-17
 tags:
-  - python
-  - programming
-  - monkey-patching
-  - code-modification
-  - runtime
-  - debugging
+- python
+- programming
+- monkey-patching
+- code-modification
+- runtime
+- debugging
 draft: false
 enableToc: true
-description: "몽키 패칭(Monkey Patching)의 개념, 장단점, 활용 사례를 설명하고 런타임에 코드를 수정하는 기법의 실제 적용 방법 소개"
+description: 몽키 패칭(Monkey Patching)의 개념, 장단점, 활용 사례를 설명하고 런타임에 코드를 수정하는 기법의 실제 적용
+  방법 소개
 published: 2024-03-17
 modified: 2024-03-17
 ---

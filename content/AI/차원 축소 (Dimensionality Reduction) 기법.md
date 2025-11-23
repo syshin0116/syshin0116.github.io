@@ -1,7 +1,13 @@
 ---
-title: "차원 축소 (Dimensionality Reduction) 기법"
+title: 차원 축소 (Dimensionality Reduction) 기법
 date: 2023-09-12
-tags: dimensionality-reduction, pca, t-sne, umap, machine-learning, visualization
+tags:
+- dimensionality-reduction
+- pca
+- t-sne
+- umap
+- machine-learning
+- visualization
 draft: false
 enableToc: true
 description: 데이터의 복잡성을 줄이는 주요 차원 축소 기법인 PCA, t-SNE, UMAP의 개념과 활용법을 정리한 글이다.

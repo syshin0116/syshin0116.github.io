@@ -2,14 +2,14 @@
 title: Supabase-NextJS
 date: 2025-05-24
 tags:
-  - Supabase
-  - NextJS
-  - project
-  - Hostit
-  - project-starter
+- Supabase
+- NextJS
+- project
+- Hostit
+- project-starter
 draft: false
 enableToc: true
-description: "Supabase와 NextJS를 활용한 풀스택 웹 애플리케이션 개발 완전 가이드"
+description: Supabase와 NextJS를 활용한 풀스택 웹 애플리케이션 개발 완전 가이드
 published: 2025-05-24
 modified: 2025-05-24
 ---

@@ -1,16 +1,16 @@
 ---
-title: "LangChain Open Tutorial - Web Search 연구"
+title: LangChain Open Tutorial - Web Search 연구
 date: 2025-01-18
 tags:
-  - langchain
-  - web-search
-  - research
-  - agents
-  - planning
-  - reasoning
+- langchain
+- web-search
+- research
+- agents
+- planning
+- reasoning
 draft: false
 enableToc: true
-description: "LangChain 기반 Web Search 시스템 연구 - Language Agent Tree Search, Plan-and-Execute"
+description: LangChain 기반 Web Search 시스템 연구 - Language Agent Tree Search, Plan-and-Execute
 published: 2025-01-18
 modified: 2025-01-18
 ---

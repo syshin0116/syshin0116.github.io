@@ -1,17 +1,18 @@
 ---
-title: "Qdrant + Neo4j: 하이브리드 검색 아키텍처로의 전환"
+title: 'Qdrant + Neo4j: 하이브리드 검색 아키텍처로의 전환'
 date: 2025-10-14
 tags:
-  - Qdrant
-  - Neo4j
-  - Vector-Database
-  - Graph-Database
-  - Hybrid-Search
-  - RAG
-  - Knowledge-Graph
+- Qdrant
+- Neo4j
+- Vector-Database
+- Graph-Database
+- Hybrid-Search
+- RAG
+- Knowledge-Graph
 draft: false
 enableToc: true
-description: "pgvector에서 Qdrant + Neo4j 조합으로 전환한 이유와 각 검색 방식(키워드, 임베딩, 그래프)의 상호 보완 전략을 다룬다. 벡터 검색, 그래프 탐색, 키워드 매칭을 통합하여 더 강력한 지식 검색 시스템을 구축한다."
+description: pgvector에서 Qdrant + Neo4j 조합으로 전환한 이유와 각 검색 방식(키워드, 임베딩, 그래프)의 상호 보완
+  전략을 다룬다. 벡터 검색, 그래프 탐색, 키워드 매칭을 통합하여 더 강력한 지식 검색 시스템을 구축한다.
 published: 2025-10-14
 modified: 2025-10-14
 ---
