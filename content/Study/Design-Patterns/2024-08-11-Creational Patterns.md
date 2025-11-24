@@ -1,10 +1,16 @@
 ---
 title: Creational Patterns
 date: 2024-08-11 15:51 +0900
-tags: []
+tags:
+- Design-Patterns
+- Creational-Patterns
+- Software-Design
+- OOP
+- Programming
+- Pattern
 draft: false
 enableToc: true
-summary: Creational Patterns에 대한 내용을 다룬다.
+summary: 객체 생성을 위한 디자인 패턴들을 다룬다. Abstract Factory, Builder, Factory Method, Prototype, Singleton 등 생성 패턴의 개념, 특징, 장단점, 실제 구현 예시를 포함한다.
 published: 2024-08-11 15:51 +0900
 modified: 2024-08-11 15:51 +0900
 layout: post

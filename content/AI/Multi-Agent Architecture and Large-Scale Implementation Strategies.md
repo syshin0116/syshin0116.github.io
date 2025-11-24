@@ -1,6 +1,6 @@
 ---
 title: 멀티에이전트 아키텍처와 대규모 구현 전략
-date: &id001 2025-06-23
+date: 2025-06-23
 tags:
 - AI
 - Multi-Agent
@@ -16,8 +16,8 @@ description: 멀티에이전트 시스템의 핵심 아키텍처 패턴들과 �
   포괄적으로 다룬 가이드
 summary: 멀티에이전트 시스템의 핵심 아키텍처 패턴들과 대규모 환경에서의 구현 전략을 분석하고, 최신 통신 프로토콜과 확장성 해결책을 포괄적으로
   다룬 가이드
-published: *id001
-modified: *id001
+published: 2025-06-23
+modified: 2025-06-23
 categories:
 - AI
 ---

@@ -1,7 +1,12 @@
 ---
 title: Natural Language Process(자연어 처리)
 date: 2023-09-24 13:27 +0900
-tags: []
+tags:
+- SeSAC
+- Study
+- Data-Science
+- Education
+- 교육
 draft: false
 enableToc: true
 summary: '|        | 대표언어                 | 특징                                                          |

@@ -1,7 +1,12 @@
 ---
 title: Transformers 실습
 date: 2023-11-30 16:09 +0900
-tags: []
+tags:
+- SeSAC
+- Study
+- Data-Science
+- Education
+- 교육
 draft: false
 enableToc: true
 summary: '<table border="1" class="dataframe"> <tr style="text-align: right;">'
