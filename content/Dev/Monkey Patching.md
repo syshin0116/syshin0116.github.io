@@ -2,15 +2,19 @@
 title: Monkey Patching
 date: 2024-03-17
 tags:
-  - python
-  - programming
-  - monkey-patching
-  - code-modification
-  - runtime
-  - debugging
+- python
+- programming
+- monkey-patching
+- code-modification
+- runtime
+- debugging
 draft: false
 enableToc: true
-description: "몽키 패칭(Monkey Patching)의 개념, 장단점, 활용 사례를 설명하고 런타임에 코드를 수정하는 기법의 실제 적용 방법 소개"
+description: 몽키 패칭(Monkey Patching)의 개념, 장단점, 활용 사례를 설명하고 런타임에 코드를 수정하는 기법의 실제 적용
+  방법 소개
+summary: 몽키 패칭(Monkey Patching)은 프로그램 실행 중에 코드를 동적으로 수정하거나 확장하는 강력한 기법이다. 라이브러리나 모듈의
+  함수를 직접 수정하지 않고도 그 동작을 변경할 수 있어 버그 수정, 기능 추가, 테스트 등에 유용하지만, 코드 가독성과 유지보수성을 해칠 수 있어
+  신중하게 사용해야 한다.
 published: 2024-03-17
 modified: 2024-03-17
 ---

@@ -2,15 +2,16 @@
 title: GCP VM과 VS Code SSH 연결 설정 가이드
 date: 2024-09-23
 tags:
-  - gcp
-  - vscode
-  - ssh
-  - cloud
-  - remote-development
-  - google-cloud
+- gcp
+- vscode
+- ssh
+- cloud
+- remote-development
+- google-cloud
 draft: false
 enableToc: true
-description: "Google Cloud Platform VM 인스턴스에 SSH 키를 생성하고 VS Code로 원격 연결하는 방법"
+description: Google Cloud Platform VM 인스턴스에 SSH 키를 생성하고 VS Code로 원격 연결하는 방법
+summary: Google Cloud Platform VM 인스턴스에 SSH 키를 생성하고 VS Code로 원격 연결하는 방법
 published: 2024-09-23
 modified: 2024-09-23
 ---

@@ -11,6 +11,7 @@ tags:
 draft: false
 enableToc: true
 description: "MCP(Model Context Protocol)를 활용한 AI 도구 관리 플랫폼 Hostit의 아키텍처와 핵심 기능 소개"
+summary: "LangChain의 Model Context Protocol(MCP)을 활용하여 여러 AI 모델 서버와 통합하는 웹 애플리케이션 HostIt. 서버 관리, 도구 접근, 프로필 관리 등의 핵심 아키텍처를 설명한다."
 published: 2025-05-04
 modified: 2025-05-04
 ---

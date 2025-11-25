@@ -1,13 +1,27 @@
 ---
-layout: post
 title: Azure ML Classic
 date: 2023-11-21 14:58 +0900
+tags:
+- Cloud
+- Azure
+- Machine-Learning
+- Data-Science
+draft: false
+enableToc: true
+summary: 1. https://studio.azureml.net/ 접속 1. Experiments > Blank Experiment
+published: 2023-11-21 14:58 +0900
+modified: 2023-11-21 14:58 +0900
+layout: post
 categories:
-  - SeSAC
-  - Computer-Vision
-tags: 
+- SeSAC
+- Computer-Vision
 math: true
 ---
+
+> [!summary]
+> 
+> 1. https://studio.azureml.net/ 접속 1. Experiments > Blank Experiment
+
 ## Azure ml classic
 
 - No Coding Tool 이 아닌 Low Coding Tool이라 부른다

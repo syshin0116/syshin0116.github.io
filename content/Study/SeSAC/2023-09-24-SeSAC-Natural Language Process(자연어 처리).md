@@ -1,13 +1,30 @@
 ---
-layout: post
 title: Natural Language Process(자연어 처리)
 date: 2023-09-24 13:27 +0900
+tags:
+- SeSAC
+- Study
+- Data-Science
+- Education
+- 교육
+draft: false
+enableToc: true
+summary: '|        | 대표언어                 | 특징                                                          |
+  | ------ | ------------------------ | -------------------------------------------------------------
+  |'
+published: 2023-09-24 13:27 +0900
+modified: 2023-09-24 13:27 +0900
+layout: post
 categories:
-  - ETC
-  - Tech
-tags: 
+- ETC
+- Tech
 math: true
 ---
+
+> [!summary]
+> 
+> |        | 대표언어                 | 특징                                                          | | ------ | ------------------------ | ------------------------------------------------------------- |
+
 ## 1. 자연어 처리의 개념
 ### 자연어 처리(Natural Language Processing)란?
 - 자연어의 의미를 분석하여 컴퓨터가 처리할 수 있도록 하는 일

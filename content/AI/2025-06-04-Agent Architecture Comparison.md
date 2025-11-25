@@ -2,22 +2,27 @@
 title: LLM 에이전트 아키텍처 비교 - ReAct, Plan-and-Execute, Supervisor
 date: 2025-06-04
 tags:
-  - AI
-  - LLM
-  - agent
-  - ReAct
-  - Plan-and-Execute
-  - Supervisor
-  - architecture
-  - LangChain
-  - workflow
-  - Agentic-AI
-  - multi-agent
-  - MCP
-  - A2A
+- AI
+- LLM
+- agent
+- ReAct
+- Plan-and-Execute
+- Supervisor
+- architecture
+- LangChain
+- workflow
+- Agentic-AI
+- multi-agent
+- MCP
+- A2A
 draft: false
 enableToc: true
-description: 워크플로우와 에이전트의 차이점, 그리고 ReAct, Plan-and-Execute, Supervisor 아키텍처의 특징과 장단점을 체계적으로 비교 분석한 포괄적 가이드
+description: 워크플로우와 에이전트의 차이점, 그리고 ReAct, Plan-and-Execute, Supervisor 아키텍처의 특징과 장단점을
+  체계적으로 비교 분석한 포괄적 가이드
+summary: 워크플로우와 에이전트의 차이점, 그리고 ReAct, Plan-and-Execute, Supervisor 아키텍처의 특징과 장단점을
+  체계적으로 비교 분석한 포괄적 가이드
+published: 2025-06-04
+modified: 2025-06-04
 ---
 
 > [!summary]

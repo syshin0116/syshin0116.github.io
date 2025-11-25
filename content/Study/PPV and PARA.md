@@ -2,14 +2,18 @@
 title: PPV and PARA
 date: 2023-06-25
 tags:
-  - study
-  - second-brain
-  - ppv
-  - para
-  - 지식관리
+- study
+- second-brain
+- ppv
+- para
+- 지식관리
 draft: false
 enableToc: true
-description: "PPV와 PARA 지식 관리 시스템의 개념과 구조를 비교 설명"
+description: PPV와 PARA 지식 관리 시스템의 개념과 구조를 비교 설명
+summary: 이 문서는 두 가지 주요 지식 관리 시스템인 PPV(Pillars, Pipelines, Vaults)와 PARA(Projects,
+  Areas, Resources, Archives)의 개념과 특징을 비교 설명한다. PPV는 조직이나 시스템의 성공적 운영을 위한 세 가지 핵심
+  구성요소를 나타내며, PARA는 Tiago Forte가 개발한 개인 지식 관리를 위한 체계적 방법론이다. 두 시스템 모두 정보를 구조화하고 효율적으로
+  관리하는 방법을 제공하지만, 각각의 초점과 적용 영역에 차이가 있다.
 published: 2023-06-25
 modified: 2023-06-25
 ---

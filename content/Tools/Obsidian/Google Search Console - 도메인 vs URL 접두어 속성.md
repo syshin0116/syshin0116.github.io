@@ -2,17 +2,23 @@
 title: Google Search Console - 도메인 vs URL 접두어 속성
 date: 2025-03-22
 tags:
-  - Google
-  - Search
-  - Console
-  - Domain
-  - Property
-  - URL
-  - Prefix
-  - Property
-  - SEO
+- Google
+- Search
+- Console
+- Domain
+- Property
+- URL
+- Prefix
+- Property
+- SEO
 draft: false
-description: Google Search Console's Domain property covers all URLs, while URL Prefix tracks only specific URL prefixes, offering different verification methods.
+enableToc: true
+description: Google Search Console's Domain property covers all URLs, while URL Prefix
+  tracks only specific URL prefixes, offering different verification methods.
+summary: Google Search Console's Domain property covers all URLs, while URL Prefix
+  tracks only specific URL prefixes, offering different verification methods.
+published: 2025-03-22
+modified: 2025-03-22
 ---
 
 > [!summary]

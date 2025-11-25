@@ -1,10 +1,18 @@
 ---
-title: "Track Anything: Segment Anything Meets Videos"
+title: 'Track Anything: Segment Anything Meets Videos'
 date: 2023-06-19
-tags: tam, sam, paper, computer-vision, tracking, segmentation
+tags:
+- tam
+- sam
+- paper
+- computer-vision
+- tracking
+- segmentation
 draft: false
 enableToc: true
 description: SAM을 비디오에 적용한 Track Anything Model(TAM)의 특징과 활용 방안을 정리한 글이다.
+summary: Track Anything Model(TAM)은 Segment Anything Model(SAM)의 이미지 분할 능력을 비디오에 확장한
+  모델이다. 최소한의 사용자 상호작용으로 비디오 내 객체를 추적하고 분할할 수 있으며, 별도의 추가 학습 없이도 효과적인 결과를 제공한다.
 published: 2023-06-19
 modified: 2023-06-19
 ---
