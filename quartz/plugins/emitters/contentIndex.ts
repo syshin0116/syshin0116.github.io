@@ -49,6 +49,7 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
       .replace(/&/g, '&amp;')  // XML escape for ampersand
       .replace(/'/g, '%27')    // Encode single quotes
       .replace(/"/g, '%22')    // Encode double quotes
+      .replace(/\+/g, '%2B')   // Encode plus signs (can be interpreted as space)
   }
 
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => {
@@ -167,21 +168,33 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
       }
 
       if (opts?.enableSiteMap) {
+        const sitemapContent = generateSiteMap(cfg, linkIndex)
+
+        // Main sitemap
         emitted.push(
           await write({
             ctx,
-            content: generateSiteMap(cfg, linkIndex),
+            content: sitemapContent,
             slug: "sitemap" as FullSlug,
             ext: ".xml",
           }),
         )
 
-        // Test sitemap copy
+        // Alternative sitemaps for resubmission
         emitted.push(
           await write({
             ctx,
-            content: generateSiteMap(cfg, linkIndex),
-            slug: "sitemap-google-test" as FullSlug,
+            content: sitemapContent,
+            slug: "sitemap-v2" as FullSlug,
+            ext: ".xml",
+          }),
+        )
+
+        emitted.push(
+          await write({
+            ctx,
+            content: sitemapContent,
+            slug: "sitemap-new" as FullSlug,
             ext: ".xml",
           }),
         )
