@@ -39,29 +39,16 @@ const defaultOptions: Options = {
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
   const base = cfg.baseUrl ?? ""
   const now = new Date().toISOString()
-  const timestamp = Date.now()
 
   // Create sitemap-safe URL from slug
   const createSitemapSafeUrl = (slug: SimpleSlug): string => {
     const url = `https://${joinSegments(base, slug)}`
-    // Only encode problematic characters that cause sitemap parsing issues
-    return url
-      .replace(/\+/g, '%2B')
-      .replace(/\(/g, '%28')
-      .replace(/\)/g, '%29')
-      .replace(/\*/g, '%2A')
-      .replace(/'/g, '%27')
-      .replace(/"/g, '%22')
-      .replace(/;/g, '%3B')
-      .replace(/,/g, '%2C')
-      .replace(/\?/g, '%3F')
-      .replace(/@/g, '%40')
-      .replace(/&/g, '%26')
-      .replace(/=/g, '%3D')
-      .replace(/\$/g, '%24')
-      .replace(/#/g, '%23')
-      .replace(/\[/g, '%5B')
-      .replace(/\]/g, '%5D')
+    // Encode the URL properly - encodeURI handles Korean and special characters correctly
+    // but preserves valid URL characters like /, :, etc.
+    return encodeURI(url)
+      .replace(/&/g, '&amp;')  // XML escape for ampersand
+      .replace(/'/g, '%27')    // Encode single quotes
+      .replace(/"/g, '%22')    // Encode double quotes
   }
 
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => {
@@ -75,12 +62,20 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
   </url>`
   }
 
+  // Add index page entry
+  const indexEntry = `
+  <url>
+    <loc>https://${base}/</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>`
+
   const urls = Array.from(idx)
     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
     .join("")
   return `<?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated at: ${now} (${timestamp}) -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${indexEntry}${urls}
 </urlset>`
 }
 
