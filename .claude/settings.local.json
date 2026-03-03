@@ -4,7 +4,9 @@
       "Bash(cat:*)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:github.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(ls:*)"
     ]
   }
 }

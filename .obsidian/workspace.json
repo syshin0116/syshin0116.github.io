@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/AI/2026-02-26-AI-개발-방법론-비교-BMAD-MoAI-ADK-Spec-Kit.md",
+                "file": "content/Tools/2026-03-03-Moonlight-AI-논문-리더-활용법.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-26-AI-개발-방법론-비교-BMAD-MoAI-ADK-Spec-Kit"
+              "title": "2026-03-03-Moonlight-AI-논문-리더-활용법"
             }
           }
         ]
@@ -184,5 +184,7 @@
     }
   },
   "active": "11266955944f248d",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "content/AI/2026-02-26-AI-개발-방법론-비교-BMAD-MoAI-ADK-Spec-Kit.md"
+  ]
 }
