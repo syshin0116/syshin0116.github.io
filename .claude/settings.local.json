@@ -6,7 +6,9 @@
       "WebFetch(domain:github.com)",
       "WebSearch",
       "Bash(curl:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(export:*)",
+      "Bash(git config:*)"
     ]
   }
 }
