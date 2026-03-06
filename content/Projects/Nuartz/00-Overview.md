@@ -89,6 +89,7 @@ nuartz/
 - [[02-Quartz-Internals|02. Quartz 플러그인 해부: 무엇을 재사용할 수 있나]]
 - [[03-Vercel-Deployment|03. 첫 배포: 구현 내용과 Vercel에서 만난 것들]]
 - [[04-Headless-and-Ecosystem|04. Headless 설계와 레포 생태계 재편]]
+- [[05-Publishing|05. npm 배포: 버전 관리와 자동화]]
 
 ---
 
