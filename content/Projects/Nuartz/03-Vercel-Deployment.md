@@ -18,7 +18,7 @@ summary: monorepo 구조와 3-column 레이아웃을 구현하고 Vercel에 첫 
 > monorepo 구조와 3-column 레이아웃을 구현하고 Vercel에 첫 배포를 시도했다. workspace 프로토콜 문제, Turbopack의 worker_threads 충돌로 webpack 전환, D3 graph view 노드 좌표 버그, KaTeX CSS 누락, 한국어 FlexSearch 토크나이저 구현까지 — 배포하면서 만난 것들을 전부 기록했다.
 
 > [!info] 이전 글
-> Quartz 플러그인 분석을 통해 어떤 전략을 쓸지 정했다. → [[02-quartz-internals|Quartz 플러그인 해부]]
+> Quartz 플러그인 분석을 통해 어떤 전략을 쓸지 정했다. → [[02-Quartz-Internals|Quartz 플러그인 해부]]
 
 ---
 

@@ -105,7 +105,7 @@ export function getDefaultTransformers(): QuartzTransformerPluginInstance[] {
 
 README에는 "✅ Full Obsidian Compatibility"라고 써있지만, wikilink도 callout도 아무것도 처리하지 않는 상태였다.
 
-왜 막혔는지 제대로 파악하려면 Quartz 플러그인 구조를 직접 뜯어봐야 했다. → [[02-quartz-internals|Quartz 플러그인 해부]]
+왜 막혔는지 제대로 파악하려면 Quartz 플러그인 구조를 직접 뜯어봐야 했다. → [[02-Quartz-Internals|Quartz 플러그인 해부]]
 
 ---
 
@@ -159,7 +159,7 @@ Vercel AI SDK의 실제 한계 (공식 docs 명시):
 >
 > Next.js와의 통합은 기존 `portfolio-ai` 패턴처럼 Python 서버를 별도로 띄우고 API로 호출하면 된다.
 
-RAG 실험 자체는 [[Projects/blog-rag/index|blog-rag]] 프로젝트에서 다룬다.
+RAG 실험 자체는 [[Projects/Blog-rag/00-Overview|blog-rag]] 프로젝트에서 다룬다.
 
 ---
 

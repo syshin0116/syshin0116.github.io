@@ -94,4 +94,4 @@ nuartz/
 
 ## 관련 프로젝트
 
-- [[Projects/blog-rag/00-Overview|blog-rag]] — Nuartz 기반 블로그를 RAG 대상으로 실험하는 프로젝트
+- [[Projects/Blog-rag/00-Overview|blog-rag]] — Nuartz 기반 블로그를 RAG 대상으로 실험하는 프로젝트
