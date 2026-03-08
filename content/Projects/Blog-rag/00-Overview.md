@@ -1,5 +1,5 @@
 ---
-title: "blog-rag: 내 블로그를 RAG로 묻다"
+title: "blog-rag 프로젝트 개요: 블로그 기반 Modular RAG 시스템"
 date: 2026-03-06
 tags:
   - Projects

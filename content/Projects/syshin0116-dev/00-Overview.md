@@ -1,5 +1,5 @@
 ---
-title: "syshin0116.dev: 블로그 + 포트폴리오 통합 리팩토링 계획"
+title: "syshin0116.dev 리팩토링 계획: 블로그와 포트폴리오 통합"
 date: 2026-03-06
 tags:
   - Projects
